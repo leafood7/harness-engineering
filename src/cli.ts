@@ -1,11 +1,12 @@
+import { memoryCommand } from './memory/cli.ts';
 import { spawn } from 'node:child_process';
 import { openSync, closeSync, mkdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { randomUUID } from 'node:crypto';
-import { RunStore } from './store.ts';
-import { executeTask } from './engine.ts';
-import { resolveRecovery,recoveryPlan } from './recovery.ts';
+import { RunStore } from './state/store.ts';
+import { executeTask } from './execution/engine.ts';
+import { resolveRecovery,recoveryPlan } from './state/recovery.ts';
 import { loadTask } from './task.ts';
 import { createDemo } from './demo.ts';
 import { errorText, terminal, now, sanitize } from './util.ts';
@@ -97,11 +98,12 @@ async function start(taskFile: string, state: string, detach: boolean, resumeFro
 }
 export async function main(argv: string[] = process.argv.slice(2)): Promise<number> {
   try {
+    if(argv[0]==='memory'){print(memoryCommand(argv.slice(1),defaultState));return 0;}
     const options = parse(argv);
     const [command, target] = options.args;
     if (options.args.length > 2) throw new Error('Too many positional arguments');
     if (!command || command === 'help') {
-      console.log('Harness Engineering\n  run <task.json> [--state <directory>] [--detach]\n  demo [--approval] [--state <directory>] [--detach]\n  inspect <run-id> [--state <directory>] [--events] [--export-trace]\n  cancel <run-id> [--state <directory>]\n  resume <run-id> [--dry-run] [--detach] [--state <directory>]\n  approve <approval-id> --digest <sha256> --actor <name> [--state <directory>]\n  reject <approval-id> --digest <sha256> --actor <name> [--reason <text>] [--state <directory>]');
+      console.log('Harness Engineering\n  memory put|revise|retire|search|history ... [--state <directory>]\n  run <task.json> [--state <directory>] [--detach]\n  demo [--approval] [--state <directory>] [--detach]\n  inspect <run-id> [--state <directory>] [--events] [--export-trace]\n  cancel <run-id> [--state <directory>]\n  resume <run-id> [--dry-run] [--detach] [--state <directory>]\n  approve <approval-id> --digest <sha256> --actor <name> [--state <directory>]\n  reject <approval-id> --digest <sha256> --actor <name> [--reason <text>] [--state <directory>]');
       return 0;
     }
     if (command === '_worker'||command === '_resume_worker') {

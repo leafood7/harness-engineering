@@ -4,11 +4,11 @@ import { readFileSync,writeFileSync,mkdirSync,mkdtempSync } from 'node:fs';
 import { resolve,join } from 'node:path';
 import { setTimeout as sleep } from 'node:timers/promises';
 import { createDemo } from '../src/demo.ts';
-import { RunStore } from '../src/store.ts';
-import { workerAlive } from '../src/recovery.ts';
+import { RunStore } from '../src/state/store.ts';
+import { workerAlive } from '../src/state/recovery.ts';
 import type { TaskInput } from '../src/task.ts';
 
-const root=resolve('.artifacts','m3-demo');mkdirSync(root,{recursive:true});const folder=mkdtempSync(join(root,'run-'));const state=join(folder,'state');
+const root=resolve('.artifacts','recovery-demo');mkdirSync(root,{recursive:true});const folder=mkdtempSync(join(root,'run-'));const state=join(folder,'state');
 const taskFile=createDemo();const input=JSON.parse(readFileSync(taskFile,'utf8')) as TaskInput;
 if(input.model.mode!=='scripted')throw new Error('Scripted demo expected');
 input.model.responses.splice(input.model.responses.length-1,0,{calls:[{name:'wait',arguments:{durationMs:1200}}]});

@@ -1,0 +1,189 @@
+{
+  "normalization": "UTF-8, remove BOM and normalize CRLF to LF before SHA256",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "f05b99d5172e9ac983f417d3cf19e62231bb1037114dac2efcd2b9db099e9946"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "a11daec9cd984ed1301cb8ba99dfc371c52812e8f0481691350d8e949ad2d2e2"
+    },
+    {
+      "path": "README.md",
+      "sha256": "141a3ff1f24ff6144c6d38038adc30566ee0db1dc5badfc47b3a110e04177a5f"
+    },
+    {
+      "path": "bin/harness.mjs",
+      "sha256": "4bd7d36a458aa769a3adcfbd808900fd6d984a2e4cde4933c2fe195372294430"
+    },
+    {
+      "path": "contracts/index.ts",
+      "sha256": "83d3c983552fa854c8b0d199917383c913fb6c7500348ba48c5e6cfeea9eee41"
+    },
+    {
+      "path": "docs/architecture.md",
+      "sha256": "7eae44afe3fe19fca966dbc2c46822a98e5d090895748095d43506e07253fd1e"
+    },
+    {
+      "path": "docs/context-memory.md",
+      "sha256": "dc9bebcb5eea73fbc3bcad4dee6d084b1bb3b5a469f1b412efa4d1bed648d4b2"
+    },
+    {
+      "path": "docs/module-boundaries.md",
+      "sha256": "061d4492a33a6600a16a94ebab0a74ed1162ecdac4e892f8fe93ad131db1156d"
+    },
+    {
+      "path": "docs/recovery.md",
+      "sha256": "c7d4173ca36271696d909bd5a635a11f052df2edcb271f843e4ba76f415d09de"
+    },
+    {
+      "path": "docs/reuse-decisions.md",
+      "sha256": "eefc2dbb963454505696add0c4fd05a9e691b0daabb6289ae15848dfc63fc3e8"
+    },
+    {
+      "path": "docs/runtime-compatibility.md",
+      "sha256": "2aa7bd4e6d63b9a0b05c450fa6781a7ccdcb0341231a6fa13af40904ad7a9c27"
+    },
+    {
+      "path": "docs/task-format.md",
+      "sha256": "06ce52714cad08d302fd603f139a80d6e80dc836b719405d367a71132ce2f5ae"
+    },
+    {
+      "path": "docs/tool-governance.md",
+      "sha256": "c58c328ce26f5bf22dd7ac73714cbf8f592353455385ba4763dc5e3f3c2d8cc6"
+    },
+    {
+      "path": "examples/context-memory-demo.ts",
+      "sha256": "5987231e7a4ca728dee42fe1e458ce0644d845fe8de0b2d63af4c6290057751a"
+    },
+    {
+      "path": "examples/file-edit/task.json",
+      "sha256": "625ded9e80014b7ea2d0f3ce27431ef546708b14e8bd036011235972503969ab"
+    },
+    {
+      "path": "examples/recovery-demo.ts",
+      "sha256": "0685d8c899e1e042f6389f6593e866ca4877a08d52c83f0264efd9671e77a6fe"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "8307d38eeb73a2876b8750ceffef04209660b9bc2f6cef43a35684ba2b63ed64"
+    },
+    {
+      "path": "package.json",
+      "sha256": "e475bf237b577164f5e84d72999212b6c67918652d86451a298714734c7e83e6"
+    },
+    {
+      "path": "scripts/collect-governance-evidence.ts",
+      "sha256": "d9f3089ef4a6602082e84ed062d7f09d0f3089a9c02ff24e0b7a2abadfb2a9f9"
+    },
+    {
+      "path": "scripts/verify-runtime.mjs",
+      "sha256": "dbe586704353356d2623f0877e1c0778e31b2f6a678c8a78803c00b312c6dc2d"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "2b70852b430392887c50f3d886e298228d16c4ec4d58818282da1cdd9cd5469c"
+    },
+    {
+      "path": "src/context/manager.ts",
+      "sha256": "20eea7a9b7e71b21f1402976acf56af236b0b4887bc3e811f6a9a9e55f3719aa"
+    },
+    {
+      "path": "src/demo.ts",
+      "sha256": "b922ea3e10c42a65eaedcdbdd486172403f534fbe33ce9f65512d396114148c0"
+    },
+    {
+      "path": "src/execution/engine.ts",
+      "sha256": "7a03c472a7cb920bc1e0b4a5fb73a2cd4871f81aca64b3c3f5bd610ebcbac0bc"
+    },
+    {
+      "path": "src/execution/tool-errors.ts",
+      "sha256": "6d3780be661b4e2c47f1619572a5c1a6aab4789480ac96bb09491e989e341d91"
+    },
+    {
+      "path": "src/execution/tool-governor.ts",
+      "sha256": "c981ddd46396e9304751e67ac929b91dcb3df4b68f260bf96eba6437e8e1a5b1"
+    },
+    {
+      "path": "src/execution/tool-policy.ts",
+      "sha256": "f3eaded306c19ccdd5bed1767a84404ab04803293fc853a089ab9d6a29c5fa7e"
+    },
+    {
+      "path": "src/governance/approval.ts",
+      "sha256": "a7863804ff1639284c47dc5b424a65ff7cf4e882c11237133c4ca121f50deb99"
+    },
+    {
+      "path": "src/memory/cli.ts",
+      "sha256": "e076086bb9ae1508db488b9fbb33837ddc81d44a8ba7b40ce6592990f20aeff4"
+    },
+    {
+      "path": "src/memory/store.ts",
+      "sha256": "5d5c9f8bce896b882d569848c197aaed0cc21965783571782f15865ed8107666"
+    },
+    {
+      "path": "src/runtime/pi-adapter.ts",
+      "sha256": "c03a2bd45fd8eebbe80cd024ee7c9919bf45b439bbb6187041738a58afa06312"
+    },
+    {
+      "path": "src/state/checkpoint.ts",
+      "sha256": "533a21db100684b2204fd92da1a0e055cf452c0ddbba31c2a2656e717ad973ba"
+    },
+    {
+      "path": "src/state/recovery.ts",
+      "sha256": "b75e334e56fc53649406c770926295b27b3c7b3218e7a45d614fcc5ce697db07"
+    },
+    {
+      "path": "src/state/store.ts",
+      "sha256": "f9d9da46301baf28cbee13bb8f386ed096c0ddeef4937d33a0ff989a8f9b3be2"
+    },
+    {
+      "path": "src/task.ts",
+      "sha256": "2a87d4f081599ed31b4f5c62b10980a6dcc2f44fb26834c2d3b38fff0a27badb"
+    },
+    {
+      "path": "src/util.ts",
+      "sha256": "cc2cfcd93431620e7e4c212f7f7cd9928f8f5ef4c9c695a9928ca4a1a790173b"
+    },
+    {
+      "path": "src/verification/verifier.ts",
+      "sha256": "44c55004031264b1a8629b288f1f1164de74fd543b849356cc69951f578a7d2b"
+    },
+    {
+      "path": "tests/approval.test.ts",
+      "sha256": "e91103b3738dd8eaa5541ffa98a706af9511961e3783b91ae169256e85c6dbef"
+    },
+    {
+      "path": "tests/context-memory.test.ts",
+      "sha256": "024359ec25e76d92789b0232721e61a6bf028e1086c7e6c24fd1dad678addc58"
+    },
+    {
+      "path": "tests/recovery.integration.test.ts",
+      "sha256": "78471d7299547331b6046ff7284b379c1dad8179b94fea09f36703bd01f7b74e"
+    },
+    {
+      "path": "tests/recovery.test.ts",
+      "sha256": "203dbe3f69efc205afab121548cd48dab63eae1251b78878c41d8440161ce162"
+    },
+    {
+      "path": "tests/task-execution.test.ts",
+      "sha256": "3e1d995225500d9097ba878c09f6c3124fe2a9c9937cb582aeb06395ed7d5ba0"
+    },
+    {
+      "path": "tests/tool-governance.integration.test.ts",
+      "sha256": "e8b84c38622325f609e7269066d040031687fb8472fd7e24b4f8e744d852d9a6"
+    },
+    {
+      "path": "tests/tool-governor.test.ts",
+      "sha256": "f50df2c173b15c44bc4360bf771664261b9490ccedc5ada9a7a70ae58117fa63"
+    },
+    {
+      "path": "tests/verifier-process.test.ts",
+      "sha256": "c05fc4cd78b12bae9b85a1597be4f490b39c344a5a5d7eb48087d100ef6fec51"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "9f97ab5d2fda480227be10d8b60a161aa5332c884fdf6943c813bf8ff3c9fd30"
+    }
+  ]
+}

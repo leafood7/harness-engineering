@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "version": "0.4.0",
+  "capability": "context-memory",
+  "validatedAt": "2026-11-01T20:15:48.479Z",
+  "node": "v24.22.1",
+  "tests": {
+    "total": 84,
+    "passed": 84,
+    "failed": 0,
+    "previousRegression": 70,
+    "newContextMemory": 14,
+    "durationMs": 191667.9995,
+    "command": "npm test -- --test-reporter=junit",
+    "reportFormat": "Node text output (trailing reporter argument did not select JUnit)"
+  },
+  "checks": {
+    "typescript": "passed",
+    "runtimeCompatibility": 9,
+    "historicalEvidenceContentPreserved": 10,
+    "markdownLinks": "passed"
+  },
+  "demos": {
+    "context": {
+      "runId": "ca25ad83-9db3-4fa8-8f93-c48811fe3662",
+      "status": "completed",
+      "verification": "passed",
+      "sourceBytes": 54000,
+      "toolCalls": 2,
+      "projectedRequests": 1,
+      "nativeCompactions": 2,
+      "memoryCorrectionHistory": 2,
+      "existingRunSnapshotUnchanged": true
+    },
+    "recovery": {
+      "parentRunId": "ec67f97c-67b4-4c46-81d3-62c5fdcd204e",
+      "resumedRunId": "20a4d557-9181-4398-993d-94c1d41b4f66",
+      "status": "completed",
+      "writeAttemptsAcrossChain": 1,
+      "totalToolAttempts": 4
+    }
+  },
+  "limits": [
+    "Offline scripted model validates mechanics, not live model quality",
+    "Token estimate uses serialized UTF-8 bytes, not an exact provider tokenizer",
+    "Evidence-index compaction is not a complete semantic summary",
+    "Memory retrieval is workspace-scoped substring matching, not vector search",
+    "No cross-version Run migration; old Run versions remain inspection-only",
+    "Raw runtime data, memory databases, Sessions and logs remain local and ignored"
+  ]
+}

@@ -3,7 +3,7 @@ import { Check, Errors } from 'typebox/value';
 import { readFileSync, realpathSync, mkdirSync, writeFileSync, copyFileSync } from 'node:fs';
 import { resolve, dirname, join } from 'node:path';
 import { digest, snapshot, inside, HarnessError, now } from './util.ts';
-import { toolMetadata } from './tool-policy.ts';
+import { toolMetadata } from './execution/tool-policy.ts';
 import type { Task } from '../contracts/index.ts';
 
 const object = { additionalProperties: false };
@@ -30,6 +30,16 @@ export const TaskSchema = Type.Object({
     settleGraceMs: Type.Optional(Type.Integer({ minimum: 10, maximum: 10000 })),
     tools: Type.Optional(Type.Object({ read: Type.Optional(rule), write: Type.Optional(rule), edit: Type.Optional(rule), wait: Type.Optional(rule) }, object))
   }, object)),
+  context: Type.Optional(Type.Object({
+    maxInputTokens: Type.Optional(Type.Integer({ minimum: 256, maximum: 1000000 })),
+    outputReserveTokens: Type.Optional(Type.Integer({ minimum: 64, maximum: 128000 })),
+    toolResultMaxChars: Type.Optional(Type.Integer({ minimum: 256, maximum: 65536 })),
+    compactAtTokens: Type.Optional(Type.Integer({ minimum: 256, maximum: 1000000 })),
+    keepRecentTokens: Type.Optional(Type.Integer({ minimum: 64, maximum: 64000 }))
+  }, object)),
+  memory: Type.Optional(Type.Object({ query: Type.String({ maxLength: 2048 }),
+    limit: Type.Optional(Type.Integer({ minimum: 1, maximum: 32 })),
+    maxBytes: Type.Optional(Type.Integer({ minimum: 1, maximum: 65536 })) }, object)),
   model: Type.Union([
     Type.Object({ mode: Type.Literal('scripted'), responses: Type.Array(Type.Object({
       text: Type.Optional(Type.String()), calls: Type.Optional(Type.Array(call, { minItems: 1, maxItems: 32 }))

@@ -13,10 +13,10 @@ examples/file-edit/workspace/
 *.sqlite-wal
 
 # Downloaded reference snapshots and raw local execution evidence
-m0/references/
-m0/verified-results.json
-m1/demo-report.json
-m2/demo-report.json
-m2/approval-test-report.json
-m2/timeout-retry-test-report.json
-m3/recovery-demo-report.json
+validation/runtime-compatibility/references/
+validation/runtime-compatibility/verified-results.json
+validation/task-execution/demo-report.json
+validation/tool-governance/demo-report.json
+validation/tool-governance/approval-test-report.json
+validation/tool-governance/timeout-retry-test-report.json
+validation/recovery/recovery-demo-report.json

@@ -1,6 +1,6 @@
 {
   "name": "harness-engineering",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "bin": {
@@ -11,8 +11,9 @@
     "check": "tsc --noEmit",
     "test": "node --test --test-concurrency=1 tests/*.test.ts",
     "demo": "node bin/harness.mjs demo",
-    "verify:m0": "node --import ../pi/packages/coding-agent/src/experimental/source-resolver.ts m0/verify.mjs",
-    "demo:recovery": "node examples/recovery-demo.ts"
+    "verify:runtime": "node --import ../pi/packages/coding-agent/src/experimental/source-resolver.ts scripts/verify-runtime.mjs",
+    "demo:recovery": "node examples/recovery-demo.ts",
+    "demo:context": "node examples/context-memory-demo.ts"
   },
   "engines": {
     "node": ">=24.22.1"

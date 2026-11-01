@@ -13,7 +13,7 @@ export function createDemo(requireApproval = false): string {
   copyFileSync(join(fixture, 'calc.cjs.initial'), join(folder, 'workspace', 'calc.cjs'));
   copyFileSync(join(fixture, 'verify.cjs'), join(folder, 'verify.cjs'));
   const config = JSON.parse(readFileSync(join(fixture, 'task.json'), 'utf8').replace(/^\uFEFF/, '')) as TaskInput;
-  if (requireApproval) { config.policy = { version: 'm2.approval-demo', approvalTimeoutMs: 120000, tools: { write: { permission: 'ask' } } }; config.budget.maxDurationMs = 300000; }
+  if (requireApproval) { config.policy = { version: 'approval-demo.v1', approvalTimeoutMs: 120000, tools: { write: { permission: 'ask' } } }; config.budget.maxDurationMs = 300000; }
   const file = join(folder, 'task.json');
   writeFileSync(file, JSON.stringify(config, null, 2));
   return file;
