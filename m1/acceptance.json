@@ -1,0 +1,91 @@
+{
+  "milestone": "M1",
+  "version": "0.1.0",
+  "verifiedAt": "2026-11-01T08:47:24.7000988Z",
+  "node": "v24.22.1",
+  "typecheck": "passed",
+  "tests": {
+    "total": 20,
+    "passed": 20,
+    "failed": 0,
+    "report": "m1/test-results.xml",
+    "reportSha256": "8BE08911B45A43BDC72E7BE419AA0202C57F2D73BA88FEDC7D55190EECDFCDC0"
+  },
+  "demo": {
+    "runId": "4a50d395-923d-4b19-ac7f-e06c1f06259c",
+    "status": "completed",
+    "independentChecks": 2,
+    "arithmeticCases": 4,
+    "toolCalls": 2,
+    "events": 46,
+    "report": "m1/demo-report.json"
+  },
+  "externalModelCalls": 0,
+  "limitations": [
+    "Scripted model validates integration, not real model quality",
+    "No OS sandbox or automatic resume",
+    "Token and cost checks occur at response boundaries"
+  ],
+  "sources": [
+    {
+      "path": "tests\\m1.test.ts",
+      "sha256": "2AAA0EAD75FBD3D3D5429E764D1BA8C35BB9A1048E8E148875ED46DCF3DBBB27"
+    },
+    {
+      "path": "contracts\\index.ts",
+      "sha256": "CEF272E1C9934162E516CE8458B9362856FCDE241F6AE06384EA8E61B22C462D"
+    },
+    {
+      "path": "bin\\harness.mjs",
+      "sha256": "149082B22B36BB364D14017602B2EC05E475B705396D8BFC5DA457412EE2E636"
+    },
+    {
+      "path": "src\\verifier.ts",
+      "sha256": "B06D67D258715A65CDEF0A37222A710EF578A5880FCC6A8EAFDB4A7CC5FEED9C"
+    },
+    {
+      "path": "src\\util.ts",
+      "sha256": "354F657281258B207872F54FBF555A521DE30B8D35E0006849253AD82CDBB0F2"
+    },
+    {
+      "path": "src\\tool-policy.ts",
+      "sha256": "4A5BE5585EE734FBC713DD044DF9B52143204CB56E422AA42DE5864C69095681"
+    },
+    {
+      "path": "src\\task.ts",
+      "sha256": "C84C00A79BED04D190691A34EC4111EB33A2F8693B1AD482C47D7F3C4AA55F0A"
+    },
+    {
+      "path": "src\\store.ts",
+      "sha256": "2FEF64153AF298A33D64C6242336A85682C50D52E32F6825ED6ADA616B783A2C"
+    },
+    {
+      "path": "src\\pi-adapter.ts",
+      "sha256": "33945F898D26A44A746F710BD15469A45067596F008078A82417B6FAAD898593"
+    },
+    {
+      "path": "src\\engine.ts",
+      "sha256": "7767624CBC542B6D4636BE001635965A5AA5DE1CBD36DDE45974ED5413C942D8"
+    },
+    {
+      "path": "src\\demo.ts",
+      "sha256": "55B1ABB2FB8691A3DCBEC15C3B193EB3AC85B696E40E825DE8E3A7F74AFAE3F5"
+    },
+    {
+      "path": "src\\cli.ts",
+      "sha256": "6F7BAD9B5E32F30688F826C0197863E771552BF6F4F9A568A56D44B398738CDD"
+    },
+    {
+      "path": "package.json",
+      "sha256": "A9C4EE10C8089112575A0BBBB18B1B28013CBA979D4FA422C2246FDBC4D6D03F"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "2F7B60960BB327DEF1323B556322D33AA490F5554BBB29B285833811ED37E248"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "3C407BE785566ABEC558F8F539349D111C055740721CA94E19C786178A7E92F3"
+    }
+  ]
+}

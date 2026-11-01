@@ -1,0 +1,45 @@
+{
+  "repository": "https://github.com/earendil-works/pi",
+  "localPath": "D:\\VScodeProgects\\pi",
+  "commit": "42cb822f1c5d3153069dd0661bfd297424666cf1",
+  "codingAgentVersion": "1.4.0",
+  "node": "v24.22.1",
+  "existingChanges": [
+    " M package-lock.json",
+    "?? pi-run.bat"
+  ],
+  "sourceHashes": [
+    {
+      "path": "packages/coding-agent/package.json",
+      "sha256": "0D1B72E3CE28B64E54640B2CD28A147E62F2B4DDD4FFE35482295E0FA81F4336"
+    },
+    {
+      "path": "packages/coding-agent/src/core/sdk.ts",
+      "sha256": "05B75C9E1EAF622433083357D385DCC2166EB985C20516CB5690E7F777027057"
+    },
+    {
+      "path": "packages/coding-agent/src/core/agent-session.ts",
+      "sha256": "E0A6E3E7B662AFFF9763A6297E0BB600DA75E8EFF4DF443912F2E215BDC6A8E2"
+    },
+    {
+      "path": "packages/coding-agent/src/core/session-manager.ts",
+      "sha256": "450D82C529933214E088B8422F00061815E617F352F6C834689787A314064BFF"
+    },
+    {
+      "path": "packages/coding-agent/src/core/extensions/runner.ts",
+      "sha256": "3CD6D1AD18E8E4C7ADF722AED9291BC64F06E3A7D461755C21E3CBA4819F4E5E"
+    },
+    {
+      "path": "packages/coding-agent/src/utils/shell.ts",
+      "sha256": "BACB0F871B92E38AC17221E0C1B00AC5211E0F5C0063675AFD980513C7C79FB4"
+    },
+    {
+      "path": "packages/ai/src/providers/faux.ts",
+      "sha256": "AEAA8DF95399776587AD0CFCCCCD3B498891A20C5C5846F935E04D9D09DD84A1"
+    },
+    {
+      "path": "packages/coding-agent/src/experimental/source-resolver.ts",
+      "sha256": "C584D52FB68860C0C6AE5DFBBCB6052FA104D6E34C7EF231B9E6EB7E0EC5B2A6"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "path": "package.json",
+    "sha256": "65033b568b0b7648738cfcb79deb6b2ad06db80d7aa1fe13a77eb2d57c189864"
+  },
+  {
+    "path": "package-lock.json",
+    "sha256": "79110b79429c558cdb760f0ab1796e48c662e66164687e9354bfd227f380a846"
+  },
+  {
+    "path": "tsconfig.json",
+    "sha256": "3c407be785566abec558f8f539349d111c055740721ca94e19c786178a7e92f3"
+  },
+  {
+    "path": "src/approval.ts",
+    "sha256": "504b1dbc8ce81296790f06d94a65b30a8e026f6f3b2658a447bb0d675d51331e"
+  },
+  {
+    "path": "src/cli.ts",
+    "sha256": "ae04fb45aef352857fea3cbd6f94f68ad8563da45b8002d5b454e6ec90c5060e"
+  },
+  {
+    "path": "src/demo.ts",
+    "sha256": "c092ccef21e12b5c737a7792893377dd58ac7324abe3fd53ef81f7235039903c"
+  },
+  {
+    "path": "src/engine.ts",
+    "sha256": "aa753bef3d0e51a36d467c9e3f57af4bd0d1e69b7719d4c900199f3743d35fa3"
+  },
+  {
+    "path": "src/pi-adapter.ts",
+    "sha256": "20a9e56e654aa051ece4ccf4c1ee4839869029ac43a56ddc43fa828da0606361"
+  },
+  {
+    "path": "src/store.ts",
+    "sha256": "04a32c37699f04e7d7e5675f0f36b85867fbdb9e684e2a3f28e04a6d1a8a4ffb"
+  },
+  {
+    "path": "src/task.ts",
+    "sha256": "a6fd2fa83e69d5e19b0276c20158ab86a6a7596f9bbca5090f3a8fcb65d72b5d"
+  },
+  {
+    "path": "src/tool-errors.ts",
+    "sha256": "e7cf57e4acfd821259abe94d5dc9fe10464aa0ddb018cc08170d5588c8f63861"
+  },
+  {
+    "path": "src/tool-governor.ts",
+    "sha256": "e5397c0244431fbca7e350c26f713bb9979654ba04f50ada9cd33176a1db7f5a"
+  },
+  {
+    "path": "src/tool-policy.ts",
+    "sha256": "1dd9e6cfe88e73066b82fa0795fc16293bd902146953c58ef42589dd4c1218fb"
+  },
+  {
+    "path": "src/util.ts",
+    "sha256": "d6b596cbd418f0e478bffd5e1b91dd158285dc9c26f1e3135482fe1950474f73"
+  },
+  {
+    "path": "src/verifier.ts",
+    "sha256": "b06d67d258715a65cdef0a37222a710ef578a5880fcc6a8eafdb4a7cc5feed9c"
+  },
+  {
+    "path": "contracts/index.ts",
+    "sha256": "1296422a8720290b051979da1836186c624c53b06642abad87a04b0d1c8cbea8"
+  },
+  {
+    "path": "tests/m1.test.ts",
+    "sha256": "2aaa0ead75fbd3d3d5429e764d1ba8c35bb9a1048e8e148875ed46dcf3dbbb27"
+  },
+  {
+    "path": "tests/m2-approval.test.ts",
+    "sha256": "e9d23346210f6083048dc1916650505da63c3637ea9e9b0fe0fe39cacd0cd82b"
+  },
+  {
+    "path": "tests/m2-governor.test.ts",
+    "sha256": "00a191c2c2975ae60ac9df12fc582fdfbea8e00175b5cad5dab7fc4c913030d5"
+  },
+  {
+    "path": "tests/m2-integration.test.ts",
+    "sha256": "9be9a431c2dac200b8e6ee27754a34ff4461be82301cbb90e9fd2d9f787f2cb2"
+  },
+  {
+    "path": "bin/harness.mjs",
+    "sha256": "149082b22b36bb364d14017602b2ec05e475b705396d8bfc5da457412ee2e636"
+  }
+]

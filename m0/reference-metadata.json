@@ -1,0 +1,102 @@
+[
+  {
+    "repo": "earendil-works/pi",
+    "url": "https://github.com/earendil-works/pi",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:19.9646295Z",
+    "status": "verified"
+  },
+  {
+    "repo": "agentic-labs/pi-mono",
+    "url": "https://github.com/agentic-labs/pi-mono",
+    "defaultBranch": "main",
+    "fork": true,
+    "parent": "earendil-works/pi",
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:21.0391860Z",
+    "status": "verified"
+  },
+  {
+    "repo": "helsome/tinycode",
+    "url": "https://github.com/helsome/tinycode",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:22.0023328Z",
+    "status": "verified"
+  },
+  {
+    "repo": "TannerMidd/SpecPi",
+    "url": "https://github.com/TannerMidd/SpecPi",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:22.9613382Z",
+    "status": "verified"
+  },
+  {
+    "repo": "quqxui/RSI-Flow",
+    "url": "https://github.com/quqxui/RSI-Flow",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:23.9617116Z",
+    "status": "verified"
+  },
+  {
+    "repo": "grigio/pi-harness-rsi",
+    "url": "https://github.com/grigio/pi-harness-rsi",
+    "defaultBranch": "master",
+    "fork": false,
+    "parent": null,
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:25.0133520Z",
+    "status": "verified"
+  },
+  {
+    "repo": "LePrau/pi-self-aware-memory",
+    "url": "https://github.com/LePrau/pi-self-aware-memory",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:25.9835134Z",
+    "status": "verified"
+  },
+  {
+    "repo": "niker/pi-voluntary-compaction",
+    "url": "https://github.com/niker/pi-voluntary-compaction",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": "Apache-2.0",
+    "fetchedAt": "2026-11-01T08:16:26.9866969Z",
+    "status": "verified"
+  },
+  {
+    "repo": "pi-harness/pi-harness",
+    "url": "https://github.com/pi-harness/pi-harness",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": "MIT",
+    "fetchedAt": "2026-11-01T08:16:27.9340366Z",
+    "status": "verified"
+  },
+  {
+    "repo": "leafood7/evolving-harness",
+    "url": "https://github.com/leafood7/evolving-harness",
+    "defaultBranch": "main",
+    "fork": false,
+    "parent": null,
+    "license": null,
+    "fetchedAt": "2026-11-01T08:16:28.9199298Z",
+    "status": "verified"
+  }
+]

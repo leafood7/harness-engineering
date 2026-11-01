@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "taskId": "fix-addition",
+  "input": "Fix calc.cjs so add(a, b) returns their sum. Keep the exported API.",
+  "workspace": "./workspace",
+  "tools": ["read", "write", "edit"],
+  "budget": { "maxDurationMs": 30000, "maxToolCalls": 5, "maxTokens": 20000 },
+  "model": {
+    "mode": "scripted",
+    "responses": [
+      { "calls": [{ "name": "read", "arguments": { "path": "calc.cjs" } }] },
+      { "calls": [{ "name": "write", "arguments": { "path": "calc.cjs", "content": "module.exports.add = (a, b) => a + b;\n" } }] },
+      { "text": "The addition implementation has been updated." }
+    ]
+  },
+  "verification": {
+    "version": "1",
+    "checks": [
+      { "kind": "node", "name": "addition-behavior", "script": "./verify.cjs", "timeoutMs": 3000 },
+      { "kind": "file", "name": "expected-artifact", "path": "calc.cjs", "equals": "module.exports.add = (a, b) => a + b;\n" }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="real Pi package completes a file task with an independent verifier and durable ordered events" time="4.437742" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="model claiming success cannot bypass independent verification" time="2.535587" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="tool execution failures produce a failed run and cannot become success" time="2.597638" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="unallowed tool requests are rejected without writing" time="2.633241" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="path traversal is denied before a write" time="2.986367" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="tool budget blocks the second tool before its effect" time="2.807932" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="token budget is checked before tools from an over-budget response execute" time="2.911673" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="duration budget aborts a running cooperative tool" time="3.573541" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="a second CLI process can cancel a detached worker and cancellation persists" time="5.041760" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="cancellation during verification stops its child and prevents completed status" time="5.160594" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="verifier timeout becomes a failed run" time="4.494600" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="the agent cannot replace the frozen verifier by changing its workspace original" time="2.809767" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="trace export failure blocks further tool effects while SQLite retains events" time="2.871779" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="live mode without its explicit environment key fails without reading global credentials" time="2.377061" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="empty verification and malformed task schemas are rejected before a worker is started" time="1.315302" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="dead detached workers are reported as interrupted, never completed" time="4.166637" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="store transactions reject illegal state changes and honour a concurrent cancellation before completion" time="0.086329" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="workspace path checks reject junction escape and unresolved symlink targets" time="0.003523" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="trace sanitization removes explicit secrets and limits output" time="0.000172" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="report export errors remain visible in the authoritative run instead of claiming a report exists" time="5.154224" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<!-- tests 20 -->
+	<!-- suites 0 -->
+	<!-- pass 20 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 58190.6833 -->
+</testsuites>

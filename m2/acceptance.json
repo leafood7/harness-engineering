@@ -1,0 +1,45 @@
+{
+  "milestone": "M2",
+  "version": "0.2.0",
+  "verifiedAt": "2026-11-01T12:09:49.2534033Z",
+  "node": "v24.22.1",
+  "typecheck": "passed",
+  "tests": {
+    "total": 49,
+    "m1Regression": 20,
+    "m2New": 29,
+    "passed": 49,
+    "failed": 0,
+    "durationMs": 100245.6982,
+    "report": "m2/test-results.xml",
+    "supplementaryAuditCheck": "m2/audit-check.xml"
+  },
+  "demo": {
+    "runId": "8ede7b17-b8c9-448a-9efd-34660ef6fd44",
+    "status": "completed",
+    "toolAttempts": 2,
+    "verification": "passed"
+  },
+  "approval": {
+    "runId": "2e8ae73d-c13b-475d-a093-ed170757299f",
+    "status": "consumed",
+    "actor": "integration-test",
+    "note": "Automated CLI test, not an actual human decision",
+    "report": "m2/approval-test-report.json"
+  },
+  "timeoutRetry": {
+    "runId": "0668d7f6-5e2e-4f08-b37a-947841c652d6",
+    "attempts": 2,
+    "retries": 1,
+    "result": "tool_timeout",
+    "report": "m2/timeout-retry-test-report.json"
+  },
+  "sourceManifest": "m2/source-manifest.json",
+  "externalModelCalls": 0,
+  "limitations": [
+    "In-process timeout is cooperative, not OS isolation",
+    "Side-effect tools do not automatically retry",
+    "Actor is a local audit label, not authenticated multi-user identity",
+    "Crash recovery is reserved for M3"
+  ]
+}

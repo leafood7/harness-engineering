@@ -1,0 +1,22 @@
+.artifacts/
+.harness/
+.cache/
+node_modules/
+examples/file-edit/workspace/
+
+# Local credentials and state
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+
+# Downloaded reference snapshots and raw local execution evidence
+m0/references/
+m0/verified-results.json
+m1/demo-report.json
+m2/demo-report.json
+m2/approval-test-report.json
+m2/timeout-retry-test-report.json
+m3/recovery-demo-report.json

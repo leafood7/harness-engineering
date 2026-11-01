@@ -1,0 +1,36 @@
+{
+  "milestone": "M3",
+  "version": "0.3.0",
+  "verifiedAt": "2026-11-01T13:21:17.0392469Z",
+  "node": "v24.22.1",
+  "sqliteSchema": 3,
+  "typecheck": "passed",
+  "tests": {
+    "total": 70,
+    "previousRegression": 49,
+    "m3New": 21,
+    "passed": 70,
+    "failed": 0,
+    "durationMs": 158492.0514,
+    "report": "m3/test-results.xml"
+  },
+  "demo": {
+    "parentRunId": "e6e49d36-43b3-4e47-a37f-e5bbd2ca214b",
+    "resumedRunId": "e84fcd64-4c8c-4467-bded-7b7ae68fe13f",
+    "status": "completed",
+    "verification": "passed",
+    "writeAttemptsAcrossChain": 1,
+    "totalToolAttempts": 4,
+    "sourceSessionId": "01a1973f-f1a3-70e6-9643-e7c22428ef85",
+    "resumedSessionId": "01a19740-00ef-7282-83dc-c50d95b942bd",
+    "report": "m3/recovery-demo-report.json"
+  },
+  "sourceManifest": "m3/source-manifest.json",
+  "externalModelCalls": 0,
+  "limitations": [
+    "No replay of uncertain post-checkpoint writes",
+    "Unmetered model calls and uncertain verifiers block automatic resume",
+    "No filesystem rollback, OS sandbox, cross-version recovery, or power-loss guarantee",
+    "Current scope is controlled local tool execution with scripted-model integration tests"
+  ]
+}

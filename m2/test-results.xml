@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="real Pi package completes a file task with an independent verifier and durable ordered events" time="4.056529" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="model claiming success cannot bypass independent verification" time="2.386141" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="tool execution failures produce a failed run and cannot become success" time="2.632715" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="unallowed tool requests are rejected without writing" time="2.417748" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="path traversal is denied before a write" time="2.487810" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="tool budget blocks the second tool before its effect" time="2.660308" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="token budget is checked before tools from an over-budget response execute" time="2.428329" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="duration budget aborts a running cooperative tool" time="3.071155" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="a second CLI process can cancel a detached worker and cancellation persists" time="4.492550" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="cancellation during verification stops its child and prevents completed status" time="3.867955" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="verifier timeout becomes a failed run" time="2.793160" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="the agent cannot replace the frozen verifier by changing its workspace original" time="2.463948" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="trace export failure blocks further tool effects while SQLite retains events" time="2.604534" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="live mode without its explicit environment key fails without reading global credentials" time="2.512637" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="empty verification and malformed task schemas are rejected before a worker is started" time="1.192343" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="dead detached workers are reported as interrupted, never completed" time="3.559388" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="store transactions reject illegal state changes and honour a concurrent cancellation before completion" time="0.049738" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="workspace path checks reject junction escape and unresolved symlink targets" time="0.002520" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="trace sanitization removes explicit secrets and limits output" time="0.000166" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="report export errors remain visible in the authoritative run instead of claiming a report exists" time="4.502686" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m1.test.ts"/>
+	<testcase name="changed parameters create a new approval rather than inheriting a previous decision" time="0.141400" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-approval.test.ts"/>
+	<testcase name="approved receipts that expire before execution cannot consume authorization or tool budget" time="0.249970" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-approval.test.ts"/>
+	<testcase name="authorization consumption and budget charging roll back together on a failed transaction" time="0.104916" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-approval.test.ts"/>
+	<testcase name="database v1 upgrades additively without losing existing run records" time="0.058976" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-approval.test.ts"/>
+	<testcase name="transient read errors use bounded exponential backoff and succeed without exposing intermediate failure" time="0.015715" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="retry exhaustion has a final structured error and exactly the configured attempt count" time="0.011988" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="missing file, permission and unknown failures are not retried" time="0.001250" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="cooperative timeouts abort each attempt, leave no overlap and eventually stop retrying" time="0.077244" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="an unsettled uncooperative timeout is unknown and never replayed" time="0.218743" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="write errors and write timeouts do not automatically repeat side effects" time="0.031779" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="unsafe retry configuration is also rejected by the execution layer" time="0.001306" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="cancellation during retry backoff prevents the next attempt" time="0.013791" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="every retry must obtain a fresh attempt budget authorization" time="0.013621" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="public Pi read tool operations pass through the governor and recover from one transient filesystem error" time="0.017339" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="stable error codes drive classification rather than phrases suggesting retry" time="0.000351" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-governor.test.ts"/>
+	<testcase name="ask policy performs no write until a separate CLI approves the exact request, then consumes it once" time="5.560203" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="rejected approval fails without changing the file" time="3.436728" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="approval timeout expires the request and rejects a later decision" time="3.614149" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="cancellation while waiting for approval invalidates the pending request and starts no attempt" time="4.707710" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="incorrect approval digest is rejected while the valid request stays pending" time="4.557926" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="changing the reviewed target invalidates the old approval and requires a new review" time="4.659736" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="changed policy invalidates a pending approval instead of granting the old permission" time="2.293570" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="tampered review artifact cannot be approved with its previous digest" time="4.380943" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="explicit deny policy overrides a tool that appears in the allowlist" time="2.233018" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="tool-level timeout and bounded retry have separate attempt records and a structured final cause" time="2.389525" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="a retry cannot exceed the remaining Run tool budget" time="2.354302" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="unsafe automatic write retry configurations are rejected before execution" time="1.091373" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="Run duration still expires while approval is waiting" time="2.909288" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<testcase name="approval for a dead Worker is rejected and its pending requests are closed" time="3.484132" classname="test" file="D:\VScodeProgects\harness-engineering\tests\m2-integration.test.ts"/>
+	<!-- tests 49 -->
+	<!-- suites 0 -->
+	<!-- pass 49 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 100245.6982 -->
+</testsuites>
