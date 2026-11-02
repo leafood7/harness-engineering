@@ -1,6 +1,6 @@
 {
   "name": "harness-engineering",
-  "version": "0.5.0",
+  "version": "0.13.0",
   "private": true,
   "type": "module",
   "bin": {
@@ -16,7 +16,13 @@
     "demo:context": "node examples/context-memory-demo.ts",
     "benchmark:plan": "node bin/harness.mjs benchmark plan benchmarks/deepseek-flash.json",
     "benchmark:live": "node bin/harness.mjs benchmark run benchmarks/deepseek-flash.json",
-    "benchmark:smoke": "node bin/harness.mjs benchmark run benchmarks/offline-smoke.json"
+    "benchmark:smoke": "node bin/harness.mjs benchmark run benchmarks/offline-smoke.json",
+    "benchmark:strategies": "node bin/harness.mjs benchmark run benchmarks/strategy-comparison.json",
+    "benchmark:strategy-smoke": "node bin/harness.mjs benchmark run benchmarks/strategy-smoke.json",
+    "benchmark:read-correction": "node bin/harness.mjs benchmark run benchmarks/read-correction-comparison.json",
+    "benchmark:read-correction-smoke": "node bin/harness.mjs benchmark run benchmarks/read-correction-smoke.json",
+    "demo:queue": "node examples/queue-demo.ts",
+    "dashboard": "node bin/harness.mjs dashboard"
   },
   "engines": {
     "node": ">=24.22.1"

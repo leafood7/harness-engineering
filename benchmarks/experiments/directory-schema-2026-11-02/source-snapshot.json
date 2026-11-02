@@ -1,0 +1,235 @@
+{
+  "runtimeDigest": "1a6cb2f76aa18fbf93452dae89a86d349781a6310e5bdb8f4c73f6c5ad519fc4",
+  "normalization": "UTF-8 without BOM, LF",
+  "createdAt": "2026-11-02T02:57:20.140Z",
+  "files": [
+    {
+      "path": "src/benchmark/report.ts",
+      "sha256": "e8589dd60567cbf0975cfcb02d003490c316ccdd512466731c8c3b23af876567",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/benchmark/runner.ts",
+      "sha256": "1c7edeca306895825bd8d72786f06d73c3fd8a707469a93069b15b1f70c116c1",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/benchmark/store.ts",
+      "sha256": "cc1adf6fa40b9da24290db5f58ddb07f6fd1562fc7a0e6c9784b28defa36a7c0",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/benchmark/suite.ts",
+      "sha256": "49b442bd583ad0f54810488b201964e77b1fc02eeaf0ae525be96d30d66b4b5c",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "6dc6218c19ebe6d9f3cbff50d26de3414bc8ea4d6afa3f07be1455ea0137f8a1",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/context/manager.ts",
+      "sha256": "ee2cae295c5c4b361b98cb7ee2f25dec33b1fdf675dd3e26da3928b167b67122",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/demo.ts",
+      "sha256": "b922ea3e10c42a65eaedcdbdd486172403f534fbe33ce9f65512d396114148c0",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/execution/engine.ts",
+      "sha256": "acf097fd6647351dbaa99cc6abdb578f506efef7eb845c99780fa6eca0a220b5",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/execution/read-correction.ts",
+      "sha256": "11c2bede3075813ab5628310a19b612b0f7faff05ef7501f7ce4e15285391810",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/execution/tool-errors.ts",
+      "sha256": "6d3780be661b4e2c47f1619572a5c1a6aab4789480ac96bb09491e989e341d91",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/execution/tool-governor.ts",
+      "sha256": "4c8099c788118324f01f75608b7cb718ca83bc681a36f535db1c96e8b109195e",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/execution/tool-policy.ts",
+      "sha256": "f3eaded306c19ccdd5bed1767a84404ab04803293fc853a089ab9d6a29c5fa7e",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/governance/approval.ts",
+      "sha256": "a7863804ff1639284c47dc5b424a65ff7cf4e882c11237133c4ca121f50deb99",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/memory/cli.ts",
+      "sha256": "e076086bb9ae1508db488b9fbb33837ddc81d44a8ba7b40ce6592990f20aeff4",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/memory/store.ts",
+      "sha256": "5d5c9f8bce896b882d569848c197aaed0cc21965783571782f15865ed8107666",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/runtime/pi-adapter.ts",
+      "sha256": "c1e6d06dad33a8b9c072ee6b1abc8956bda396a13c1b7963dfa626622632c61e",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/state/checkpoint.ts",
+      "sha256": "0d14694e54b3ea12495ba9ebd8a960b1b6b806cdcaa05b23f9539aab6b736e0a",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/state/recovery.ts",
+      "sha256": "e45400038cf1e3c31dfed34e936ccf6e681891323f9c9cc10d3e23d8fadada82",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/state/store.ts",
+      "sha256": "f9d9da46301baf28cbee13bb8f386ed096c0ddeef4937d33a0ff989a8f9b3be2",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/strategy/catalog.ts",
+      "sha256": "689ab5c0a33c07e8977da639c6948f9fb4d66026b1986892dfd38540e38b4298",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/strategy/cli.ts",
+      "sha256": "42571975b7382b42052cdb977fa907d0ef63b13f012f31dff7cb1784e8726546",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/task.ts",
+      "sha256": "223a983171c3d6ed11d8ee11b0b27d341003d714a41c54e5586976f082527255",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/util.ts",
+      "sha256": "cc2cfcd93431620e7e4c212f7f7cd9928f8f5ef4c9c695a9928ca4a1a790173b",
+      "kind": "runtime"
+    },
+    {
+      "path": "src/verification/verifier.ts",
+      "sha256": "44c55004031264b1a8629b288f1f1164de74fd543b849356cc69951f578a7d2b",
+      "kind": "runtime"
+    },
+    {
+      "path": "contracts/index.ts",
+      "sha256": "25dd769d3af496ccf5c36b6b6e915eb72a197be7fc565e416e9f9a2b8939f4c7",
+      "kind": "runtime"
+    },
+    {
+      "path": "bin/harness.mjs",
+      "sha256": "4bd7d36a458aa769a3adcfbd808900fd6d984a2e4cde4933c2fe195372294430",
+      "kind": "runtime"
+    },
+    {
+      "path": "package.json",
+      "sha256": "20113bbe3312ac51831b9b0fdb09a2ce4997c6116d03cb8d8fba124601ce1052",
+      "kind": "runtime"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "d55c9af1d7d026b627cfa3e10e47e4b8b537dd22fe71e1a5223b09820438180b",
+      "kind": "runtime"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "9f97ab5d2fda480227be10d8b60a161aa5332c884fdf6943c813bf8ff3c9fd30",
+      "kind": "runtime"
+    },
+    {
+      "path": "strategies/profiles.json",
+      "sha256": "d742d7ab49ef92c2d4d41b0697a1d8464aa9693154525562da1938e81d0bfa87",
+      "kind": "runtime"
+    },
+    {
+      "path": "strategies/review-policy.json",
+      "sha256": "8bd639e9ddff0e080d2430be7c183e945f046552909cc8632628265819b5c507",
+      "kind": "runtime"
+    },
+    {
+      "path": "benchmarks/cases/directory-input-schema/case.json",
+      "sha256": "a9708161524c66fcda3c578df06469d48e1e63692ac8cf1af7f9f83339254a50",
+      "kind": "fixed-case"
+    },
+    {
+      "path": "benchmarks/cases/directory-input-schema/verify.cjs",
+      "sha256": "dae220eeaeba60d45441bfcf4b1d9b412d9bdb3384338c85b4ba3c52d5ca08a9",
+      "kind": "fixed-case"
+    },
+    {
+      "path": "benchmarks/cases/directory-input-schema/workspace/guide.txt",
+      "sha256": "4c0d4ab2db4dc8fff6b4d5e9f21ce08ee121aa7814849f89d031da8376ba1d56",
+      "kind": "fixed-case"
+    },
+    {
+      "path": "benchmarks/baselines/deepseek-flash-2026-11-02/report.json",
+      "sha256": "829d89fd73789f69e898c7ef26d113b90c957cdb05a08380df921a1df4948c51",
+      "kind": "evidence"
+    },
+    {
+      "path": "benchmarks/experiments/retention-and-reading-2026-11-02/report.json",
+      "sha256": "a5936b2abc61be36a1d4b3b67fa5d422d0058ebeb381b6744c0c3084ea3763e7",
+      "kind": "evidence"
+    },
+    {
+      "path": "scripts/audit-benchmark.ts",
+      "sha256": "27fe14f2ee91ac998819502db644927ef4a5e67e617eea5ede748563e61ddcc2",
+      "kind": "audit"
+    }
+  ],
+  "config": {
+    "schemaVersion": 1,
+    "suite": "directory-schema-confirmation.v1",
+    "model": {
+      "mode": "live",
+      "provider": "deepseek",
+      "id": "deepseek-flash",
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
+      "temperature": 0
+    },
+    "cases": [
+      "directory-input-schema"
+    ],
+    "arms": [
+      "combined"
+    ],
+    "repeats": 3,
+    "seed": 20261105,
+    "budget": {
+      "maxEstimatedCostUsd": 0.1,
+      "maxTokens": 100000
+    },
+    "trialBudget": {
+      "maxDurationMs": 120000,
+      "maxToolCalls": 12,
+      "maxTokens": 32000,
+      "maxCostUsd": 0.03
+    },
+    "context": {
+      "maxInputTokens": 32000,
+      "outputReserveTokens": 1024,
+      "toolResultMaxChars": 1024,
+      "compactAtTokens": 12000,
+      "keepRecentTokens": 2048
+    },
+    "profiles": [
+      "stable.v1",
+      "file-contract.v1",
+      "read-correction.v1",
+      "anchored-correction.v1"
+    ]
+  },
+  "reproduction": "Install exact SDK dependencies from package-lock.json, set the explicit key environment variable, then node bin/harness.mjs benchmark run benchmarks/frozen-config.json. Model service state and randomness are not frozen."
+}

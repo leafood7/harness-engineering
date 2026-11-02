@@ -1,0 +1,6380 @@
+{
+  "schemaVersion": 1,
+  "reviewPolicy": {
+    "schemaVersion": 1,
+    "minPairs": 16,
+    "minDistinctTasks": 6,
+    "maxPairedLosses": 0,
+    "maxEstimatedCostRatio": 1.25,
+    "maxDurationRatio": 1.5,
+    "minWins": 1,
+    "minCostReductionWithoutWins": 0.1,
+    "automaticAdoption": false
+  },
+  "byProfile": {
+    "anchored-summary.v1": {
+      "n": 24,
+      "successes": 21,
+      "successRate": 0.875,
+      "wilson95": [
+        0.6899611872949993,
+        0.9565566591987655
+      ],
+      "meanScore": 0.875,
+      "meanDurationMs": 3696.8333333333335,
+      "p50DurationMs": 3492,
+      "p95DurationMs": 6523,
+      "meanTokens": 5002.375,
+      "knownTokenTrials": 24,
+      "knownEstimatedCostUsd": 0.023974188,
+      "meanEstimatedCostUsd": 0.0009989245,
+      "knownCostTrials": 24,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.2083333333333335,
+      "projectedRequests": 12,
+      "nativeCompactions": 16
+    },
+    "range-read.v1": {
+      "n": 24,
+      "successes": 19,
+      "successRate": 0.7916666666666666,
+      "wilson95": [
+        0.5952954674681133,
+        0.9075517464714814
+      ],
+      "meanScore": 0.7916666666666666,
+      "meanDurationMs": 3946.375,
+      "p50DurationMs": 3765,
+      "p95DurationMs": 6656,
+      "meanTokens": 5453.958333333333,
+      "knownTokenTrials": 24,
+      "knownEstimatedCostUsd": 0.023626295999999998,
+      "meanEstimatedCostUsd": 0.000984429,
+      "knownCostTrials": 24,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.375,
+      "projectedRequests": 13,
+      "nativeCompactions": 9
+    },
+    "stable.v1": {
+      "n": 24,
+      "successes": 18,
+      "successRate": 0.75,
+      "wilson95": [
+        0.55100555994846,
+        0.8800063377140499
+      ],
+      "meanScore": 0.75,
+      "meanDurationMs": 3663.0416666666665,
+      "p50DurationMs": 3559,
+      "p95DurationMs": 5760,
+      "meanTokens": 4675.5,
+      "knownTokenTrials": 24,
+      "knownEstimatedCostUsd": 0.022558104,
+      "meanEstimatedCostUsd": 0.0009399209999999999,
+      "knownCostTrials": 24,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.0416666666666665,
+      "projectedRequests": 12,
+      "nativeCompactions": 9
+    }
+  },
+  "retentionByProfile": {
+    "anchored-summary.v1": {
+      "trials": 3,
+      "exercised": 3,
+      "successes": 3,
+      "probeVisible": 3,
+      "taskSuccesses": 3,
+      "nativeCompactions": 16
+    },
+    "range-read.v1": {
+      "trials": 3,
+      "exercised": 3,
+      "successes": 0,
+      "probeVisible": 0,
+      "taskSuccesses": 0,
+      "nativeCompactions": 9
+    },
+    "stable.v1": {
+      "trials": 3,
+      "exercised": 3,
+      "successes": 0,
+      "probeVisible": 0,
+      "taskSuccesses": 0,
+      "nativeCompactions": 9
+    }
+  },
+  "profileComparisons": [
+    {
+      "candidate": "anchored-summary.v1",
+      "pairs": 24,
+      "wins": [
+        {
+          "caseId": "native-retention",
+          "repetition": 1,
+          "fromRunId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "toRunId": "46779998-92c3-4e82-92ee-4532c4ee609f"
+        },
+        {
+          "caseId": "native-retention",
+          "repetition": 3,
+          "fromRunId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "toRunId": "f842436d-5c38-4657-962f-a3187b81f16a"
+        },
+        {
+          "caseId": "native-retention",
+          "repetition": 2,
+          "fromRunId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "toRunId": "b6d390d5-1492-49aa-8b89-a23173109480"
+        }
+      ],
+      "losses": [],
+      "meanTokenDelta": 326.875,
+      "estimatedCostRatio": 1.0627749566186944,
+      "durationRatio": 1.009225029290321,
+      "decision": "review_candidate",
+      "automaticAdoption": false,
+      "defaultProfile": "stable.v1"
+    },
+    {
+      "candidate": "range-read.v1",
+      "pairs": 24,
+      "wins": [
+        {
+          "caseId": "multi-module-invoice",
+          "repetition": 2,
+          "fromRunId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+          "toRunId": "ee0f2e3b-4ca9-459c-8c2e-59839d3c76bd"
+        }
+      ],
+      "losses": [],
+      "meanTokenDelta": 778.4583333333334,
+      "estimatedCostRatio": 1.04735291583016,
+      "durationRatio": 1.077349197502076,
+      "decision": "review_candidate",
+      "automaticAdoption": false,
+      "defaultProfile": "stable.v1"
+    }
+  ],
+  "metadata": {
+    "config": {
+      "schemaVersion": 1,
+      "suite": "fixed-agent-tasks.v2",
+      "model": {
+        "mode": "live",
+        "provider": "deepseek",
+        "id": "deepseek-flash",
+        "apiKeyEnv": "DEEPSEEK_API_KEY",
+        "temperature": 0
+      },
+      "cases": [
+        "arithmetic-repair",
+        "order-aggregation",
+        "long-evidence",
+        "shipping-memory",
+        "multi-module-invoice",
+        "revision-semantics",
+        "missing-information",
+        "native-retention"
+      ],
+      "arms": [
+        "combined"
+      ],
+      "repeats": 3,
+      "seed": 20261103,
+      "budget": {
+        "maxEstimatedCostUsd": 1,
+        "maxTokens": 1000000
+      },
+      "trialBudget": {
+        "maxDurationMs": 120000,
+        "maxToolCalls": 12,
+        "maxTokens": 32000,
+        "maxCostUsd": 0.03
+      },
+      "context": {
+        "maxInputTokens": 32000,
+        "outputReserveTokens": 1024,
+        "toolResultMaxChars": 1024,
+        "compactAtTokens": 12000,
+        "keepRecentTokens": 2048
+      },
+      "profiles": [
+        "stable.v1",
+        "range-read.v1",
+        "anchored-summary.v1"
+      ]
+    },
+    "suiteDigest": "c74d152cf111f0da2f4780900c0de245e21481c66cdf88aef771ee846b3b18bb",
+    "files": [
+      {
+        "path": "cases/arithmetic-repair/case.json",
+        "sha256": "ec332939e3fd7b0f9a43f57816a5bf9a23a67a9e7a61d2a3607bfd0d7fae52fd"
+      },
+      {
+        "path": "cases/arithmetic-repair/verify.cjs",
+        "sha256": "a8d1bd9b4f3870ae5827ea6ee1762ba996e70947c2efecc8d881b06391a66f6a"
+      },
+      {
+        "path": "cases/arithmetic-repair/workspace/calc.cjs",
+        "sha256": "3287c2099845184d0cb7949a08e88a646e51520fb82bb346cc71dc39850b751e"
+      },
+      {
+        "path": "cases/order-aggregation/case.json",
+        "sha256": "9c48c6a9a389c6a34b6fcf4d1fa73907132b92db7ce620a4b597ad8621fc3c62"
+      },
+      {
+        "path": "cases/order-aggregation/verify.cjs",
+        "sha256": "2180f7749254a8f41de8236ada5c9d529ee42d320479cc5d0ce3c4d59ccae030"
+      },
+      {
+        "path": "cases/order-aggregation/workspace/orders.json",
+        "sha256": "7519fca2abb3af410493d63e2cbe26cd5f3dcddba947eacd874892c8260b080f"
+      },
+      {
+        "path": "cases/long-evidence/case.json",
+        "sha256": "bc6797b1a9b743747baba3b8364127e686a4a85503df993c324acc46d26d0f4e"
+      },
+      {
+        "path": "cases/long-evidence/verify.cjs",
+        "sha256": "ee23308dbedf72bd16ddb6e3e329136e988daa0a1764c04460e26d8735bd435f"
+      },
+      {
+        "path": "cases/long-evidence/workspace/facts.log",
+        "sha256": "053e919dfff61907313bfb5eaf2148995063271b2c1a2d71b614cbf29f3b0053"
+      },
+      {
+        "path": "cases/shipping-memory/case.json",
+        "sha256": "d335dda0effc993f5e9a1596f479656bc44ea66c74f6a014a3604a621abbc659"
+      },
+      {
+        "path": "cases/shipping-memory/verify.cjs",
+        "sha256": "4792b960b7b0d7b1723c9c26cf2ef2846c3605e1e4dd6768604ebe8a46648ab3"
+      },
+      {
+        "path": "cases/shipping-memory/workspace/README.txt",
+        "sha256": "0258b92a2597d7bb64665b56a24e3a6ba931ce72730080fe5aeb49cb65841a2c"
+      },
+      {
+        "path": "cases/multi-module-invoice/case.json",
+        "sha256": "2bd15334bb6b5a8aff28d19bea3eb299a253331311077e2de97d5f68213699e9"
+      },
+      {
+        "path": "cases/multi-module-invoice/verify.cjs",
+        "sha256": "430b77a673a997f81f4077c6e23dfa9188c62a8f788d479969346fba29e689bf"
+      },
+      {
+        "path": "cases/multi-module-invoice/workspace/invoice.cjs",
+        "sha256": "6eb640792719f977708528bca7d716ff0165e12bee7b8778dded7ed581ea5662"
+      },
+      {
+        "path": "cases/multi-module-invoice/workspace/money.cjs",
+        "sha256": "0de091799dbd8582b46c7fb1abd33fd211083a4b3b7ddea7e9b33007b2fc0f90"
+      },
+      {
+        "path": "cases/revision-semantics/case.json",
+        "sha256": "963ba3437f01a6ee687cc5a54edec76eac8ecff1df420c36c208008412b51909"
+      },
+      {
+        "path": "cases/revision-semantics/verify.cjs",
+        "sha256": "3eca90ec76b0df64f17ffde808b01be88189feffc96ce9e9d24f3d56eb62daca"
+      },
+      {
+        "path": "cases/revision-semantics/workspace/revisions.json",
+        "sha256": "6e678ad9c74732ba2dfa7fe5b551386d14bdb1f385bb8986666c45426f102922"
+      },
+      {
+        "path": "cases/missing-information/case.json",
+        "sha256": "91d152d81279bef79766b29725b1adb2a218e09df286669b1b8f3c8c066c9a81"
+      },
+      {
+        "path": "cases/missing-information/verify.cjs",
+        "sha256": "7c5599a07dbfbf96249feab86ad29d8bc449132b72b34c8980213c0ba1134c02"
+      },
+      {
+        "path": "cases/missing-information/workspace/README.txt",
+        "sha256": "fc07dfa80ca2133986ceab071990214a99347b996dddb61e4cabd34b5c3931b3"
+      },
+      {
+        "path": "cases/native-retention/case.json",
+        "sha256": "8b36126ceccdf891f37aa5f2bef2a3845006080f7c7d6c5159ba9790398c9da6"
+      },
+      {
+        "path": "cases/native-retention/verify.cjs",
+        "sha256": "b061cffbd91942401dccf18d4f3af625db82d25256eb4280927225fa67ba3c49"
+      },
+      {
+        "path": "cases/native-retention/workspace/README.txt",
+        "sha256": "f1d89061695e9c19e35833f82178c12d5e4b7bf34f488d95c28ab18612be6617"
+      }
+    ],
+    "runtimeDigest": "5bc539ceab06502cce7d8f47c02bb23b7fb3cd6c9a32e9215964af7b0d4d6fc0",
+    "runtimeFiles": [
+      {
+        "path": "src/benchmark/report.ts",
+        "sha256": "a0b317be2d306849be1a17ca7c24b1f60537550593c54f5ed1176f8717f9d730"
+      },
+      {
+        "path": "src/benchmark/runner.ts",
+        "sha256": "a828c358a9077834e8bd197ca7718e881306b78a4be826f62233659b5b5bb5c8"
+      },
+      {
+        "path": "src/benchmark/store.ts",
+        "sha256": "ad823f0b024ec360bc28be4b30829771c494405eb32ad8ee9fc2fadc85cabe1f"
+      },
+      {
+        "path": "src/benchmark/suite.ts",
+        "sha256": "49b442bd583ad0f54810488b201964e77b1fc02eeaf0ae525be96d30d66b4b5c"
+      },
+      {
+        "path": "src/cli.ts",
+        "sha256": "6dc6218c19ebe6d9f3cbff50d26de3414bc8ea4d6afa3f07be1455ea0137f8a1"
+      },
+      {
+        "path": "src/context/manager.ts",
+        "sha256": "ee2cae295c5c4b361b98cb7ee2f25dec33b1fdf675dd3e26da3928b167b67122"
+      },
+      {
+        "path": "src/demo.ts",
+        "sha256": "b922ea3e10c42a65eaedcdbdd486172403f534fbe33ce9f65512d396114148c0"
+      },
+      {
+        "path": "src/execution/engine.ts",
+        "sha256": "69ff3e21e78d8ab9cfebbccb75150815b333786720bd68f9acd446774534673f"
+      },
+      {
+        "path": "src/execution/tool-errors.ts",
+        "sha256": "6d3780be661b4e2c47f1619572a5c1a6aab4789480ac96bb09491e989e341d91"
+      },
+      {
+        "path": "src/execution/tool-governor.ts",
+        "sha256": "c981ddd46396e9304751e67ac929b91dcb3df4b68f260bf96eba6437e8e1a5b1"
+      },
+      {
+        "path": "src/execution/tool-policy.ts",
+        "sha256": "f3eaded306c19ccdd5bed1767a84404ab04803293fc853a089ab9d6a29c5fa7e"
+      },
+      {
+        "path": "src/governance/approval.ts",
+        "sha256": "a7863804ff1639284c47dc5b424a65ff7cf4e882c11237133c4ca121f50deb99"
+      },
+      {
+        "path": "src/memory/cli.ts",
+        "sha256": "e076086bb9ae1508db488b9fbb33837ddc81d44a8ba7b40ce6592990f20aeff4"
+      },
+      {
+        "path": "src/memory/store.ts",
+        "sha256": "5d5c9f8bce896b882d569848c197aaed0cc21965783571782f15865ed8107666"
+      },
+      {
+        "path": "src/runtime/pi-adapter.ts",
+        "sha256": "e95c4d696ced21a093e771a4ae38df5e26269dac12c860a1f6af8dd330f1b4cc"
+      },
+      {
+        "path": "src/state/checkpoint.ts",
+        "sha256": "0d14694e54b3ea12495ba9ebd8a960b1b6b806cdcaa05b23f9539aab6b736e0a"
+      },
+      {
+        "path": "src/state/recovery.ts",
+        "sha256": "e90946e13a9a42e8a66eda0a014eeba80ee49e37653f785d4cc3f72808839e47"
+      },
+      {
+        "path": "src/state/store.ts",
+        "sha256": "f9d9da46301baf28cbee13bb8f386ed096c0ddeef4937d33a0ff989a8f9b3be2"
+      },
+      {
+        "path": "src/strategy/catalog.ts",
+        "sha256": "c808f276fec513d04c09c4b1a9682a21562feb853a582aafa60a24b988e027d5"
+      },
+      {
+        "path": "src/strategy/cli.ts",
+        "sha256": "42571975b7382b42052cdb977fa907d0ef63b13f012f31dff7cb1784e8726546"
+      },
+      {
+        "path": "src/task.ts",
+        "sha256": "223a983171c3d6ed11d8ee11b0b27d341003d714a41c54e5586976f082527255"
+      },
+      {
+        "path": "src/util.ts",
+        "sha256": "cc2cfcd93431620e7e4c212f7f7cd9928f8f5ef4c9c695a9928ca4a1a790173b"
+      },
+      {
+        "path": "src/verification/verifier.ts",
+        "sha256": "44c55004031264b1a8629b288f1f1164de74fd543b849356cc69951f578a7d2b"
+      },
+      {
+        "path": "contracts/index.ts",
+        "sha256": "59a15b95c241442ba9e056ca6bc5195f5a316e10b866ed774e0b1a8992d97f8b"
+      },
+      {
+        "path": "bin/harness.mjs",
+        "sha256": "4bd7d36a458aa769a3adcfbd808900fd6d984a2e4cde4933c2fe195372294430"
+      },
+      {
+        "path": "package.json",
+        "sha256": "fbddd5f74ad998f908f1bbca700cff0f7adb6d75c155f8edc5a19d931f953161"
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "e6d44ca90c581b0188d016f8bc6086df7c5a2ec2bdae941fc7ab9098e4681df8"
+      },
+      {
+        "path": "tsconfig.json",
+        "sha256": "9f97ab5d2fda480227be10d8b60a161aa5332c884fdf6943c813bf8ff3c9fd30"
+      },
+      {
+        "path": "strategies/profiles.json",
+        "sha256": "1d4d3ea1da5c550bfa518c0e8a3f00f980938b74b95e323fa086fcc0453c4716"
+      },
+      {
+        "path": "strategies/review-policy.json",
+        "sha256": "8bd639e9ddff0e080d2430be7c183e945f046552909cc8632628265819b5c507"
+      }
+    ],
+    "profiles": [
+      {
+        "id": "stable.v1",
+        "status": "stable",
+        "instructions": "",
+        "summary": "index",
+        "hypothesis": null,
+        "evidence": []
+      },
+      {
+        "id": "range-read.v1",
+        "status": "candidate",
+        "instructions": "For unfamiliar or long text files, begin with a small line range (at most 40 lines) using read offset and limit; use the resulting line clues to read only the needed ranges. Use only the declared tools and the task workspace. Preserve unchanged inputs and module export contracts.",
+        "summary": "index",
+        "hypothesis": "Bounded initial reads may avoid the observed capacity stops without losing needed evidence; benefit and regressions must be measured.",
+        "evidence": [
+          {
+            "baseline": "benchmarks/baselines/deepseek-flash-2026-11-02/report.json",
+            "trialKey": "long-evidence:1:memory",
+            "runId": "26f37504-b87d-4c23-9592-01a80964910b",
+            "sequence": 60
+          }
+        ]
+      },
+      {
+        "id": "anchored-summary.v1",
+        "status": "candidate",
+        "instructions": "",
+        "summary": "anchored",
+        "hypothesis": "Carrying bounded verbatim user/tool observations through native compaction may preserve facts that an evidence-only index discards. This is extractive retention, not a semantic summarizer.",
+        "evidence": [
+          {
+            "baseline": "benchmarks/baselines/deepseek-flash-2026-11-02/report.json",
+            "limitation": "nativeCompactions=0; quality unmeasured"
+          }
+        ]
+      }
+    ],
+    "reviewPolicy": {
+      "schemaVersion": 1,
+      "minPairs": 16,
+      "minDistinctTasks": 6,
+      "maxPairedLosses": 0,
+      "maxEstimatedCostRatio": 1.25,
+      "maxDurationRatio": 1.5,
+      "minWins": 1,
+      "minCostReductionWithoutWins": 0.1,
+      "automaticAdoption": false
+    },
+    "configDigest": "a733462848da4143e06c9d12846e308a6499c47c604eb4d9b7cb26dc8cbb350d",
+    "plan": [
+      {
+        "key": "shipping-memory:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 1
+      },
+      {
+        "key": "arithmetic-repair:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 2
+      },
+      {
+        "key": "native-retention:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 3
+      },
+      {
+        "key": "native-retention:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 4
+      },
+      {
+        "key": "missing-information:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 5
+      },
+      {
+        "key": "multi-module-invoice:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 6
+      },
+      {
+        "key": "arithmetic-repair:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 7
+      },
+      {
+        "key": "revision-semantics:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 8
+      },
+      {
+        "key": "native-retention:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 9
+      },
+      {
+        "key": "multi-module-invoice:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 10
+      },
+      {
+        "key": "multi-module-invoice:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 11
+      },
+      {
+        "key": "missing-information:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 12
+      },
+      {
+        "key": "revision-semantics:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 13
+      },
+      {
+        "key": "long-evidence:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 14
+      },
+      {
+        "key": "revision-semantics:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 15
+      },
+      {
+        "key": "arithmetic-repair:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 16
+      },
+      {
+        "key": "order-aggregation:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 17
+      },
+      {
+        "key": "arithmetic-repair:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 18
+      },
+      {
+        "key": "order-aggregation:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 19
+      },
+      {
+        "key": "missing-information:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 20
+      },
+      {
+        "key": "missing-information:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 21
+      },
+      {
+        "key": "revision-semantics:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 22
+      },
+      {
+        "key": "multi-module-invoice:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 23
+      },
+      {
+        "key": "multi-module-invoice:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 24
+      },
+      {
+        "key": "shipping-memory:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 25
+      },
+      {
+        "key": "missing-information:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 26
+      },
+      {
+        "key": "long-evidence:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 27
+      },
+      {
+        "key": "shipping-memory:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 28
+      },
+      {
+        "key": "missing-information:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 29
+      },
+      {
+        "key": "arithmetic-repair:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 30
+      },
+      {
+        "key": "multi-module-invoice:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 31
+      },
+      {
+        "key": "order-aggregation:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 32
+      },
+      {
+        "key": "long-evidence:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 33
+      },
+      {
+        "key": "long-evidence:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 34
+      },
+      {
+        "key": "revision-semantics:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 35
+      },
+      {
+        "key": "order-aggregation:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 36
+      },
+      {
+        "key": "revision-semantics:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 37
+      },
+      {
+        "key": "missing-information:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 38
+      },
+      {
+        "key": "multi-module-invoice:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 39
+      },
+      {
+        "key": "multi-module-invoice:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 40
+      },
+      {
+        "key": "order-aggregation:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 41
+      },
+      {
+        "key": "long-evidence:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 42
+      },
+      {
+        "key": "long-evidence:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 43
+      },
+      {
+        "key": "arithmetic-repair:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 44
+      },
+      {
+        "key": "shipping-memory:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 45
+      },
+      {
+        "key": "missing-information:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 46
+      },
+      {
+        "key": "shipping-memory:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 47
+      },
+      {
+        "key": "revision-semantics:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 48
+      },
+      {
+        "key": "long-evidence:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 49
+      },
+      {
+        "key": "arithmetic-repair:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 50
+      },
+      {
+        "key": "order-aggregation:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 51
+      },
+      {
+        "key": "order-aggregation:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 52
+      },
+      {
+        "key": "revision-semantics:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 53
+      },
+      {
+        "key": "native-retention:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 54
+      },
+      {
+        "key": "shipping-memory:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 55
+      },
+      {
+        "key": "long-evidence:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 56
+      },
+      {
+        "key": "arithmetic-repair:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 57
+      },
+      {
+        "key": "native-retention:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 58
+      },
+      {
+        "key": "native-retention:3:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 59
+      },
+      {
+        "key": "native-retention:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 60
+      },
+      {
+        "key": "revision-semantics:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "revision-semantics",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 61
+      },
+      {
+        "key": "long-evidence:3:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "long-evidence",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 62
+      },
+      {
+        "key": "arithmetic-repair:2:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "arithmetic-repair",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 63
+      },
+      {
+        "key": "multi-module-invoice:1:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "multi-module-invoice",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 64
+      },
+      {
+        "key": "shipping-memory:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 65
+      },
+      {
+        "key": "order-aggregation:1:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 66
+      },
+      {
+        "key": "native-retention:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 67
+      },
+      {
+        "key": "shipping-memory:3:combined:anchored-summary.v1",
+        "profile": "anchored-summary.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 3,
+        "order": 68
+      },
+      {
+        "key": "order-aggregation:1:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "order-aggregation",
+        "arm": "combined",
+        "repetition": 1,
+        "order": 69
+      },
+      {
+        "key": "native-retention:2:combined:stable.v1",
+        "profile": "stable.v1",
+        "caseId": "native-retention",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 70
+      },
+      {
+        "key": "missing-information:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "missing-information",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 71
+      },
+      {
+        "key": "shipping-memory:2:combined:range-read.v1",
+        "profile": "range-read.v1",
+        "caseId": "shipping-memory",
+        "arm": "combined",
+        "repetition": 2,
+        "order": 72
+      }
+    ],
+    "catalogModel": {
+      "provider": "deepseek",
+      "id": "deepseek-flash",
+      "api": "openai-completions",
+      "baseUrl": "https://api.deepseek.com",
+      "contextWindow": 1000000,
+      "maxTokens": 384000,
+      "cost": {
+        "input": 0.3,
+        "output": 1.2,
+        "cacheRead": 0.006,
+        "cacheWrite": 0
+      }
+    },
+    "status": "completed",
+    "harnessVersion": "0.6.0",
+    "sdk": {
+      "package": "@earendil-works/pi-coding-agent",
+      "version": "1.4.0",
+      "integrity": "sha512-Z41LpZ3yYHSC/UUps6Mr39UMFPwH8elhJBG9DY1P7kuzsE5qSK/6eMj2EHzO5evJRQWLbKSqUMw+4nCNtIyiQg=="
+    },
+    "node": "v24.22.1",
+    "startedAt": "2026-11-02T01:43:51.936Z",
+    "costBasis": "pinned-sdk-catalog-estimates; not billing",
+    "randomness": "temperature fixed, provider seed unavailable; server weights not frozen",
+    "createdAt": "2026-11-02T01:43:51.937Z",
+    "finishedAt": "2026-11-02T01:48:25.562Z"
+  },
+  "coverage": {
+    "planned": 72,
+    "finished": 72,
+    "complete": true
+  },
+  "overall": {
+    "n": 72,
+    "successes": 58,
+    "successRate": 0.8055555555555556,
+    "wilson95": [
+      0.6996724105411147,
+      0.8804852062054944
+    ],
+    "meanScore": 0.8055555555555556,
+    "meanDurationMs": 3768.75,
+    "p50DurationMs": 3609,
+    "p95DurationMs": 6567,
+    "meanTokens": 5043.944444444444,
+    "knownTokenTrials": 72,
+    "knownEstimatedCostUsd": 0.07015858800000001,
+    "meanEstimatedCostUsd": 0.0009744248333333334,
+    "knownCostTrials": 72,
+    "uncertainUsageTrials": 0,
+    "meanModelRequests": 3.2083333333333335,
+    "projectedRequests": 37,
+    "nativeCompactions": 34
+  },
+  "byCase": {
+    "shipping-memory": {
+      "combined": {
+        "n": 9,
+        "successes": 9,
+        "successRate": 1,
+        "wilson95": [
+          0.7008549515804559,
+          1
+        ],
+        "meanScore": 1,
+        "meanDurationMs": 2905.3333333333335,
+        "p50DurationMs": 2653,
+        "p95DurationMs": 3877,
+        "meanTokens": 3394.1111111111113,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.006357528,
+        "meanEstimatedCostUsd": 0.000706392,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 2.4444444444444446,
+        "projectedRequests": 0,
+        "nativeCompactions": 0
+      }
+    },
+    "arithmetic-repair": {
+      "combined": {
+        "n": 9,
+        "successes": 9,
+        "successRate": 1,
+        "wilson95": [
+          0.7008549515804559,
+          1
+        ],
+        "meanScore": 1,
+        "meanDurationMs": 3512.4444444444443,
+        "p50DurationMs": 3559,
+        "p95DurationMs": 3836,
+        "meanTokens": 3727,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.006757823999999999,
+        "meanEstimatedCostUsd": 0.0007508693333333332,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 3,
+        "projectedRequests": 0,
+        "nativeCompactions": 0
+      }
+    },
+    "native-retention": {
+      "combined": {
+        "n": 9,
+        "successes": 3,
+        "successRate": 0.3333333333333333,
+        "wilson95": [
+          0.1205838183869109,
+          0.6457978644196036
+        ],
+        "meanScore": 0.3333333333333333,
+        "meanDurationMs": 4704,
+        "p50DurationMs": 4436,
+        "p95DurationMs": 6523,
+        "meanTokens": 9424,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.019115220000000002,
+        "meanEstimatedCostUsd": 0.0021239133333333334,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 4.555555555555555,
+        "projectedRequests": 0,
+        "nativeCompactions": 34
+      }
+    },
+    "missing-information": {
+      "combined": {
+        "n": 9,
+        "successes": 9,
+        "successRate": 1,
+        "wilson95": [
+          0.7008549515804559,
+          1
+        ],
+        "meanScore": 1,
+        "meanDurationMs": 3509.222222222222,
+        "p50DurationMs": 3498,
+        "p95DurationMs": 3872,
+        "meanTokens": 3715.8888888888887,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.006535788,
+        "meanEstimatedCostUsd": 0.0007261986666666667,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 3,
+        "projectedRequests": 0,
+        "nativeCompactions": 0
+      }
+    },
+    "multi-module-invoice": {
+      "combined": {
+        "n": 9,
+        "successes": 1,
+        "successRate": 0.1111111111111111,
+        "wilson95": [
+          0.019890887638544907,
+          0.434999705576656
+        ],
+        "meanScore": 0.1111111111111111,
+        "meanDurationMs": 1698.2222222222222,
+        "p50DurationMs": 1308,
+        "p95DurationMs": 4933,
+        "meanTokens": 1589.7777777777778,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.0046935599999999985,
+        "meanEstimatedCostUsd": 0.0005215066666666665,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 1.2222222222222223,
+        "projectedRequests": 0,
+        "nativeCompactions": 0
+      }
+    },
+    "revision-semantics": {
+      "combined": {
+        "n": 9,
+        "successes": 9,
+        "successRate": 1,
+        "wilson95": [
+          0.7008549515804559,
+          1
+        ],
+        "meanScore": 1,
+        "meanDurationMs": 3850.1111111111113,
+        "p50DurationMs": 3757,
+        "p95DurationMs": 4734,
+        "meanTokens": 4878.666666666667,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.0078058799999999985,
+        "meanEstimatedCostUsd": 0.0008673199999999999,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 3.3333333333333335,
+        "projectedRequests": 0,
+        "nativeCompactions": 0
+      }
+    },
+    "long-evidence": {
+      "combined": {
+        "n": 9,
+        "successes": 9,
+        "successRate": 1,
+        "wilson95": [
+          0.7008549515804559,
+          1
+        ],
+        "meanScore": 1,
+        "meanDurationMs": 6357.333333333333,
+        "p50DurationMs": 6353,
+        "p95DurationMs": 8426,
+        "meanTokens": 9744.222222222223,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.012373548,
+        "meanEstimatedCostUsd": 0.0013748386666666667,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 5.111111111111111,
+        "projectedRequests": 37,
+        "nativeCompactions": 0
+      }
+    },
+    "order-aggregation": {
+      "combined": {
+        "n": 9,
+        "successes": 9,
+        "successRate": 1,
+        "wilson95": [
+          0.7008549515804559,
+          1
+        ],
+        "meanScore": 1,
+        "meanDurationMs": 3613.3333333333335,
+        "p50DurationMs": 3626,
+        "p95DurationMs": 4043,
+        "meanTokens": 3877.8888888888887,
+        "knownTokenTrials": 9,
+        "knownEstimatedCostUsd": 0.006519239999999999,
+        "meanEstimatedCostUsd": 0.0007243599999999998,
+        "knownCostTrials": 9,
+        "uncertainUsageTrials": 0,
+        "meanModelRequests": 3,
+        "projectedRequests": 0,
+        "nativeCompactions": 0
+      }
+    }
+  },
+  "retrievalByArm": {
+    "combined": {
+      "trials": 9,
+      "selected": 9,
+      "relevant": 9,
+      "meanPrecision": 1,
+      "meanRecall": 1
+    }
+  },
+  "byArm": {
+    "combined": {
+      "n": 72,
+      "successes": 58,
+      "successRate": 0.8055555555555556,
+      "wilson95": [
+        0.6996724105411147,
+        0.8804852062054944
+      ],
+      "meanScore": 0.8055555555555556,
+      "meanDurationMs": 3768.75,
+      "p50DurationMs": 3609,
+      "p95DurationMs": 6567,
+      "meanTokens": 5043.944444444444,
+      "knownTokenTrials": 72,
+      "knownEstimatedCostUsd": 0.07015858800000001,
+      "meanEstimatedCostUsd": 0.0009744248333333334,
+      "knownCostTrials": 72,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.2083333333333335,
+      "projectedRequests": 37,
+      "nativeCompactions": 34
+    }
+  },
+  "generalByArm": {
+    "combined": {
+      "n": 63,
+      "successes": 49,
+      "successRate": 0.7777777777777778,
+      "wilson95": [
+        0.6608771888656633,
+        0.8627499224738635
+      ],
+      "meanScore": 0.7777777777777778,
+      "meanDurationMs": 3892.095238095238,
+      "p50DurationMs": 3678,
+      "p95DurationMs": 6567,
+      "meanTokens": 5279.6349206349205,
+      "knownTokenTrials": 63,
+      "knownEstimatedCostUsd": 0.06380106,
+      "meanEstimatedCostUsd": 0.0010127152380952382,
+      "knownCostTrials": 63,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.3174603174603177,
+      "projectedRequests": 37,
+      "nativeCompactions": 34
+    }
+  },
+  "memoryDependentByArm": {
+    "combined": {
+      "n": 9,
+      "successes": 9,
+      "successRate": 1,
+      "wilson95": [
+        0.7008549515804559,
+        1
+      ],
+      "meanScore": 1,
+      "meanDurationMs": 2905.3333333333335,
+      "p50DurationMs": 2653,
+      "p95DurationMs": 3877,
+      "meanTokens": 3394.1111111111113,
+      "knownTokenTrials": 9,
+      "knownEstimatedCostUsd": 0.006357528,
+      "meanEstimatedCostUsd": 0.000706392,
+      "knownCostTrials": 9,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 2.4444444444444446,
+      "projectedRequests": 0,
+      "nativeCompactions": 0
+    }
+  },
+  "paired": [
+    {
+      "from": "baseline",
+      "to": "context",
+      "n": 0,
+      "successDelta": null,
+      "wins": 0,
+      "losses": 0,
+      "meanTokenDelta": null,
+      "meanEstimatedCostDeltaUsd": null
+    },
+    {
+      "from": "baseline",
+      "to": "memory",
+      "n": 0,
+      "successDelta": null,
+      "wins": 0,
+      "losses": 0,
+      "meanTokenDelta": null,
+      "meanEstimatedCostDeltaUsd": null
+    },
+    {
+      "from": "context",
+      "to": "combined",
+      "n": 0,
+      "successDelta": null,
+      "wins": 0,
+      "losses": 0,
+      "meanTokenDelta": null,
+      "meanEstimatedCostDeltaUsd": null
+    },
+    {
+      "from": "memory",
+      "to": "combined",
+      "n": 0,
+      "successDelta": null,
+      "wins": 0,
+      "losses": 0,
+      "meanTokenDelta": null,
+      "meanEstimatedCostDeltaUsd": null
+    }
+  ],
+  "failures": {
+    "tool_execution": 14
+  },
+  "rows": [
+    {
+      "key": "shipping-memory:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 1,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "04f8b15a-4fcc-43d6-a7d0-c2bef2c05c72",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 2309,
+      "tokens": 2626,
+      "estimatedCostUsd": 0.000591312,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 2,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4778,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "659e2699-ac04-4e2e-b266-314795ce446a",
+      "eventRefs": [
+        {
+          "runId": "04f8b15a-4fcc-43d6-a7d0-c2bef2c05c72",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "04f8b15a-4fcc-43d6-a7d0-c2bef2c05c72",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "04f8b15a-4fcc-43d6-a7d0-c2bef2c05c72",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "04f8b15a-4fcc-43d6-a7d0-c2bef2c05c72",
+          "sequence": 53,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 2,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "6fdb1274-dc3d-497c-b101-f1debeef2427",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3599,
+      "tokens": 3821,
+      "estimatedCostUsd": 0.000728856,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5005,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "8340071c-730b-4829-9beb-8fee21b4b986",
+      "eventRefs": [
+        {
+          "runId": "6fdb1274-dc3d-497c-b101-f1debeef2427",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "6fdb1274-dc3d-497c-b101-f1debeef2427",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6fdb1274-dc3d-497c-b101-f1debeef2427",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6fdb1274-dc3d-497c-b101-f1debeef2427",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6fdb1274-dc3d-497c-b101-f1debeef2427",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 3,
+      "retainedProbeBeforeFinal": true,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 6523,
+      "tokens": 12472,
+      "estimatedCostUsd": 0.002749044,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 6,
+      "projectedRequests": 0,
+      "nativeCompactions": 5,
+      "maxProjectedBytes": 19066,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "2b843cc9-77b0-4658-8a0e-4dc9fe7386e8",
+      "eventRefs": [
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 102,
+          "kind": "model.request"
+        },
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 121,
+          "kind": "model.request"
+        },
+        {
+          "runId": "46779998-92c3-4e82-92ee-4532c4ee609f",
+          "sequence": 138,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 4,
+      "retainedProbeBeforeFinal": false,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 2,
+      "durationMs": 3765,
+      "tokens": 8268,
+      "estimatedCostUsd": 0.0017793959999999997,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 3,
+      "maxProjectedBytes": 18552,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 5,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "e406d8e3-ed58-41f2-9e70-1ec52d4279cd",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3625,
+      "tokens": 3653,
+      "estimatedCostUsd": 0.0007339199999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4817,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "0c6016e6-3126-40e2-8b1f-2cad630c61f5",
+      "eventRefs": [
+        {
+          "runId": "e406d8e3-ed58-41f2-9e70-1ec52d4279cd",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "e406d8e3-ed58-41f2-9e70-1ec52d4279cd",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e406d8e3-ed58-41f2-9e70-1ec52d4279cd",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e406d8e3-ed58-41f2-9e70-1ec52d4279cd",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e406d8e3-ed58-41f2-9e70-1ec52d4279cd",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 6,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 1328,
+      "tokens": 1199,
+      "estimatedCostUsd": 0.0004506,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4397,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 7,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "e4590520-f1ce-415a-8217-ba4bcd430b4a",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3691,
+      "tokens": 3880,
+      "estimatedCostUsd": 0.0007708559999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5071,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "0a6b371e-a5f7-4122-a19f-9cd4d1094305",
+      "eventRefs": [
+        {
+          "runId": "e4590520-f1ce-415a-8217-ba4bcd430b4a",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "e4590520-f1ce-415a-8217-ba4bcd430b4a",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e4590520-f1ce-415a-8217-ba4bcd430b4a",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e4590520-f1ce-415a-8217-ba4bcd430b4a",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e4590520-f1ce-415a-8217-ba4bcd430b4a",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 8,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "c27e9d24-25e1-4792-aaf4-aaa4f76b7595",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3745,
+      "tokens": 4336,
+      "estimatedCostUsd": 0.0008352599999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5774,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "d90ece28-245a-47c2-b4af-be8bb15cccc9",
+      "eventRefs": [
+        {
+          "runId": "c27e9d24-25e1-4792-aaf4-aaa4f76b7595",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "c27e9d24-25e1-4792-aaf4-aaa4f76b7595",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c27e9d24-25e1-4792-aaf4-aaa4f76b7595",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c27e9d24-25e1-4792-aaf4-aaa4f76b7595",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c27e9d24-25e1-4792-aaf4-aaa4f76b7595",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 9,
+      "retainedProbeBeforeFinal": false,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 2,
+      "durationMs": 3334,
+      "tokens": 8288,
+      "estimatedCostUsd": 0.001792596,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 3,
+      "maxProjectedBytes": 18552,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 10,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "ee0f2e3b-4ca9-459c-8c2e-59839d3c76bd",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 4933,
+      "tokens": 4602,
+      "estimatedCostUsd": 0.0010545599999999997,
+      "usageUncertain": false,
+      "toolCalls": 4,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 6254,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "171cb037-eb0c-43c7-8597-e3f7b58484ee",
+      "eventRefs": [
+        {
+          "runId": "ee0f2e3b-4ca9-459c-8c2e-59839d3c76bd",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "ee0f2e3b-4ca9-459c-8c2e-59839d3c76bd",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ee0f2e3b-4ca9-459c-8c2e-59839d3c76bd",
+          "sequence": 44,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ee0f2e3b-4ca9-459c-8c2e-59839d3c76bd",
+          "sequence": 68,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ee0f2e3b-4ca9-459c-8c2e-59839d3c76bd",
+          "sequence": 89,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 11,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 1284,
+      "tokens": 1199,
+      "estimatedCostUsd": 0.0004506,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4392,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 12,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a1f877b8-8eb9-43fb-9862-419dbc352829",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3332,
+      "tokens": 3657,
+      "estimatedCostUsd": 0.0007387199999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4817,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "b8c30b1d-d494-4c6c-b8c7-dee889eb82ce",
+      "eventRefs": [
+        {
+          "runId": "a1f877b8-8eb9-43fb-9862-419dbc352829",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a1f877b8-8eb9-43fb-9862-419dbc352829",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a1f877b8-8eb9-43fb-9862-419dbc352829",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a1f877b8-8eb9-43fb-9862-419dbc352829",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a1f877b8-8eb9-43fb-9862-419dbc352829",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 13,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "17dfc2b7-d74e-46bc-9b43-e6af9d0887d5",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3875,
+      "tokens": 5959,
+      "estimatedCostUsd": 0.00092964,
+      "usageUncertain": false,
+      "toolCalls": 3,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 6331,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "c0b179a4-0b1e-4db6-9f7f-6fa75d877a6d",
+      "eventRefs": [
+        {
+          "runId": "17dfc2b7-d74e-46bc-9b43-e6af9d0887d5",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "17dfc2b7-d74e-46bc-9b43-e6af9d0887d5",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "17dfc2b7-d74e-46bc-9b43-e6af9d0887d5",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "17dfc2b7-d74e-46bc-9b43-e6af9d0887d5",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "17dfc2b7-d74e-46bc-9b43-e6af9d0887d5",
+          "sequence": 68,
+          "kind": "model.request"
+        },
+        {
+          "runId": "17dfc2b7-d74e-46bc-9b43-e6af9d0887d5",
+          "sequence": 89,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 14,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 6257,
+      "tokens": 9276,
+      "estimatedCostUsd": 0.001289436,
+      "usageUncertain": false,
+      "toolCalls": 4,
+      "modelRequests": 5,
+      "projectedRequests": 4,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 9626,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "63f80102-9980-4397-af3a-4a0a02c56540",
+      "eventRefs": [
+        {
+          "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+          "sequence": 37,
+          "kind": "model.request"
+        },
+        {
+          "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+          "sequence": 54,
+          "kind": "model.request"
+        },
+        {
+          "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+          "sequence": 71,
+          "kind": "model.request"
+        },
+        {
+          "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+          "sequence": 88,
+          "kind": "model.request"
+        },
+        {
+          "runId": "80d5c16e-7f51-4fe7-9e8d-75746b336981",
+          "sequence": 105,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 15,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "6cb0fc64-964a-42c2-acc3-f4db926d7fb0",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3492,
+      "tokens": 4342,
+      "estimatedCostUsd": 0.00084246,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5774,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "cebbf95b-b39a-4787-b3fd-0ff3b78aad2d",
+      "eventRefs": [
+        {
+          "runId": "6cb0fc64-964a-42c2-acc3-f4db926d7fb0",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "6cb0fc64-964a-42c2-acc3-f4db926d7fb0",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6cb0fc64-964a-42c2-acc3-f4db926d7fb0",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6cb0fc64-964a-42c2-acc3-f4db926d7fb0",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6cb0fc64-964a-42c2-acc3-f4db926d7fb0",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 16,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "8a783c78-eba7-4048-82b7-36beead95ed3",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3836,
+      "tokens": 3650,
+      "estimatedCostUsd": 0.00075282,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4723,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "ce63aaca-d547-446b-90ba-08c9c963c1a8",
+      "eventRefs": [
+        {
+          "runId": "8a783c78-eba7-4048-82b7-36beead95ed3",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "8a783c78-eba7-4048-82b7-36beead95ed3",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "8a783c78-eba7-4048-82b7-36beead95ed3",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "8a783c78-eba7-4048-82b7-36beead95ed3",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "8a783c78-eba7-4048-82b7-36beead95ed3",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 17,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a212dae7-d69a-4352-86dc-832b0e0e650d",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3375,
+      "tokens": 3948,
+      "estimatedCostUsd": 0.000742656,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5280,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "df53137f-2566-46c1-b6dd-96d701da7154",
+      "eventRefs": [
+        {
+          "runId": "a212dae7-d69a-4352-86dc-832b0e0e650d",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a212dae7-d69a-4352-86dc-832b0e0e650d",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a212dae7-d69a-4352-86dc-832b0e0e650d",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a212dae7-d69a-4352-86dc-832b0e0e650d",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a212dae7-d69a-4352-86dc-832b0e0e650d",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 18,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "88ac3a68-ac6a-41db-bd65-899aa9d26d2d",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3283,
+      "tokens": 3709,
+      "estimatedCostUsd": 0.000757188,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4789,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "2f78d282-3c7c-47da-87a4-7f2ec7ef035d",
+      "eventRefs": [
+        {
+          "runId": "88ac3a68-ac6a-41db-bd65-899aa9d26d2d",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "88ac3a68-ac6a-41db-bd65-899aa9d26d2d",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "88ac3a68-ac6a-41db-bd65-899aa9d26d2d",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "88ac3a68-ac6a-41db-bd65-899aa9d26d2d",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "88ac3a68-ac6a-41db-bd65-899aa9d26d2d",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 19,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a14da219-1905-4adc-a0e3-78114208aa7c",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3384,
+      "tokens": 3774,
+      "estimatedCostUsd": 0.0006877559999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5003,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "42babcd3-1af4-4127-b6ea-4d8566f199cc",
+      "eventRefs": [
+        {
+          "runId": "a14da219-1905-4adc-a0e3-78114208aa7c",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a14da219-1905-4adc-a0e3-78114208aa7c",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a14da219-1905-4adc-a0e3-78114208aa7c",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a14da219-1905-4adc-a0e3-78114208aa7c",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a14da219-1905-4adc-a0e3-78114208aa7c",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 20,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "569de9b8-3c05-48ef-8c23-bf6a8e8ecb4b",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3498,
+      "tokens": 3661,
+      "estimatedCostUsd": 0.0007435199999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4817,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "9731decc-b394-4724-a804-9c6dfb0d7046",
+      "eventRefs": [
+        {
+          "runId": "569de9b8-3c05-48ef-8c23-bf6a8e8ecb4b",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "569de9b8-3c05-48ef-8c23-bf6a8e8ecb4b",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "569de9b8-3c05-48ef-8c23-bf6a8e8ecb4b",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "569de9b8-3c05-48ef-8c23-bf6a8e8ecb4b",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "569de9b8-3c05-48ef-8c23-bf6a8e8ecb4b",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 21,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "ebf1be9f-daf6-430d-9c8d-36ac7cb4cd98",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3826,
+      "tokens": 3792,
+      "estimatedCostUsd": 0.000671556,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5094,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "b7a91608-dc79-4b8b-81f2-c9ee86150e58",
+      "eventRefs": [
+        {
+          "runId": "ebf1be9f-daf6-430d-9c8d-36ac7cb4cd98",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "ebf1be9f-daf6-430d-9c8d-36ac7cb4cd98",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ebf1be9f-daf6-430d-9c8d-36ac7cb4cd98",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ebf1be9f-daf6-430d-9c8d-36ac7cb4cd98",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ebf1be9f-daf6-430d-9c8d-36ac7cb4cd98",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 22,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "6d7866ea-3e36-41eb-8c48-8cca2bc4cba9",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 4329,
+      "tokens": 5973,
+      "estimatedCostUsd": 0.00093384,
+      "usageUncertain": false,
+      "toolCalls": 3,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 6351,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "abd08ff4-efdc-45d1-97c0-aee7bc4a22c2",
+      "eventRefs": [
+        {
+          "runId": "6d7866ea-3e36-41eb-8c48-8cca2bc4cba9",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "6d7866ea-3e36-41eb-8c48-8cca2bc4cba9",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6d7866ea-3e36-41eb-8c48-8cca2bc4cba9",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6d7866ea-3e36-41eb-8c48-8cca2bc4cba9",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6d7866ea-3e36-41eb-8c48-8cca2bc4cba9",
+          "sequence": 68,
+          "kind": "model.request"
+        },
+        {
+          "runId": "6d7866ea-3e36-41eb-8c48-8cca2bc4cba9",
+          "sequence": 89,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 23,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 1308,
+      "tokens": 1199,
+      "estimatedCostUsd": 0.0004506,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4392,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 24,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 1173,
+      "tokens": 1256,
+      "estimatedCostUsd": 0.00046769999999999993,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4674,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 25,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "f8ecd2e3-499b-4a9b-8053-988b9886d3f7",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 1974,
+      "tokens": 2635,
+      "estimatedCostUsd": 0.000593112,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 2,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4778,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "e7f842fa-5e72-4f2d-9ed1-ff41f01189c7",
+      "eventRefs": [
+        {
+          "runId": "f8ecd2e3-499b-4a9b-8053-988b9886d3f7",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "f8ecd2e3-499b-4a9b-8053-988b9886d3f7",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f8ecd2e3-499b-4a9b-8053-988b9886d3f7",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f8ecd2e3-499b-4a9b-8053-988b9886d3f7",
+          "sequence": 53,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 26,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "31c638e8-2d9a-464d-8a59-71d20de32d43",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3796,
+      "tokens": 3868,
+      "estimatedCostUsd": 0.000734856,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5192,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "629c84e5-dce6-40ed-a3b7-48c5dc8d5196",
+      "eventRefs": [
+        {
+          "runId": "31c638e8-2d9a-464d-8a59-71d20de32d43",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "31c638e8-2d9a-464d-8a59-71d20de32d43",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "31c638e8-2d9a-464d-8a59-71d20de32d43",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "31c638e8-2d9a-464d-8a59-71d20de32d43",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "31c638e8-2d9a-464d-8a59-71d20de32d43",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 27,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a7395438-1b12-48d4-9032-651220d100db",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 6223,
+      "tokens": 8631,
+      "estimatedCostUsd": 0.001274028,
+      "usageUncertain": false,
+      "toolCalls": 4,
+      "modelRequests": 5,
+      "projectedRequests": 4,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 8698,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "a1f3dee6-e073-4b64-a4ba-d19fbeecd86d",
+      "eventRefs": [
+        {
+          "runId": "a7395438-1b12-48d4-9032-651220d100db",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a7395438-1b12-48d4-9032-651220d100db",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a7395438-1b12-48d4-9032-651220d100db",
+          "sequence": 37,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a7395438-1b12-48d4-9032-651220d100db",
+          "sequence": 54,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a7395438-1b12-48d4-9032-651220d100db",
+          "sequence": 71,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a7395438-1b12-48d4-9032-651220d100db",
+          "sequence": 88,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a7395438-1b12-48d4-9032-651220d100db",
+          "sequence": 105,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 28,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "ba6fa6a0-c4c3-412f-8326-251dd6fef038",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 3877,
+      "tokens": 4376,
+      "estimatedCostUsd": 0.000856092,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5742,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "06c47c92-f338-4dc2-bc0e-8f9426c7abe5",
+      "eventRefs": [
+        {
+          "runId": "ba6fa6a0-c4c3-412f-8326-251dd6fef038",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "ba6fa6a0-c4c3-412f-8326-251dd6fef038",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ba6fa6a0-c4c3-412f-8326-251dd6fef038",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ba6fa6a0-c4c3-412f-8326-251dd6fef038",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "ba6fa6a0-c4c3-412f-8326-251dd6fef038",
+          "sequence": 69,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 29,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "b8d9a7a2-52fe-482e-9c7f-e984a0cd4d3e",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3872,
+      "tokens": 3723,
+      "estimatedCostUsd": 0.00078462,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5007,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "5ad71020-8771-4d59-9b15-c2218a537a2f",
+      "eventRefs": [
+        {
+          "runId": "b8d9a7a2-52fe-482e-9c7f-e984a0cd4d3e",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "b8d9a7a2-52fe-482e-9c7f-e984a0cd4d3e",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b8d9a7a2-52fe-482e-9c7f-e984a0cd4d3e",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b8d9a7a2-52fe-482e-9c7f-e984a0cd4d3e",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b8d9a7a2-52fe-482e-9c7f-e984a0cd4d3e",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 30,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "21f391cb-14d8-4984-984e-120472f59909",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3559,
+      "tokens": 3709,
+      "estimatedCostUsd": 0.000757188,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4789,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "e5c7ec6c-f048-4468-8bde-88435b0bdc42",
+      "eventRefs": [
+        {
+          "runId": "21f391cb-14d8-4984-984e-120472f59909",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "21f391cb-14d8-4984-984e-120472f59909",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "21f391cb-14d8-4984-984e-120472f59909",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "21f391cb-14d8-4984-984e-120472f59909",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "21f391cb-14d8-4984-984e-120472f59909",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 31,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 1316,
+      "tokens": 1199,
+      "estimatedCostUsd": 0.0004506,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4397,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 32,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "e8caafb6-18cf-424e-a152-a36d44d5c2a3",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 4043,
+      "tokens": 3778,
+      "estimatedCostUsd": 0.0006925559999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5003,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "a24be64b-48ec-4937-be1c-e275cd8c8ac0",
+      "eventRefs": [
+        {
+          "runId": "e8caafb6-18cf-424e-a152-a36d44d5c2a3",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "e8caafb6-18cf-424e-a152-a36d44d5c2a3",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e8caafb6-18cf-424e-a152-a36d44d5c2a3",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e8caafb6-18cf-424e-a152-a36d44d5c2a3",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e8caafb6-18cf-424e-a152-a36d44d5c2a3",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 33,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 7208,
+      "tokens": 9108,
+      "estimatedCostUsd": 0.0012873,
+      "usageUncertain": false,
+      "toolCalls": 4,
+      "modelRequests": 5,
+      "projectedRequests": 4,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 9356,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "c3bb2d05-3e5c-424f-bd23-0832071df77c",
+      "eventRefs": [
+        {
+          "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+          "sequence": 37,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+          "sequence": 54,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+          "sequence": 71,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+          "sequence": 88,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0064e3f2-ba6d-4df1-8c6a-4f129d3fb6f4",
+          "sequence": 105,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 34,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 6567,
+      "tokens": 8681,
+      "estimatedCostUsd": 0.001300728,
+      "usageUncertain": false,
+      "toolCalls": 4,
+      "modelRequests": 5,
+      "projectedRequests": 4,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 8750,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "9a5495de-5c3d-4008-bb16-adbe504d0fa2",
+      "eventRefs": [
+        {
+          "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+          "sequence": 37,
+          "kind": "model.request"
+        },
+        {
+          "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+          "sequence": 54,
+          "kind": "model.request"
+        },
+        {
+          "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+          "sequence": 71,
+          "kind": "model.request"
+        },
+        {
+          "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+          "sequence": 88,
+          "kind": "model.request"
+        },
+        {
+          "runId": "5b49375b-63c4-423e-8c0e-a31eab7eba40",
+          "sequence": 105,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 35,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "967bb43a-7e99-4ff9-86c0-160b66792eeb",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 4193,
+      "tokens": 4334,
+      "estimatedCostUsd": 0.0008328599999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5774,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "c3f2c8ba-99be-4401-9f38-fd2c6ce6e674",
+      "eventRefs": [
+        {
+          "runId": "967bb43a-7e99-4ff9-86c0-160b66792eeb",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "967bb43a-7e99-4ff9-86c0-160b66792eeb",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "967bb43a-7e99-4ff9-86c0-160b66792eeb",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "967bb43a-7e99-4ff9-86c0-160b66792eeb",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "967bb43a-7e99-4ff9-86c0-160b66792eeb",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 36,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "3dd1ed1c-2253-4017-be4e-9c1c1e6c0e04",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3747,
+      "tokens": 3935,
+      "estimatedCostUsd": 0.000727056,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5280,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "7177d89c-60c9-474b-ba87-abd8a75c863d",
+      "eventRefs": [
+        {
+          "runId": "3dd1ed1c-2253-4017-be4e-9c1c1e6c0e04",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "3dd1ed1c-2253-4017-be4e-9c1c1e6c0e04",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3dd1ed1c-2253-4017-be4e-9c1c1e6c0e04",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3dd1ed1c-2253-4017-be4e-9c1c1e6c0e04",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3dd1ed1c-2253-4017-be4e-9c1c1e6c0e04",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 37,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "c9f4ce18-35f7-48d6-92de-d47705b94c14",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3582,
+      "tokens": 4339,
+      "estimatedCostUsd": 0.0008388599999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5774,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "d0669dc1-8b8b-4abb-9d8e-73d3f561ba6a",
+      "eventRefs": [
+        {
+          "runId": "c9f4ce18-35f7-48d6-92de-d47705b94c14",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "c9f4ce18-35f7-48d6-92de-d47705b94c14",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c9f4ce18-35f7-48d6-92de-d47705b94c14",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c9f4ce18-35f7-48d6-92de-d47705b94c14",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c9f4ce18-35f7-48d6-92de-d47705b94c14",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 38,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "e80ffa3d-ab98-4b30-b38f-f82266f95373",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3261,
+      "tokens": 3658,
+      "estimatedCostUsd": 0.0007399199999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4813,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "638a689c-1e46-456c-9d18-e17db7fa020a",
+      "eventRefs": [
+        {
+          "runId": "e80ffa3d-ab98-4b30-b38f-f82266f95373",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "e80ffa3d-ab98-4b30-b38f-f82266f95373",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e80ffa3d-ab98-4b30-b38f-f82266f95373",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e80ffa3d-ab98-4b30-b38f-f82266f95373",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e80ffa3d-ab98-4b30-b38f-f82266f95373",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 39,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 1862,
+      "tokens": 1199,
+      "estimatedCostUsd": 0.0004506,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4393,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 40,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 990,
+      "tokens": 1256,
+      "estimatedCostUsd": 0.00046769999999999993,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4679,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 41,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "44cbe4d9-a8fe-417f-a4f0-bb7326a2f815",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3678,
+      "tokens": 3777,
+      "estimatedCostUsd": 0.0006895559999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5000,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "973c1b80-9cc4-45c3-ab0e-68e25a560e79",
+      "eventRefs": [
+        {
+          "runId": "44cbe4d9-a8fe-417f-a4f0-bb7326a2f815",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "44cbe4d9-a8fe-417f-a4f0-bb7326a2f815",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "44cbe4d9-a8fe-417f-a4f0-bb7326a2f815",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "44cbe4d9-a8fe-417f-a4f0-bb7326a2f815",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "44cbe4d9-a8fe-417f-a4f0-bb7326a2f815",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 42,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 8426,
+      "tokens": 12051,
+      "estimatedCostUsd": 0.00173886,
+      "usageUncertain": false,
+      "toolCalls": 6,
+      "modelRequests": 6,
+      "projectedRequests": 5,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 10671,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "bf57e543-310c-4b45-9ece-79c8b2127545",
+      "eventRefs": [
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 37,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 54,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 71,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 96,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 113,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a76b9640-b9d4-4d86-81a6-5601ab9ee4a2",
+          "sequence": 130,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 43,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 6656,
+      "tokens": 13377,
+      "estimatedCostUsd": 0.001607004,
+      "usageUncertain": false,
+      "toolCalls": 6,
+      "modelRequests": 6,
+      "projectedRequests": 5,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 11767,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "ebc83be3-3780-40e4-8f13-9f9910894f3f",
+      "eventRefs": [
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 45,
+          "kind": "model.request"
+        },
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 79,
+          "kind": "model.request"
+        },
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 96,
+          "kind": "model.request"
+        },
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 113,
+          "kind": "model.request"
+        },
+        {
+          "runId": "63c813ea-294a-423a-afc4-6b05d9f29708",
+          "sequence": 130,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 44,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "d2099b2d-5a28-43c1-ba37-19ac89174f3e",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3424,
+      "tokens": 3650,
+      "estimatedCostUsd": 0.00075282,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4723,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "e0a2dc59-0152-4aec-8ef7-9b11c746ac1f",
+      "eventRefs": [
+        {
+          "runId": "d2099b2d-5a28-43c1-ba37-19ac89174f3e",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "d2099b2d-5a28-43c1-ba37-19ac89174f3e",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "d2099b2d-5a28-43c1-ba37-19ac89174f3e",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "d2099b2d-5a28-43c1-ba37-19ac89174f3e",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "d2099b2d-5a28-43c1-ba37-19ac89174f3e",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 45,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "4abb3615-8009-4014-874d-5b296b263864",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 2535,
+      "tokens": 2617,
+      "estimatedCostUsd": 0.000587712,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 2,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4778,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "6e169c73-1b56-4534-abf7-b9458b927770",
+      "eventRefs": [
+        {
+          "runId": "4abb3615-8009-4014-874d-5b296b263864",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "4abb3615-8009-4014-874d-5b296b263864",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4abb3615-8009-4014-874d-5b296b263864",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4abb3615-8009-4014-874d-5b296b263864",
+          "sequence": 53,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 46,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "3572de7a-d8ae-40b6-80fa-3e4653258473",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3065,
+      "tokens": 3641,
+      "estimatedCostUsd": 0.00071952,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4817,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "73e58f6f-ab16-4d3f-970b-bc53cacccefd",
+      "eventRefs": [
+        {
+          "runId": "3572de7a-d8ae-40b6-80fa-3e4653258473",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "3572de7a-d8ae-40b6-80fa-3e4653258473",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3572de7a-d8ae-40b6-80fa-3e4653258473",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3572de7a-d8ae-40b6-80fa-3e4653258473",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3572de7a-d8ae-40b6-80fa-3e4653258473",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 47,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "d7df73f8-80c1-40f4-aaf6-0b0d461ab59c",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 3609,
+      "tokens": 4217,
+      "estimatedCostUsd": 0.000811092,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5460,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "e661f34e-fb76-4a0c-aede-fe3514bd0bd6",
+      "eventRefs": [
+        {
+          "runId": "d7df73f8-80c1-40f4-aaf6-0b0d461ab59c",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "d7df73f8-80c1-40f4-aaf6-0b0d461ab59c",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "d7df73f8-80c1-40f4-aaf6-0b0d461ab59c",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "d7df73f8-80c1-40f4-aaf6-0b0d461ab59c",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "d7df73f8-80c1-40f4-aaf6-0b0d461ab59c",
+          "sequence": 69,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 48,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "aa3ccc9c-52b2-455e-bd4c-774d95487b2d",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3757,
+      "tokens": 4342,
+      "estimatedCostUsd": 0.00084246,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5774,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "3d52181f-145a-4b7c-a026-af3ec3a0ae77",
+      "eventRefs": [
+        {
+          "runId": "aa3ccc9c-52b2-455e-bd4c-774d95487b2d",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "aa3ccc9c-52b2-455e-bd4c-774d95487b2d",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "aa3ccc9c-52b2-455e-bd4c-774d95487b2d",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "aa3ccc9c-52b2-455e-bd4c-774d95487b2d",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "aa3ccc9c-52b2-455e-bd4c-774d95487b2d",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 49,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "1fc7735a-f544-4618-b814-a02a6274ce91",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 4140,
+      "tokens": 6731,
+      "estimatedCostUsd": 0.001109712,
+      "usageUncertain": false,
+      "toolCalls": 3,
+      "modelRequests": 4,
+      "projectedRequests": 3,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 8080,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "576572fb-aea9-4e39-b167-ac4ce708238c",
+      "eventRefs": [
+        {
+          "runId": "1fc7735a-f544-4618-b814-a02a6274ce91",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "1fc7735a-f544-4618-b814-a02a6274ce91",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "1fc7735a-f544-4618-b814-a02a6274ce91",
+          "sequence": 37,
+          "kind": "model.request"
+        },
+        {
+          "runId": "1fc7735a-f544-4618-b814-a02a6274ce91",
+          "sequence": 54,
+          "kind": "model.request"
+        },
+        {
+          "runId": "1fc7735a-f544-4618-b814-a02a6274ce91",
+          "sequence": 71,
+          "kind": "model.request"
+        },
+        {
+          "runId": "1fc7735a-f544-4618-b814-a02a6274ce91",
+          "sequence": 88,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 50,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "9550b548-a7fe-4525-8572-ec56bca08cea",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3545,
+      "tokens": 3650,
+      "estimatedCostUsd": 0.00075282,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4723,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "033c04c6-9afb-4888-bc96-a935306adf75",
+      "eventRefs": [
+        {
+          "runId": "9550b548-a7fe-4525-8572-ec56bca08cea",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "9550b548-a7fe-4525-8572-ec56bca08cea",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "9550b548-a7fe-4525-8572-ec56bca08cea",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "9550b548-a7fe-4525-8572-ec56bca08cea",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "9550b548-a7fe-4525-8572-ec56bca08cea",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 51,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "b126abcf-b37a-43d1-b670-957d2205f041",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3626,
+      "tokens": 3985,
+      "estimatedCostUsd": 0.000776424,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5285,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "caa6e25d-9a8d-4391-a602-803947322c87",
+      "eventRefs": [
+        {
+          "runId": "b126abcf-b37a-43d1-b670-957d2205f041",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "b126abcf-b37a-43d1-b670-957d2205f041",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b126abcf-b37a-43d1-b670-957d2205f041",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b126abcf-b37a-43d1-b670-957d2205f041",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b126abcf-b37a-43d1-b670-957d2205f041",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 52,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "51c73aaf-61cc-4206-92ec-cb448cce0d51",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3272,
+      "tokens": 3774,
+      "estimatedCostUsd": 0.0006877559999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5003,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "ef758e30-5053-4b7d-a0d8-d4592d97e6ee",
+      "eventRefs": [
+        {
+          "runId": "51c73aaf-61cc-4206-92ec-cb448cce0d51",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "51c73aaf-61cc-4206-92ec-cb448cce0d51",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "51c73aaf-61cc-4206-92ec-cb448cce0d51",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "51c73aaf-61cc-4206-92ec-cb448cce0d51",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "51c73aaf-61cc-4206-92ec-cb448cce0d51",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 53,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "e0904a2f-30ab-4623-84dd-3d0bc94b23b8",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 4734,
+      "tokens": 5959,
+      "estimatedCostUsd": 0.00092964,
+      "usageUncertain": false,
+      "toolCalls": 3,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 6331,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "f08a0cdf-99a8-48e4-9905-e5423642d7c7",
+      "eventRefs": [
+        {
+          "runId": "e0904a2f-30ab-4623-84dd-3d0bc94b23b8",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "e0904a2f-30ab-4623-84dd-3d0bc94b23b8",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e0904a2f-30ab-4623-84dd-3d0bc94b23b8",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e0904a2f-30ab-4623-84dd-3d0bc94b23b8",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e0904a2f-30ab-4623-84dd-3d0bc94b23b8",
+          "sequence": 68,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e0904a2f-30ab-4623-84dd-3d0bc94b23b8",
+          "sequence": 89,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 54,
+      "retainedProbeBeforeFinal": true,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 4436,
+      "tokens": 10499,
+      "estimatedCostUsd": 0.002330568,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 5,
+      "projectedRequests": 0,
+      "nativeCompactions": 5,
+      "maxProjectedBytes": 19066,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "4642d824-78bc-44a2-b0b1-92bdcaa03390",
+      "eventRefs": [
+        {
+          "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+          "sequence": 102,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b6d390d5-1492-49aa-8b89-a23173109480",
+          "sequence": 122,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 55,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "500f4587-29c3-436d-98a0-f0dc08454698",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 2653,
+      "tokens": 2642,
+      "estimatedCostUsd": 0.000596112,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 2,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4778,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "f91e4674-ac4b-4bbb-9345-7539c437a97f",
+      "eventRefs": [
+        {
+          "runId": "500f4587-29c3-436d-98a0-f0dc08454698",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "500f4587-29c3-436d-98a0-f0dc08454698",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "500f4587-29c3-436d-98a0-f0dc08454698",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "500f4587-29c3-436d-98a0-f0dc08454698",
+          "sequence": 53,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 56,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 5386,
+      "tokens": 9276,
+      "estimatedCostUsd": 0.001289436,
+      "usageUncertain": false,
+      "toolCalls": 4,
+      "modelRequests": 5,
+      "projectedRequests": 4,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 9626,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "28bcaf10-cee3-4f12-870d-0f6b4c4e0f63",
+      "eventRefs": [
+        {
+          "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+          "sequence": 37,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+          "sequence": 54,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+          "sequence": 71,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+          "sequence": 88,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a04c7cb1-15af-43f7-b2e0-09029414f2ee",
+          "sequence": 105,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 57,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a34e41ba-141f-4535-ba6a-820e286375f5",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3576,
+      "tokens": 3824,
+      "estimatedCostUsd": 0.0007324559999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5005,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "67268db2-3b70-422d-8c76-f7051821f370",
+      "eventRefs": [
+        {
+          "runId": "a34e41ba-141f-4535-ba6a-820e286375f5",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a34e41ba-141f-4535-ba6a-820e286375f5",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a34e41ba-141f-4535-ba6a-820e286375f5",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a34e41ba-141f-4535-ba6a-820e286375f5",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a34e41ba-141f-4535-ba6a-820e286375f5",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 58,
+      "retainedProbeBeforeFinal": false,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 2,
+      "durationMs": 5066,
+      "tokens": 8236,
+      "estimatedCostUsd": 0.002049192,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 3,
+      "maxProjectedBytes": 18270,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 59,
+      "retainedProbeBeforeFinal": false,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 2,
+      "durationMs": 5760,
+      "tokens": 8202,
+      "estimatedCostUsd": 0.002023692,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 3,
+      "maxProjectedBytes": 18270,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 60,
+      "retainedProbeBeforeFinal": false,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 2,
+      "durationMs": 3964,
+      "tokens": 8301,
+      "estimatedCostUsd": 0.001798296,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 3,
+      "maxProjectedBytes": 18552,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "revision-semantics:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 61,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "0f453ceb-1abc-41f3-b7ee-1d559ee32cc9",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 2944,
+      "tokens": 4324,
+      "estimatedCostUsd": 0.0008208599999999999,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5774,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "065e43a4-9b1c-4098-897b-0920953a32da",
+      "eventRefs": [
+        {
+          "runId": "0f453ceb-1abc-41f3-b7ee-1d559ee32cc9",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "0f453ceb-1abc-41f3-b7ee-1d559ee32cc9",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0f453ceb-1abc-41f3-b7ee-1d559ee32cc9",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0f453ceb-1abc-41f3-b7ee-1d559ee32cc9",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0f453ceb-1abc-41f3-b7ee-1d559ee32cc9",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "long-evidence:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 62,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 6353,
+      "tokens": 10567,
+      "estimatedCostUsd": 0.0014770439999999998,
+      "usageUncertain": false,
+      "toolCalls": 5,
+      "modelRequests": 5,
+      "projectedRequests": 4,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 10846,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "7ea2d6b0-1f0f-4ba9-9bc0-d671bd6be646",
+      "eventRefs": [
+        {
+          "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+          "sequence": 45,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+          "sequence": 79,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+          "sequence": 96,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0e8374af-4e13-4ac1-9270-f1e584c6ec65",
+          "sequence": 113,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "arithmetic-repair:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 63,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "a5173b2f-c897-4bdf-8b02-6936a8784ea6",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 4,
+      "checksTotal": 4,
+      "durationMs": 3099,
+      "tokens": 3650,
+      "estimatedCostUsd": 0.00075282,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4723,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "cefc41b9-1bf5-4531-b3b3-98947c6bc325",
+      "eventRefs": [
+        {
+          "runId": "a5173b2f-c897-4bdf-8b02-6936a8784ea6",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a5173b2f-c897-4bdf-8b02-6936a8784ea6",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a5173b2f-c897-4bdf-8b02-6936a8784ea6",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a5173b2f-c897-4bdf-8b02-6936a8784ea6",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a5173b2f-c897-4bdf-8b02-6936a8784ea6",
+          "sequence": 73,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "multi-module-invoice:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 64,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 4,
+      "durationMs": 1090,
+      "tokens": 1199,
+      "estimatedCostUsd": 0.0004506,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 1,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4397,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 65,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "0a02218d-9628-4008-b059-8cb94eba0289",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 3422,
+      "tokens": 4412,
+      "estimatedCostUsd": 0.000866892,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5742,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "8460d6ac-3d92-4e28-a45a-50fea4763c88",
+      "eventRefs": [
+        {
+          "runId": "0a02218d-9628-4008-b059-8cb94eba0289",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "0a02218d-9628-4008-b059-8cb94eba0289",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0a02218d-9628-4008-b059-8cb94eba0289",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0a02218d-9628-4008-b059-8cb94eba0289",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "0a02218d-9628-4008-b059-8cb94eba0289",
+          "sequence": 69,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 66,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "3df4870d-b0dc-43b8-94de-299012710d66",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3475,
+      "tokens": 3985,
+      "estimatedCostUsd": 0.000776424,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5285,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "2630dcea-a036-4e77-bb70-0d54e6960ef8",
+      "eventRefs": [
+        {
+          "runId": "3df4870d-b0dc-43b8-94de-299012710d66",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "3df4870d-b0dc-43b8-94de-299012710d66",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3df4870d-b0dc-43b8-94de-299012710d66",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3df4870d-b0dc-43b8-94de-299012710d66",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3df4870d-b0dc-43b8-94de-299012710d66",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 67,
+      "retainedProbeBeforeFinal": true,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 5831,
+      "tokens": 12503,
+      "estimatedCostUsd": 0.0027673439999999997,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 6,
+      "projectedRequests": 0,
+      "nativeCompactions": 6,
+      "maxProjectedBytes": 19066,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "a54b4f48-d68f-440b-ba55-7635ff2221c1",
+      "eventRefs": [
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 102,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 121,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f842436d-5c38-4657-962f-a3187b81f16a",
+          "sequence": 141,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 68,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "bf41d791-9a34-47b1-b908-440b79e8a77c",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 2507,
+      "tokens": 2632,
+      "estimatedCostUsd": 0.0005931119999999999,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 2,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 4778,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "4e8c955c-4880-4146-9753-0d65d8a77004",
+      "eventRefs": [
+        {
+          "runId": "bf41d791-9a34-47b1-b908-440b79e8a77c",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "bf41d791-9a34-47b1-b908-440b79e8a77c",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "bf41d791-9a34-47b1-b908-440b79e8a77c",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "bf41d791-9a34-47b1-b908-440b79e8a77c",
+          "sequence": 53,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "order-aggregation:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 69,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "485de508-5d92-441d-bb41-9d894dbb00c0",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3920,
+      "tokens": 3945,
+      "estimatedCostUsd": 0.000739056,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5280,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "43ee9df1-0f63-4a11-bdd6-de0fe8b1ac14",
+      "eventRefs": [
+        {
+          "runId": "485de508-5d92-441d-bb41-9d894dbb00c0",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "485de508-5d92-441d-bb41-9d894dbb00c0",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "485de508-5d92-441d-bb41-9d894dbb00c0",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "485de508-5d92-441d-bb41-9d894dbb00c0",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "485de508-5d92-441d-bb41-9d894dbb00c0",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "native-retention:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 70,
+      "retainedProbeBeforeFinal": false,
+      "retention": true,
+      "nativeCompactionsBeforeFinal": 3,
+      "category": "general",
+      "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+      "status": "failed",
+      "success": false,
+      "score": 0,
+      "checksPassed": 0,
+      "checksTotal": 2,
+      "durationMs": 3657,
+      "tokens": 8047,
+      "estimatedCostUsd": 0.0018250920000000002,
+      "usageUncertain": false,
+      "toolCalls": 1,
+      "modelRequests": 4,
+      "projectedRequests": 0,
+      "nativeCompactions": 3,
+      "maxProjectedBytes": 18270,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "failure": "tool_execution",
+      "eventRefs": [
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ]
+    },
+    {
+      "key": "missing-information:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 71,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "general",
+      "runId": "c17d80cf-a15f-499c-8f76-1b3f72f3ec34",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 3,
+      "checksTotal": 3,
+      "durationMs": 3308,
+      "tokens": 3790,
+      "estimatedCostUsd": 0.000669156,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5094,
+      "retrieval": {
+        "selected": 0,
+        "relevant": 0,
+        "availableRelevant": 0,
+        "precision": null,
+        "recall": null
+      },
+      "verificationRef": "74b01c7f-1fc9-4bad-a186-db0b3656d3ae",
+      "eventRefs": [
+        {
+          "runId": "c17d80cf-a15f-499c-8f76-1b3f72f3ec34",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "c17d80cf-a15f-499c-8f76-1b3f72f3ec34",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c17d80cf-a15f-499c-8f76-1b3f72f3ec34",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c17d80cf-a15f-499c-8f76-1b3f72f3ec34",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c17d80cf-a15f-499c-8f76-1b3f72f3ec34",
+          "sequence": 71,
+          "kind": "verification.result"
+        }
+      ]
+    },
+    {
+      "key": "shipping-memory:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 72,
+      "retention": false,
+      "nativeCompactionsBeforeFinal": 0,
+      "category": "memory-dependent",
+      "runId": "551bfd09-8bf2-4bf2-80b3-f244afbcb4c1",
+      "status": "completed",
+      "success": true,
+      "score": 1,
+      "checksPassed": 2,
+      "checksTotal": 2,
+      "durationMs": 3262,
+      "tokens": 4390,
+      "estimatedCostUsd": 0.000862092,
+      "usageUncertain": false,
+      "toolCalls": 2,
+      "modelRequests": 3,
+      "projectedRequests": 0,
+      "nativeCompactions": 0,
+      "maxProjectedBytes": 5742,
+      "retrieval": {
+        "selected": 1,
+        "relevant": 1,
+        "availableRelevant": 1,
+        "precision": 1,
+        "recall": 1
+      },
+      "verificationRef": "63cd48d1-1e6d-4dc5-a581-5827d3f774ba",
+      "eventRefs": [
+        {
+          "runId": "551bfd09-8bf2-4bf2-80b3-f244afbcb4c1",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "551bfd09-8bf2-4bf2-80b3-f244afbcb4c1",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "551bfd09-8bf2-4bf2-80b3-f244afbcb4c1",
+          "sequence": 36,
+          "kind": "model.request"
+        },
+        {
+          "runId": "551bfd09-8bf2-4bf2-80b3-f244afbcb4c1",
+          "sequence": 52,
+          "kind": "model.request"
+        },
+        {
+          "runId": "551bfd09-8bf2-4bf2-80b3-f244afbcb4c1",
+          "sequence": 69,
+          "kind": "verification.result"
+        }
+      ]
+    }
+  ],
+  "experiences": [
+    {
+      "trialKey": "native-retention:1:combined:range-read.v1",
+      "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:2:combined:anchored-summary.v1",
+      "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "native-retention:3:combined:range-read.v1",
+      "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:3:combined:stable.v1",
+      "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:2:combined:stable.v1",
+      "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:1:combined:range-read.v1",
+      "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:3:combined:anchored-summary.v1",
+      "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:1:combined:stable.v1",
+      "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:3:combined:range-read.v1",
+      "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "native-retention:1:combined:stable.v1",
+      "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "native-retention:3:combined:stable.v1",
+      "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "native-retention:2:combined:range-read.v1",
+      "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "multi-module-invoice:1:combined:anchored-summary.v1",
+      "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+          "sequence": 30,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    },
+    {
+      "trialKey": "native-retention:2:combined:stable.v1",
+      "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+      "classification": "tool_execution",
+      "observedChecks": [],
+      "evidence": [
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 3,
+          "kind": "context.frozen"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 20,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 41,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 62,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 83,
+          "kind": "model.request"
+        },
+        {
+          "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+          "sequence": 93,
+          "kind": "run.stop_requested"
+        }
+      ],
+      "diagnosis": null,
+      "diagnosisStatus": "not_established",
+      "eligibleForAutomaticPolicy": false
+    }
+  ],
+  "cautions": [
+    "Small fixed-suite sample; Wilson intervals describe observed repeated trials, not broad model capability. Repeats are not fully independent.",
+    "Memory-dependent tasks intentionally require extra private information; report separately.",
+    "Prices are pinned SDK catalog estimates, not account charges; cache and time-of-day affect billing.",
+    "Request counts are host model dispatches, not guaranteed HTTP attempt counts.",
+    "No automatic retry of failed trials, no model self-grading, no rule promotion from unverified diagnoses.",
+    "Order is seeded and interleaved; API caching, server model updates and network variance are not fully controlled."
+  ]
+}

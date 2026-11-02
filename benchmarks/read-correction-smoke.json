@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "suite": "fixed-agent-tasks.v3-read-input-and-retention",
+  "model": {
+    "mode": "scripted"
+  },
+  "cases": [
+    "arithmetic-repair",
+    "order-aggregation",
+    "long-evidence",
+    "shipping-memory",
+    "multi-module-invoice",
+    "revision-semantics",
+    "missing-information",
+    "native-retention",
+    "directory-input-exercise",
+    "missing-read-fallback",
+    "retention-split-records",
+    "retention-long-quote",
+    "retention-over-limit"
+  ],
+  "arms": [
+    "combined"
+  ],
+  "repeats": 1,
+  "seed": 20261104,
+  "budget": {
+    "maxEstimatedCostUsd": 1,
+    "maxTokens": 1000000
+  },
+  "trialBudget": {
+    "maxDurationMs": 120000,
+    "maxToolCalls": 12,
+    "maxTokens": 32000,
+    "maxCostUsd": 0.03
+  },
+  "context": {
+    "maxInputTokens": 32000,
+    "outputReserveTokens": 1024,
+    "toolResultMaxChars": 1024,
+    "compactAtTokens": 12000,
+    "keepRecentTokens": 2048
+  },
+  "profiles": [
+    "stable.v1",
+    "file-contract.v1",
+    "read-correction.v1",
+    "anchored-correction.v1"
+  ]
+}

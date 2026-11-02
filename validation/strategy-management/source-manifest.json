@@ -1,0 +1,12 @@
+{
+  "src/strategy/store.ts": "549e7f5ed066cf9a8da9d561eb769dbc58f11f3144011e96d880989f1afde03b",
+  "src/strategy/cli.ts": "f95ef27342952a01059b6862645e77fbafdba6814263f9bca64e40d7405732c9",
+  "src/execution/engine.ts": "3744545e386769374b420be7031292711580dbb3bde68941b41cc0692f29e0a0",
+  "src/state/recovery.ts": "5ffa07150cac3d583518eec85c5232d91b6e87da19d7227125ffe879b727b1c9",
+  "src/cli.ts": "25a89813632151eaf7ad8535ec6a0b53c5e9318f7b60f1eb1843cb569cefb206",
+  "tests/strategy-management.test.ts": "028110e516be8ef33b997779843b598dbe3ee4a2b79cbf8b075bfb25c8333be8",
+  "tests/recovery.test.ts": "48b4f1bee80ca598aaa4c9ce3cb8e2fc3e3e5733b6d78bf71dfdb96e0ced0da4",
+  "package.json": "0fd714b032708639289ccf395f2b9f17ae8b98a2c66f55d3d5db8f9a01464d49",
+  "package-lock.json": "ab43026e162a5fc50b877cd5a929f312f3f6127541b5f2f4564042f79741f89c",
+  "docs/strategy-management.md": "24df0f166ed26d8e352140b6601e68cab8a01acb22b9296584b2019f21f0ca34"
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "directory-input-schema",
+  "category": "general",
+  "prompt": "This is a file-tool contract exercise. First attempt read on the current directory (.) to observe its contract. If that input is rejected or the tool contract prohibits it, read guide.txt instead. Write result.json as a JSON OBJECT with exactly one property named \"value\"; set its string value to the code found in guide.txt. Do not write a bare string or plain text. Do not list directories or modify guide.txt.",
+  "checks": [
+    "json-object-value",
+    "source-preserved",
+    "no-extra-files"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "."
+          }
+        }
+      ]
+    },
+    {
+      "calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "guide.txt"
+          }
+        }
+      ]
+    },
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "result.json",
+            "content": "{\"value\":\"TOPAZ-91\"}"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

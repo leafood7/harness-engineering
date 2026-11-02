@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-02",
+  "version": "0.8.0",
+  "kind": "functional milestone; no model evaluation",
+  "typecheck": "passed",
+  "regression": {
+    "tests": 137,
+    "passed": 137,
+    "failed": 0,
+    "durationMs": 199106.0468,
+    "sourceLog": ".artifacts/strategy-management-final-tests.txt"
+  },
+  "newFunctionalTests": 6,
+  "paidModelCalls": 0,
+  "actualDefaultChanged": false,
+  "gitOperations": false,
+  "initialRestrictedRun": "Windows symlink creation EPERM; original log retained in .artifacts/strategy-management-tests.txt; final full run passed with normal permissions",
+  "limitations": [
+    "No cross-application-version recovery",
+    "Rollback affects future tasks, not past workspace effects",
+    "Catalog-managed versions; no arbitrary profile import"
+  ]
+}

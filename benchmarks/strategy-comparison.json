@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "suite": "fixed-agent-tasks.v2",
+  "model": {
+    "mode": "live",
+    "provider": "deepseek",
+    "id": "deepseek-flash",
+    "apiKeyEnv": "DEEPSEEK_API_KEY",
+    "temperature": 0
+  },
+  "cases": [
+    "arithmetic-repair",
+    "order-aggregation",
+    "long-evidence",
+    "shipping-memory",
+    "multi-module-invoice",
+    "revision-semantics",
+    "missing-information",
+    "native-retention"
+  ],
+  "arms": [
+    "combined"
+  ],
+  "repeats": 3,
+  "seed": 20261103,
+  "budget": {
+    "maxEstimatedCostUsd": 1,
+    "maxTokens": 1000000
+  },
+  "trialBudget": {
+    "maxDurationMs": 120000,
+    "maxToolCalls": 12,
+    "maxTokens": 32000,
+    "maxCostUsd": 0.03
+  },
+  "context": {
+    "maxInputTokens": 32000,
+    "outputReserveTokens": 1024,
+    "toolResultMaxChars": 1024,
+    "compactAtTokens": 12000,
+    "keepRecentTokens": 2048
+  },
+  "profiles": [
+    "stable.v1",
+    "range-read.v1",
+    "anchored-summary.v1"
+  ]
+}

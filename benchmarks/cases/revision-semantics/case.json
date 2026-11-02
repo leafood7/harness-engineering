@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "revision-semantics",
+  "category": "general",
+  "prompt": "Read revisions.json. For each id, choose the record with greatest numeric revision (input order is irrelevant). If that latest record has deleted=true, omit the id. Keep valid values 0, false and empty string. Write active.json as objects containing exactly id and value, sorted ascending by id. Preserve revisions.json.",
+  "checks": [
+    "latest-revision",
+    "falsey-values",
+    "tombstone",
+    "source-preserved"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "active.json",
+            "content": "[{\"id\":\"a\",\"value\":0},{\"id\":\"b\",\"value\":false},{\"id\":\"d\",\"value\":\"\"}]"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "version": "0.7.0",
+  "capability": "bounded-read-input-correction-and-retention-replication",
+  "localOnly": true,
+  "gitCommitStagingOrPushPerformed": false,
+  "validatedAt": "2026-11-02T03:02:13.099Z",
+  "typecheck": "passed",
+  "tests": {
+    "total": 131,
+    "passed": 131,
+    "failed": 0,
+    "regression": 112,
+    "new": 19,
+    "command": "npm test",
+    "durationMs": 212171.8972
+  },
+  "main": {
+    "trials": 104,
+    "successes": 64,
+    "failures": 40,
+    "estimatedCostUsd": 0.13721378399999992,
+    "tokens": 662530,
+    "hostRequests": 374,
+    "correctionOffers": 9,
+    "successfulReadFollowups": 8,
+    "nativeCompactions": 151,
+    "ambiguousCase": "directory-input-exercise",
+    "rawScoresUnchanged": true,
+    "results": "benchmarks/experiments/read-correction-2026-11-02",
+    "profiles": {
+      "anchored-correction.v1": {
+        "successes": 22,
+        "n": 26,
+        "offers": 5,
+        "followups": 4
+      },
+      "read-correction.v1": {
+        "successes": 16,
+        "n": 26,
+        "offers": 4,
+        "followups": 4
+      },
+      "file-contract.v1": {
+        "successes": 14,
+        "n": 26,
+        "offers": 0,
+        "followups": 0
+      },
+      "stable.v1": {
+        "successes": 12,
+        "n": 26,
+        "offers": 0,
+        "followups": 0
+      }
+    },
+    "decisions": [
+      {
+        "id": "anchored-correction.v1",
+        "decision": "tradeoff_requires_review",
+        "estimatedCostRatio": 1.2608888227428934,
+        "automaticAdoption": false
+      },
+      {
+        "id": "read-correction.v1",
+        "decision": "review_candidate",
+        "estimatedCostRatio": 1.1684394145340522,
+        "automaticAdoption": false
+      },
+      {
+        "id": "file-contract.v1",
+        "decision": "review_candidate",
+        "estimatedCostRatio": 1.0966736040798,
+        "automaticAdoption": false
+      }
+    ]
+  },
+  "confirmation": {
+    "trials": 12,
+    "successes": 6,
+    "failures": 6,
+    "estimatedCostUsd": 0.008053032,
+    "tokens": 41668,
+    "hostRequests": 30,
+    "profiles": {
+      "anchored-correction.v1": {
+        "successes": 3,
+        "n": 3,
+        "offers": 3,
+        "followups": 3
+      },
+      "read-correction.v1": {
+        "successes": 3,
+        "n": 3,
+        "offers": 3,
+        "followups": 3
+      },
+      "stable.v1": {
+        "successes": 0,
+        "n": 3,
+        "offers": 0,
+        "followups": 0
+      },
+      "file-contract.v1": {
+        "successes": 0,
+        "n": 3,
+        "offers": 0,
+        "followups": 0
+      }
+    },
+    "case": "directory-input-schema",
+    "results": "benchmarks/experiments/directory-schema-2026-11-02",
+    "notPooledWithMain": true
+  },
+  "audit": {
+    "main": "passed",
+    "confirmation": "passed",
+    "checksReexecuted": 324,
+    "rawSourceRecipesSavedLocally": true
+  },
+  "defaultProfile": "stable.v1",
+  "limits": [
+    "Correction only for confirmed-no-effect read EISDIR/ENOENT/ENOTDIR, at most twice, no repeated invalid target",
+    "Failed operations and native isError=true remain preserved",
+    "No widening of writes, scope, permissions, timeout or unknown-outcome retries",
+    "Two independent batches; original ambiguity disclosed, no retroactive rescoring",
+    "Anchored candidate exceeds the frozen 25% cost increase gate",
+    "Quotes over 1200 bytes remain omitted; no claim of general semantic retention",
+    "SDK cost estimates are not actual billing"
+  ]
+}

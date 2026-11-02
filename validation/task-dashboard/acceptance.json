@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-02",
+  "version": "0.10.0",
+  "kind": "local functional dashboard; no model evaluation",
+  "typecheck": "passed",
+  "frontendSyntax": "passed",
+  "regression": {
+    "tests": 153,
+    "passed": 153,
+    "failed": 0,
+    "durationMs": 236976.2906
+  },
+  "finalDashboardChecks": {
+    "tests": 6,
+    "passed": 6,
+    "failed": 0,
+    "durationMs": 10506.7246
+  },
+  "newFunctionalTests": 6,
+  "browserChecks": [
+    "empty state",
+    "add real offline jobs",
+    "start scheduler",
+    "view independent verification results",
+    "stop dispatch",
+    "cancel queued task",
+    "submission error display",
+    "desktop layout",
+    "narrow viewport without page overflow"
+  ],
+  "browserFixture": {
+    "stateRoot": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\dashboard-preview",
+    "completed": 5,
+    "cancelled": 1,
+    "paidModelCalls": 0
+  },
+  "defaultPort": 4318,
+  "listen": "127.0.0.1",
+  "runtimeDependenciesAdded": false,
+  "gitOperations": false,
+  "published": false,
+  "limitations": [
+    "one selected queue state root",
+    "direct Runs and resume children are not automatically imported",
+    "CLI checkpoint recovery remains separate",
+    "bounded process log tail and recent event window",
+    "local single-user service, no remote login"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "src/dashboard/server.ts": "8394cfbbfdf9f0ba190e55b0d5fee7b182c79f0a9e947a300ecdf798c78da82d",
+  "apps/dashboard/index.html": "107e877ad56e2e22e0951d92338c90ade882d2f2026d56a3824fb5ea9bfd9bf0",
+  "apps/dashboard/styles.css": "1864e6e6c740af15512dfeae63f1fb3cde39900d04143ccade2afa898c6de54c",
+  "apps/dashboard/app.js": "d68ac894c29629ed92b8df8a5cf0ff488cd361d8e54d3d5c914311d420c3cf48",
+  "src/cli.ts": "3f6d53922f12bf34b413cc19f741774b67835d8920b2c9b8873679a6153815e8",
+  "src/execution/engine.ts": "262b71ec0af3cb5e7ce13530fbf53d4c8fceda323ab46c53d956ad764e5fc284",
+  "tests/dashboard.test.ts": "4758f92dfd6881df32cc76c43823cce2b35bf7068769f02ed86ece13dadc272f",
+  "tests/recovery.test.ts": "026131efda8f7926e616f4f41ae328169e51451b1f4136d157c70e2940506934",
+  "package.json": "fa4a929bd570132c30c76149533f977b786e25a0dcd372b6d80e7d740bc2c998",
+  "package-lock.json": "c4638f45dd9bbadbd5a21bd7705454760dbff8a583679ed810e46f0ffe25621e",
+  "docs/task-dashboard.md": "c2d038f96e626104793a865d70acaec13c92b751f5db3b0649173f10bc006b37"
+}

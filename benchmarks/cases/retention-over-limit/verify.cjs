@@ -1,0 +1,1 @@
+const fs=require('node:fs'),a=require('node:assert/strict');if(process.argv[2]==='exact-recall')a.deepEqual(JSON.parse(fs.readFileSync('recall.json','utf8')),{"token":"ASPEN-319-R","count":6,"zone":"west"});else{a.deepEqual(fs.readdirSync('.').sort(),['README.txt','recall.json']);a.equal(fs.readFileSync('README.txt','utf8'),"No observed facts are stored in this fixture.\n");}

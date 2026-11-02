@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "missing-information",
+  "category": "general",
+  "prompt": "Read README.txt. This workspace has no maintained region or rollout setting. Do not guess, probe nonexistent files, or create deploy.json. Write decision.json exactly as a structured missing-information result: status=\"blocked\", missing=[\"region\",\"rollout\"]. Preserve README.txt.",
+  "checks": [
+    "explicit-missing",
+    "no-guessed-deploy",
+    "source-preserved"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "decision.json",
+            "content": "{\"status\":\"blocked\",\"missing\":[\"region\",\"rollout\"]}"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

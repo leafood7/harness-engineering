@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "version": "0.6.0",
+  "capability": "candidate-strategy-comparison-and-staged-retention",
+  "localOnly": true,
+  "gitCommitOrPushPerformed": false,
+  "validatedAt": "2026-11-02T01:56:53.811Z",
+  "tests": {
+    "total": 112,
+    "passed": 112,
+    "failed": 0,
+    "regression": 99,
+    "new": 13,
+    "command": "npm test",
+    "durationMs": 182843.6502
+  },
+  "typecheck": "passed",
+  "live": {
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "tasks": 8,
+    "repeats": 3,
+    "profiles": 3,
+    "trials": 72,
+    "successes": 58,
+    "failures": 14,
+    "estimatedCostUsd": 0.07015858800000001,
+    "totalTokens": 363164,
+    "hostModelRequests": 231,
+    "nativeCompactions": 34,
+    "projectedRequests": 37,
+    "unconfirmedUsageTrials": 0,
+    "summary": {
+      "anchored-summary.v1": {
+        "successes": 21,
+        "n": 24,
+        "estimatedCostUsd": 0.023974188
+      },
+      "range-read.v1": {
+        "successes": 19,
+        "n": 24,
+        "estimatedCostUsd": 0.023626295999999998
+      },
+      "stable.v1": {
+        "successes": 18,
+        "n": 24,
+        "estimatedCostUsd": 0.022558104
+      }
+    },
+    "retention": {
+      "anchored-summary.v1": {
+        "trials": 3,
+        "exercised": 3,
+        "successes": 3,
+        "probeVisible": 3,
+        "taskSuccesses": 3,
+        "nativeCompactions": 16
+      },
+      "range-read.v1": {
+        "trials": 3,
+        "exercised": 3,
+        "successes": 0,
+        "probeVisible": 0,
+        "taskSuccesses": 0,
+        "nativeCompactions": 9
+      },
+      "stable.v1": {
+        "trials": 3,
+        "exercised": 3,
+        "successes": 0,
+        "probeVisible": 0,
+        "taskSuccesses": 0,
+        "nativeCompactions": 9
+      }
+    },
+    "comparisons": [
+      {
+        "candidate": "anchored-summary.v1",
+        "pairs": 24,
+        "wins": 3,
+        "losses": 0,
+        "decision": "review_candidate",
+        "automaticAdoption": false
+      },
+      {
+        "candidate": "range-read.v1",
+        "pairs": 24,
+        "wins": 1,
+        "losses": 0,
+        "decision": "review_candidate",
+        "automaticAdoption": false
+      }
+    ],
+    "artifact": "benchmarks/experiments/retention-and-reading-2026-11-02",
+    "suiteDigest": "c74d152cf111f0da2f4780900c0de245e21481c66cdf88aef771ee846b3b18bb",
+    "runtimeDigest": "5bc539ceab06502cce7d8f47c02bb23b7fb3cd6c9a32e9215964af7b0d4d6fc0"
+  },
+  "audit": {
+    "status": "passed",
+    "independentChecksReexecuted": 216,
+    "experienceRecords": 14,
+    "observedFailureCodes": {
+      "EISDIR": 14
+    }
+  },
+  "defaultProfile": "stable.v1",
+  "limitations": [
+    "Short synthetic observation retention; not general semantic summarization",
+    "Small fixed-suite sample, repeated tasks not independent",
+    "Read-range candidate has only one observed paired win",
+    "Estimate uses SDK catalog, not provider bill",
+    "No candidate adoption, no Git commit, staging or push",
+    "Older Run versions still cannot automatically migrate"
+  ]
+}

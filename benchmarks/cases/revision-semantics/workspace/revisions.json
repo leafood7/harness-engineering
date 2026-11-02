@@ -1,0 +1,42 @@
+[
+  {
+    "id": "a",
+    "revision": 1,
+    "value": 9
+  },
+  {
+    "id": "a",
+    "revision": 2,
+    "value": 0
+  },
+  {
+    "id": "b",
+    "revision": 1,
+    "value": true
+  },
+  {
+    "id": "b",
+    "revision": 2,
+    "value": false
+  },
+  {
+    "id": "c",
+    "revision": 1,
+    "value": "old"
+  },
+  {
+    "id": "c",
+    "revision": 2,
+    "deleted": true
+  },
+  {
+    "id": "d",
+    "revision": 1,
+    "value": ""
+  },
+  {
+    "id": "a",
+    "revision": 0,
+    "value": 100
+  }
+]

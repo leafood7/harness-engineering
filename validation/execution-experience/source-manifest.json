@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-02",
+  "files": [
+    {
+      "path": "src/experience/store.ts",
+      "sha256": "521605abf8c17d433fd06908413a85c8810038fcb7a06ae987f633604287b71e"
+    },
+    {
+      "path": "src/experience/guidance.ts",
+      "sha256": "8ca0467195209097d803ab17e57308a1eef8faa0f8ab29e5dfd2b229a479ac90"
+    },
+    {
+      "path": "src/experience/cli.ts",
+      "sha256": "640d7e02d70895305ef5f5c21e660c6f422ce64b1f804e1fc7e796bc1b3729ff"
+    },
+    {
+      "path": "src/dashboard/server.ts",
+      "sha256": "8152accc9fcf3ae307f2272ae52c42d6dda3b2615939b8849b9bd0b2c0846fa8"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "905068d881ad5eaba63ded91d9913a6a4cb9f9f416be145f60628fca3146c625"
+    },
+    {
+      "path": "apps/dashboard/experience.js",
+      "sha256": "e220533e79ac66dfa88ff7f4d482a52766656f5bffa7332ba38addc149b52828"
+    },
+    {
+      "path": "apps/dashboard/management.js",
+      "sha256": "6394f76a75f3c918ce4750619c03b6a419f8545ddc98da3654ee5664028a4990"
+    },
+    {
+      "path": "apps/dashboard/index.html",
+      "sha256": "b36f4f4046e911b1dcbc8a0979c9e67046cbd3aadbb75702bdf789be1ab8337d"
+    },
+    {
+      "path": "apps/dashboard/styles.css",
+      "sha256": "fdec67cc3689ca781cd3c4d15fa7be36920fd0917020b24771107d7f429aa555"
+    },
+    {
+      "path": "tests/experience.test.ts",
+      "sha256": "49dfddae8ccbb1949326b88ff7711579ae50e347602fbd8527eea4e3d48cbe1d"
+    },
+    {
+      "path": "docs/execution-experience.md",
+      "sha256": "8c00d41913a5a77a9863016df9bd9b7549d3b195b61159050bc070a0a47eac98"
+    },
+    {
+      "path": "docs/local-reuse.json",
+      "sha256": "fb9a0615b1d8c886642b7c3f94d71f917de1266459fbde6ef89d04e65efd7597"
+    },
+    {
+      "path": "README.md",
+      "sha256": "42954a558ae9c457feb2589b3741b3741556d89303aefda3fd8f9f51e7f6296e"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "9d83db5fc5a0c06327ad82cd7a8736f16d421a2615762a83de06d602d3ec5384"
+    }
+  ]
+}

@@ -1,5 +1,7 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import {WorkspaceLeases} from '../state/workspace-leases.ts';
+import {captureTexts,captureVerification,writeBound} from '../state/artifacts.ts';
+import { mkdirSync, writeFileSync,realpathSync,readFileSync } from 'node:fs';
+import { join, resolve,dirname } from 'node:path';
 import { SessionManager, type AgentSessionEvent, type ToolCallEvent } from '@earendil-works/pi-coding-agent';
 import { randomUUID } from 'node:crypto';
 import type { Run, ToolFailure, Operation } from '../../contracts/index.ts';
@@ -7,21 +9,35 @@ import { loadTask, prepareTask } from '../task.ts';
 import { RunStore, sdkIdentity } from '../state/store.ts';
 import { saveCheckpoint } from '../state/checkpoint.ts';
 import { resolveRecovery } from '../state/recovery.ts';
+import { StrategyStore } from '../strategy/store.ts';
+import { strategyDigest,type StrategyProfile } from '../strategy/catalog.ts';
 import { freezeContext } from '../context/manager.ts';
 import { PiAdapter } from '../runtime/pi-adapter.ts';
 import { verify } from '../verification/verifier.ts';
 import { TOOL_METADATA, toolMetadata, effectivePolicy } from './tool-policy.ts';
 import { ApprovalGate, type ToolContext } from '../governance/approval.ts';
+import {ReadCorrectionGate,correctableReadFailure,type CorrectionResult} from './read-correction.ts';
 import { ToolGovernor } from './tool-governor.ts';
 import { ToolExecutionError } from './tool-errors.ts';
-import { now, digest, canonical, HarnessError, errorText, sanitize, terminal, workspacePath } from '../util.ts';
+import { now, digest, snapshot, canonical, HarnessError, errorText, sanitize, terminal, workspacePath } from '../util.ts';
 
-export async function executeTask(file: string, stateRoot: string, id: string, ready: (run: Run) => void, restoreFrom?:string): Promise<Run> {
+export async function executeTask(file:string,stateRoot:string,id:string,ready:(run:Run)=>void,restoreFrom?:string):Promise<Run>{
+ const preflight=new RunStore(stateRoot);let workspace:string;
+ try{workspace=restoreFrom?resolveRecovery(preflight,restoreFrom).workspace:realpathSync(resolve(dirname(file),loadTask(file).workspace));}finally{preflight.close();}
+ const lease=new WorkspaceLeases(stateRoot);let acquired=false;
+ try{lease.acquire(id,workspace);acquired=true;return await executeLockedTask(file,stateRoot,id,ready,restoreFrom);}finally{if(acquired)lease.release(id);lease.close();}
+}
+async function executeLockedTask(file: string, stateRoot: string, id: string, ready: (run: Run) => void, restoreFrom?:string): Promise<Run> {
   const preflight = new RunStore(stateRoot);
   let restoration:ReturnType<typeof resolveRecovery>|undefined;
   try{if(restoreFrom)restoration=resolveRecovery(preflight,restoreFrom);}finally{preflight.close();}
   const input = restoration?.input ?? loadTask(file);
   const policy = effectivePolicy(input.policy);
+  const strategies=new StrategyStore(stateRoot);
+  let profile:StrategyProfile;
+  try{profile=restoration?.profile??strategies.resolve(input.strategy);}finally{strategies.close();}
+  const prompts=[input.input,...(input.followups??[])];
+  let activePrompt=restoration?.checkpoint.nextPromptIndex??0;
   const secrets = input.model.mode === 'live' && process.env[input.model.apiKeyEnv] ? [process.env[input.model.apiKeyEnv]!] : [];
   const store = new RunStore(stateRoot, secrets);
   const runDir = join(store.root, 'runs', id);
@@ -29,10 +45,12 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
   const model = input.model.mode === 'scripted' ? { mode: 'scripted' as const, provider: 'harness-scripted', id: 'scripted-1' }
     : { mode: 'live' as const, provider: input.model.provider, id: input.model.id };
   const run: Run = { schemaVersion: 1, runId: id, taskId: input.taskId, status: 'created',
-    pi: sdkIdentity(), harnessVersion: '0.5.0', model: { ...model, parametersDigest: digest(JSON.stringify(input.model)) },
+    pi: sdkIdentity(), harnessVersion: '0.13.0', model: { ...model, parametersDigest: digest(JSON.stringify(input.model)) },
     policy: { version: policy.version, digest: digest(canonical({ tools: input.tools, catalog: TOOL_METADATA, policy, budget: input.budget, scope: input.workspace })) },
-    strategy: { version: 'execution.v2', digest: digest('single-session;bounded-safe-tool-retry;durable-checkpoints;conservative-resume;independent-verification') }, budget: input.budget,
+    strategy: { version: profile.id, digest: strategyDigest(profile) }, budget: input.budget,
     usage: restoration?structuredClone(restoration.source.usage):{ toolCalls: 0, tokens: null, costUsd: null }, createdAt: now(), workerPid: process.pid, eventSequence: 0, runDir,
+    readCorrectionsUsed:restoration?.source.readCorrectionsUsed??0,readCorrectionTargets:restoration?.source.readCorrectionTargets??[],readCorrectionPending:restoration?.source.readCorrectionPending??[],
+    nextPromptIndex:restoration?.checkpoint.nextPromptIndex??0,promptInProgress:restoration?.checkpoint.promptInProgress??false,
     activeMs:restoration?.source.activeMs??0,modelCursor:restoration?.checkpoint.modelCursor??0,modelInFlight:false,modelUsageUncertain:false,verifierInFlight:false,
     ...(restoration?{resumedFromRunId:restoration.source.runId,recovery:{sourceCheckpointId:restoration.checkpoint.checkpointId,sourceSessionId:restoration.checkpoint.sourceSessionId,
       mode:restoration.mode,inheritedUsage:structuredClone(restoration.source.usage),inheritedActiveMs:restoration.source.activeMs??0}}:{}) };
@@ -46,6 +64,7 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
   const deadline = localStarted + input.budget.maxDurationMs-inheritedActiveMs;
   let reason: { category: string; message: string } | undefined;
   let settled = false;
+  let correctionGate:ReadCorrectionGate|undefined;
   let finalToolFailure: ToolFailure | undefined;
   let possibleEffects = false;
   let confirmedEffects = false;
@@ -146,6 +165,13 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
     if(input.budget.maxCostUsd!==undefined && (current.usage.costUsd??0)+request.estimatedMaxCostUsd>input.budget.maxCostUsd)throw new HarnessError('cost_budget_exceeded','Estimated next request exceeds remaining cost budget');
     store.mutate(id,run=>{run.modelInFlight=true;run.activeMs=activeMs(true);},'model.request',{...request,costBasis:'pinned-sdk-catalog-estimate',method:'utf8-bytes-pessimistic-heuristic'});
   }
+  function correctRead(toolCallId:string,args:Record<string,unknown>,error:unknown,signal:AbortSignal):CorrectionResult|undefined{
+    control();if(controller.signal.aborted||signal.aborted||!correctionGate||!correctableReadFailure(error)||(profile.maxReadCorrections??0)===0)return undefined;
+    const operation=store.operations(id).filter(op=>op.toolCallId===toolCallId&&op.toolName==='read').at(-1);
+    if(!operation||operation.status!=='failed'||operation.failure?.outcome!=='no_effect')return undefined;
+    if((profile.maxReadCorrections??0)>0&&store.get(id).usage.toolCalls>=input.budget.maxToolCalls)throw new HarnessError('tool_budget_exceeded','No remaining tool budget for input correction');
+    return correctionGate.offer(toolCallId,args,error,signal);
+  }
   const governor = new ToolGovernor(policy, { authorize, record: recordAttempt });
   function event(event: AgentSessionEvent): void {
     if (event.type === 'message_update') return; // Completed messages are authoritative; avoid token-by-token duplication.
@@ -170,30 +196,40 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
       }
     }
     if (event.type === 'tool_execution_end') {
-      if (event.isError && !reason) stop('tool_failed', 'A tool returned an error; inspect its recorded result');
+      const handled=event.isError&&event.toolName==='read'&&correctionGate?.consumeError(event.toolCallId)===true;
+      if(!event.isError&&event.toolName==='read')correctionGate?.successfulRead(event.toolCallId);
+      if (event.isError && !handled && !reason) stop('tool_failed', 'A tool returned an error; inspect its recorded result');
       if (!event.isError && toolMetadata(event.toolName)?.sideEffects) confirmedEffects = true;
     }
     if(event.type==='turn_end'&&!reason&&prepared){
       const messages=adapter.session?.sessionManager.buildSessionContext().messages??[];
       const assistant=messages.filter((message)=>message.role==='assistant').at(-1);
-      const canVerify=assistant?.role==='assistant'&&assistant.stopReason==='stop'&&!assistant.content.some((block)=>block.type==='toolCall');
+      const canVerify=prompts.length===1&&assistant?.role==='assistant'&&assistant.stopReason==='stop'&&!assistant.content.some((block)=>block.type==='toolCall');
       saveCheckpoint(store,id,prepared.workspace,'turn_end',adapter.session,canVerify);
     }
     if (event.type === 'agent_settled') {
       settled = true;
-      if(!reason&&!event.aborted&&prepared)saveCheckpoint(store,id,prepared.workspace,'agent_settled',adapter.session,true);
+      if(!reason&&!event.aborted&&prepared){
+        store.mutate(id,current=>{current.nextPromptIndex=activePrompt+1;current.promptInProgress=false;},'prompt.completed',{index:activePrompt,total:prompts.length});
+        saveCheckpoint(store,id,prepared.workspace,'agent_settled',adapter.session,activePrompt+1>=prompts.length);
+      }
     }
   }
   const signalStop = (): void => { try { store.requestCancel(id); control(); } catch (error) { fault(error); } };
   process.on('SIGINT', signalStop); process.on('SIGTERM', signalStop);
   try {
     store.transition(id, 'initializing');
+    writeFileSync(join(runDir,'strategy.json'),JSON.stringify(profile,null,2));
     writeFileSync(join(runDir, 'policy.json'), JSON.stringify({ ...run.policy, configuration: { tools: input.tools, catalog: TOOL_METADATA, policy, budget: input.budget, scope: input.workspace } }, null, 2));
     prepared = prepareTask(input, resolve(file), runDir, store.root,restoration?{workspace:restoration.workspace,verifierScripts:restoration.verifierScripts}:undefined);
+    correctionGate=new ReadCorrectionGate(prepared.workspace,profile.maxReadCorrections??0,{used:run.readCorrectionsUsed??0,targets:run.readCorrectionTargets??[],pending:run.readCorrectionPending??[]},(next,kind,payload)=>{
+      store.mutate(id,current=>{current.readCorrectionsUsed=next.used;current.readCorrectionTargets=next.targets;current.readCorrectionPending=next.pending;},kind,payload);
+    });
     if(restoration&&prepared.task.workspace.initialSnapshot!==restoration.checkpoint.workspaceDigest)throw new HarnessError('workspace_changed','Workspace changed during recovery startup');
     const context = freezeContext(input,prepared.workspace,store.root,runDir,restoration?.context);
     store.mutate(id,current=>{current.contextDigest=context.digest;},'context.frozen',{digest:context.digest,memoryRefs:context.memories.map(row=>({id:row.id,revision:row.revision,digest:row.digest})),inherited:!!restoration?.context});
     store.mutate(id, (run) => { run.task = prepared!.task; }, 'task.prepared', { task: prepared.task, effectivePolicy: policy });
+    const initial=snapshot(prepared.workspace);if(initial.digest!==prepared.task.workspace.initialSnapshot)throw new HarnessError('workspace_changed','准备任务期间目录已改变');emit('artifacts.before',{fileDigest:writeBound(join(runDir,'before-text.json'),{files:captureTexts(prepared.workspace,initial.files)})});
     store.mutate(id,(current)=>{current.activeMs=activeMs(true);},'budget.reserved',{inheritedActiveMs});
     const bootstrap=restoration?.checkpoint.sessionSnapshot?SessionManager.open(restoration.checkpoint.sessionSnapshot):undefined;
     saveCheckpoint(store,id,prepared.workspace,'ready',bootstrap?{sessionManager:bootstrap,sessionId:bootstrap.getSessionId()}:undefined,restoration?.mode==='verify_only');
@@ -206,7 +242,7 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
     }, 100);
     control();
     if (!reason) {
-      await adapter.initialize(prepared, runDir, { event, beforeTool: guard, fault, record:emit, beforeRequest }, governor, controller.signal,restoration?{modelCursor:restoration.checkpoint.modelCursor,sessionSnapshot:restoration.checkpoint.sessionSnapshot}:undefined);
+      await adapter.initialize(prepared, runDir, { event, beforeTool: guard, fault, record:emit, beforeRequest, correctRead }, governor, controller.signal,restoration?{modelCursor:restoration.checkpoint.modelCursor,sessionSnapshot:restoration.checkpoint.sessionSnapshot}:undefined);
       store.mutate(id, (run) => {
         run.sessionId = adapter.session!.sessionId;
         run.sessionFile = adapter.session!.sessionManager.getSessionFile();
@@ -216,10 +252,14 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
         store.transition(id, 'running', { startedAt: now() });
         saveCheckpoint(store,id,prepared.workspace,'ready',adapter.session,restoration?.mode==='verify_only');
         if(restoration?.mode==='verify_only')settled=true;
-        else await adapter.prompt(restoration&&restoration.checkpoint.sessionSnapshot
-          ? `Continue the original task from the restored checkpoint. Completed tool results are already in the session; do not repeat completed modifications. Original task: ${input.input}`:input.input);
+        else for(let index=store.get(id).nextPromptIndex??0;index<prompts.length&&!reason;index++){
+          activePrompt=index;settled=false;
+          const continuing=!!restoration&&index===(restoration.checkpoint.nextPromptIndex??0)&&!!restoration.checkpoint.sessionSnapshot&&(restoration.checkpoint.promptInProgress??restoration.checkpoint.phase==='turn_end');
+          store.mutate(id,current=>{current.promptInProgress=true;},'prompt.started',{index,total:prompts.length,promptDigest:digest(prompts[index])});
+          await adapter.prompt(continuing?`Continue the current task from the restored checkpoint. Completed tool results are already in the session; do not repeat completed modifications. Current task: ${prompts[index]}`:prompts[index]);
+          control();if(!settled&&!reason)throw new HarnessError('not_settled','Pi did not emit agent_settled');
+        }
         control();
-        if (!settled && !reason) throw new HarnessError('not_settled', 'Pi did not emit agent_settled');
       }
     }
     if (!reason) {
@@ -229,6 +269,7 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
       if (input.verification.checks.some((check) => check.kind === 'node')) possibleEffects = true;
       const verification = await verify(prepared, id, runDir, deadline, controller.signal, (kind, data) => emit(kind, data, 'verifier'), secrets);
       store.mutate(id, (current) => {current.verifierInFlight=verification.executionUncertain===true;current.activeMs=activeMs(true);}, 'verification.result', { verification }, 'verifier', verification);
+      emit('verification.evidence',{fileDigest:writeBound(join(runDir,'verification-evidence.json'),{checks:captureVerification(runDir,verification.checks,input.verification)})});
       control();
       store.flushTrace(id);
       if (!reason && verification.status !== 'passed') stop('verification_failed', `Independent verification ${verification.status}`);
@@ -252,6 +293,7 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
       store.mutate(id, (run) => { run.exportErrors = [...(run.exportErrors ?? []), message]; },
         'export.failed', { artifact: kind, error: message, authoritativeStore: 'SQLite' });
     };
+    if(prepared){try{const finalManifest=snapshot(prepared.workspace);const previousFiles=new Map((JSON.parse(readFileSync(join(runDir,'initial-workspace.json'),'utf8')).files as Array<{path:string;sha256:string}>).map(f=>[f.path,f.sha256]));const priority=[...finalManifest.files].sort((a,b)=>Number(previousFiles.get(b.path)!==b.sha256)-Number(previousFiles.get(a.path)!==a.sha256));const observed={...finalManifest,texts:captureTexts(prepared.workspace,priority),observedAt:now()};const bytes=JSON.stringify(observed);writeFileSync(join(runDir,'workspace-result.json'),bytes);emit('workspace.observed',{fileDigest:digest(bytes),observedAt:observed.observedAt});}catch(error){exportFailure('workspace-result.json',error);}}
     try { store.flushTrace(id); } catch (error) { exportFailure('events.jsonl', error); }
     try { store.saveReport(id); } catch (error) { exportFailure('report.json', error); }
     if (store.get(id).exportErrors?.length) {

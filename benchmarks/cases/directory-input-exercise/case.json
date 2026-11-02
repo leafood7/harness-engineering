@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "directory-input-exercise",
+  "category": "general",
+  "prompt": "This is a file-tool contract exercise. First attempt read on the current directory (.) to observe its contract. If that input is rejected or the tool contract prohibits it, read the named file guide.txt instead. Write result.json with exactly value copied from guide.txt. Do not list directories or modify guide.txt.",
+  "checks": [
+    "value",
+    "source-preserved",
+    "no-extra-files"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "."
+          }
+        }
+      ]
+    },
+    {
+      "calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "guide.txt"
+          }
+        }
+      ]
+    },
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "result.json",
+            "content": "{\"value\":\"SILVER-62\"}"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

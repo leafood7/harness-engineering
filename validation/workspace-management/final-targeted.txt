@@ -1,0 +1,31 @@
+Queued task or verifier snapshot changed
+✔ batch validation is atomic and task/verifier input is frozen (74.3864ms)
+✔ claim enforces global concurrency and overlapping workspace exclusion (157.2568ms)
+✔ uncertain startup is interrupted on restart and never requeued (144.9181ms)
+✔ queued cancellation prevents execution even after dispatch was claimed (142.3401ms)
+✔ tampered submitted snapshot fails before any Run or tool starts (162.9838ms)
+✔ draining scheduler executes real independent tasks and exports verified results (2765.0121ms)
+✔ background scheduler stops dispatch, survives restart and cooperatively cancels running tasks (6653.8053ms)
+✔ dead running worker becomes interrupted and is never automatically replayed (1619.6576ms)
+✔ queued node verifier is copied and included in snapshot integrity (91.3271ms)
+✔ restarting after scheduler crash adopts a live worker without duplicate execution (7249.0964ms)
+✔ unified records include direct executions and deduplicate the queue Run (3229.4912ms)
+✔ page recovery creates one child, inherits strategy/budget and preserves original status (4739.3985ms)
+✔ workspace drift is explained and a stale recovery check cannot bypass revalidation (812.0953ms)
+✔ tampered file observations are not shown as historical task outputs (1388.1197ms)
+✔ saved text preview and verification details remain historical after workspace changes (881.9983ms)
+✔ repeated and concurrent submit requests atomically create only one queue item (297.9868ms)
+✔ queue ordering and compare-and-swap editing cannot modify a dispatched task (455.63ms)
+✔ one workspace lease blocks queue dispatch and direct or recovery execution entry (411.4587ms)
+✔ copy provenance, target search, date filters and reversible archive preserve original data (590.1461ms)
+✔ template rename and versioning preserve original configuration snapshots (378.5283ms)
+✔ defaults report credentials by presence and stale strategy revision cannot silently change budget (609.1716ms)
+✔ draft persistence and maintenance do not delete task inputs or evidence (590.9821ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 39019.2241

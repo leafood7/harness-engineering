@@ -1,0 +1,45 @@
+{
+  "date": "2026-11-02",
+  "version": "0.11.0",
+  "kind": "functional delivery, no model evaluation",
+  "typecheck": "passed",
+  "regression": {
+    "tests": 157,
+    "passed": 157,
+    "failed": 0,
+    "durationMs": 241228.4419
+  },
+  "finalTargetedChecks": {
+    "tests": 4,
+    "passed": 4,
+    "failed": 0,
+    "durationMs": 9842.3599
+  },
+  "newFunctionalChecks": 4,
+  "browserChecks": [
+    "unified direct execution record",
+    "recovery eligibility and remaining budgets",
+    "launch actual offline recovery",
+    "child independently verified completed",
+    "parent preserves cancelled state",
+    "linked record navigation",
+    "per-run saved file changes"
+  ],
+  "browserExample": {
+    "parentRunId": "21243c57-5dc3-4245-9e84-5765a1fdf8b4",
+    "childRunId": "bc88af36-de58-421d-846c-6ef3ce0d80c8",
+    "originalFile": "first.txt",
+    "resumedFile": "answer.txt",
+    "stateRoot": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\recovery-ui-preview\\run-wQpna4\\state"
+  },
+  "paidModelCalls": 0,
+  "gitOperations": false,
+  "dependenciesAdded": false,
+  "limitations": [
+    "one selected state directory",
+    "cross-application-version recovery remains blocked",
+    "recovery uses direct execution outside queue slots",
+    "observed directory changes are not verification or causal proof",
+    "historical checkpoint fallback is explicitly labeled"
+  ]
+}

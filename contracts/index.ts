@@ -9,6 +9,8 @@ export interface Task {
 }
 export type RunStatus = 'created' | 'initializing' | 'running' | 'waiting_approval' | 'cancelling' | 'verifying' | 'completed' | 'failed' | 'interrupted' | 'cancelled';
 export interface Run {
+  readCorrectionsUsed?:number;readCorrectionTargets?:string[];readCorrectionPending?:string[];
+  nextPromptIndex?:number; promptInProgress?:boolean;
   contextDigest?: string;
   schemaVersion: 1; runId: string; taskId: string; status: RunStatus;
   sessionId?: string; sessionFile?: string;
@@ -78,6 +80,6 @@ export interface Checkpoint {
   files: Array<{path:string;sha256:string;bytes:number}>;
   sessionSnapshot?: string; sessionDigest?: string; sourceSessionId?: string;
   taskSnapshotDigest: string; policyFileDigest: string;
-  contextFileDigest?: string;
+  contextFileDigest?: string; strategyFileDigest?:string; nextPromptIndex?:number; promptInProgress?:boolean;
   modelCursor: number; usage: Run['usage']; activeMs: number;
 }

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "id": "missing-read-fallback",
+  "category": "general",
+  "prompt": "Try cache.json first for the current revision. If cache.json cannot be read, use source.json as the explicit fallback. Write selected.json containing exactly revision and label from the chosen source. Do not invent values or create a cache. Preserve source.json.",
+  "checks": [
+    "selection",
+    "source-preserved",
+    "no-fabricated-cache"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "cache.json"
+          }
+        }
+      ]
+    },
+    {
+      "calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "source.json"
+          }
+        }
+      ]
+    },
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "selected.json",
+            "content": "{\"revision\":42,\"label\":\"current\"}"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

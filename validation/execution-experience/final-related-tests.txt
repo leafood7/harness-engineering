@@ -1,0 +1,14 @@
+✔ ordinary task evidence is bounded, persistent, scoped and does not require a benchmark (957.0064ms)
+✔ all proposals validate before saving; workflow observation and invented evidence are rejected (804.4758ms)
+✔ review and rejection keep revision history and never activate a strategy or write memory (723.3979ms)
+✔ modified original evidence and packet bytes cannot be reused for proposals (759.8866ms)
+✔ active tasks cannot be reviewed; feedback secrets are redacted before persistence (567.3746ms)
+✔ dashboard routes and CLI expose feedback, collect, import and history with existing origin protection (888.9667ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 6178.0471

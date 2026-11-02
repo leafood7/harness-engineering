@@ -5,6 +5,7 @@ import type { EffectivePolicy, ManagedToolName } from './tool-policy.ts';
 import { toolMetadata } from './tool-policy.ts';
 import type { ToolContext } from '../governance/approval.ts';
 import { ToolExecutionError, classifyToolError } from './tool-errors.ts';
+import type {CorrectionResult} from './read-correction.ts';
 import { HarnessError } from '../util.ts';
 
 export interface GovernorHooks {
@@ -76,13 +77,16 @@ export class ToolGovernor {
   }
 }
 export function governedTool<TParams extends TSchema, TDetails>(definition: ToolDefinition<TParams, TDetails>, governor: ToolGovernor,
-  runSignal: AbortSignal, fault: (error: unknown) => void): ToolDefinition<TParams, TDetails> {
+  runSignal: AbortSignal, fault: (error: unknown) => void, correction?:(id:string,args:Record<string,unknown>,error:unknown,signal:AbortSignal)=>CorrectionResult|undefined): ToolDefinition<TParams, TDetails> {
   return { ...definition, executionMode: 'sequential', execute: async (id, params, signal, onUpdate, ctx) => {
     const frozenParams = structuredClone(params);
     const combined = signal ? AbortSignal.any([signal, runSignal]) : runSignal;
     try {
       return await governor.run(definition.name, id, frozenParams as Record<string, unknown>, combined,
         (attemptSignal) => definition.execute(id, frozenParams, attemptSignal, onUpdate, ctx));
-    } catch (error) { fault(error); throw error; }
+    } catch (error) {
+      try{const result=correction?.(id,frozenParams as Record<string,unknown>,error,combined);if(result)return result as unknown as Awaited<ReturnType<typeof definition.execute>>;}catch(correctionError){fault(correctionError);throw correctionError;}
+      fault(error);throw error;
+    }
   } };
 }

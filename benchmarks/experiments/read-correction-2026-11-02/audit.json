@@ -1,0 +1,178 @@
+{
+  "auditedAt": "2026-11-02T02:49:16.868Z",
+  "status": "passed",
+  "batchTrials": 104,
+  "independentChecksReexecuted": 288,
+  "verifiedSuccessfulRuns": 64,
+  "preservedFailedRuns": 40,
+  "selectedMemoryScopeChecks": 8,
+  "experienceRecords": 40,
+  "profiles": {
+    "anchored-correction.v1": {
+      "readCorrectionOffers": 5,
+      "readCorrectionFollowups": 4,
+      "readInputErrors": 5,
+      "n": 26,
+      "successes": 22,
+      "successRate": 0.8461538461538461,
+      "wilson95": [
+        0.6646880067178652,
+        0.9384996627642165
+      ],
+      "meanScore": 0.8974358974358974,
+      "meanDurationMs": 5081.346153846154,
+      "p50DurationMs": 4715,
+      "p95DurationMs": 7558,
+      "meanTokens": 7308.923076923077,
+      "knownTokenTrials": 26,
+      "knownEstimatedCostUsd": 0.038226084,
+      "meanEstimatedCostUsd": 0.001470234,
+      "knownCostTrials": 26,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 4,
+      "projectedRequests": 8,
+      "nativeCompactions": 44
+    },
+    "read-correction.v1": {
+      "readCorrectionOffers": 4,
+      "readCorrectionFollowups": 4,
+      "readInputErrors": 4,
+      "n": 26,
+      "successes": 16,
+      "successRate": 0.6153846153846154,
+      "wilson95": [
+        0.4253485008511553,
+        0.7757140556428721
+      ],
+      "meanScore": 0.6666666666666666,
+      "meanDurationMs": 6462.423076923077,
+      "p50DurationMs": 5131,
+      "p95DurationMs": 10498,
+      "meanTokens": 6749.5,
+      "knownTokenTrials": 26,
+      "knownEstimatedCostUsd": 0.035423316,
+      "meanEstimatedCostUsd": 0.001362435230769231,
+      "knownCostTrials": 26,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.8461538461538463,
+      "projectedRequests": 8,
+      "nativeCompactions": 38
+    },
+    "file-contract.v1": {
+      "readCorrectionOffers": 0,
+      "readCorrectionFollowups": 0,
+      "readInputErrors": 5,
+      "n": 26,
+      "successes": 14,
+      "successRate": 0.5384615384615384,
+      "wilson95": [
+        0.35457938746858797,
+        0.7124414646960878
+      ],
+      "meanScore": 0.5384615384615384,
+      "meanDurationMs": 4995.653846153846,
+      "p50DurationMs": 4678,
+      "p95DurationMs": 9412,
+      "meanTokens": 6115.961538461538,
+      "knownTokenTrials": 26,
+      "knownEstimatedCostUsd": 0.03324760799999999,
+      "meanEstimatedCostUsd": 0.0012787541538461535,
+      "knownCostTrials": 26,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.4615384615384617,
+      "projectedRequests": 7,
+      "nativeCompactions": 41
+    },
+    "stable.v1": {
+      "readCorrectionOffers": 0,
+      "readCorrectionFollowups": 0,
+      "readInputErrors": 13,
+      "n": 26,
+      "successes": 12,
+      "successRate": 0.46153846153846156,
+      "wilson95": [
+        0.2875585353039122,
+        0.6454206125314121
+      ],
+      "meanScore": 0.46153846153846156,
+      "meanDurationMs": 5012.384615384615,
+      "p50DurationMs": 4184,
+      "p95DurationMs": 7735,
+      "meanTokens": 5307.538461538462,
+      "knownTokenTrials": 26,
+      "knownEstimatedCostUsd": 0.030316776,
+      "meanEstimatedCostUsd": 0.001166029846153846,
+      "knownCostTrials": 26,
+      "uncertainUsageTrials": 0,
+      "meanModelRequests": 3.076923076923077,
+      "projectedRequests": 8,
+      "nativeCompactions": 28
+    }
+  },
+  "retention": {
+    "anchored-correction.v1": {
+      "trials": 8,
+      "exercised": 8,
+      "successes": 6,
+      "probeVisible": 6,
+      "taskSuccesses": 6,
+      "nativeCompactions": 44
+    },
+    "read-correction.v1": {
+      "trials": 8,
+      "exercised": 8,
+      "successes": 0,
+      "probeVisible": 0,
+      "taskSuccesses": 0,
+      "nativeCompactions": 38
+    },
+    "file-contract.v1": {
+      "trials": 8,
+      "exercised": 8,
+      "successes": 0,
+      "probeVisible": 0,
+      "taskSuccesses": 0,
+      "nativeCompactions": 41
+    },
+    "stable.v1": {
+      "trials": 8,
+      "exercised": 8,
+      "successes": 0,
+      "probeVisible": 0,
+      "taskSuccesses": 0,
+      "nativeCompactions": 28
+    }
+  },
+  "profileDecisions": [
+    {
+      "candidate": "anchored-correction.v1",
+      "decision": "tradeoff_requires_review",
+      "wins": 10,
+      "losses": 0,
+      "automaticAdoption": false
+    },
+    {
+      "candidate": "read-correction.v1",
+      "decision": "review_candidate",
+      "wins": 4,
+      "losses": 0,
+      "automaticAdoption": false
+    },
+    {
+      "candidate": "file-contract.v1",
+      "decision": "review_candidate",
+      "wins": 2,
+      "losses": 0,
+      "automaticAdoption": false
+    }
+  ],
+  "runtimeDigest": "1a6cb2f76aa18fbf93452dae89a86d349781a6310e5bdb8f4c73f6c5ad519fc4",
+  "suiteDigest": "6e55617409cc27e6964e8920d59541db0be4cbbcf2d321ad2526bff71df92e71",
+  "knownEstimatedCostUsd": 0.13721378399999992,
+  "usageUncertain": 0,
+  "notes": [
+    "Independent fixed checkers were rerun with model credentials absent from verifier subprocesses.",
+    "Post-hoc checks do not upgrade runs that failed before official verification.",
+    "Raw conversations, state and memory databases remain local."
+  ]
+}

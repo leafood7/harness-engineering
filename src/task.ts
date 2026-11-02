@@ -18,6 +18,8 @@ const rule = Type.Object({
 export const TaskSchema = Type.Object({
   schemaVersion: Type.Literal(1), taskId: Type.String({ pattern: '^[A-Za-z0-9][A-Za-z0-9_.-]{0,79}$' }),
   input: text, workspace: text,
+  followups: Type.Optional(Type.Array(Type.String({minLength:1,maxLength:64000}),{minItems:1,maxItems:8})),
+  strategy: Type.Optional(Type.String({pattern:'^[a-z][a-z0-9-]*\\.v[0-9]+$'})),
   tools: Type.Array(Type.Union([Type.Literal('read'), Type.Literal('write'), Type.Literal('edit'), Type.Literal('wait')]), { uniqueItems: true }),
   budget: Type.Object({
     maxDurationMs: Type.Integer({ minimum: 50, maximum: 3600000 }),

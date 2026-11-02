@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "minPairs": 16,
+  "minDistinctTasks": 6,
+  "maxPairedLosses": 0,
+  "maxEstimatedCostRatio": 1.25,
+  "maxDurationRatio": 1.5,
+  "minWins": 1,
+  "minCostReductionWithoutWins": 0.1,
+  "automaticAdoption": false
+}

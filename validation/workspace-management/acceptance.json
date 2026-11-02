@@ -1,0 +1,60 @@
+{
+  "capability": "visual-task-management",
+  "version": "0.13.0",
+  "date": "2026-11-02",
+  "completePackages": [
+    "historical output, verification and copied-task provenance",
+    "daily queue, archive, defaults and template management",
+    "workspace protection, draft recovery, submission receipts and service lifecycle"
+  ],
+  "checks": {
+    "typecheck": "passed",
+    "frontendSyntax": "passed",
+    "fullSuite": {
+      "passed": 170,
+      "failed": 0,
+      "durationMs": 262558.874,
+      "note": "Full run before final compatibility and evidence-link refinements; relevant final checks below."
+    },
+    "finalRelatedSuite": {
+      "passed": 22,
+      "failed": 0,
+      "durationMs": 39019.2241
+    }
+  },
+  "browserActions": [
+    "edit queued job without changing job ID",
+    "move second queued task forward",
+    "copy completed task into fresh queued Run with original-source link",
+    "batch archive two terminal records and unarchive them",
+    "rename template family and create v2 while retaining v1",
+    "restore unsent draft after reload",
+    "save new-task default duration180s and read it back",
+    "inspect saved expected versus actual verification content",
+    "jump to verification end event51",
+    "pause detail refresh",
+    "desktop and430px narrow layout",
+    "stop owned preview via service control"
+  ],
+  "browserFixture": {
+    "state": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\workspace-management-preview\\run-W30riP\\state",
+    "workspace": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\workspace-management-preview\\run-W30riP\\workspace",
+    "queueWorkspace": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\workspace-management-preview\\run-W30riP\\queue-workspace",
+    "completedRunId": "ad9064e3-87c3-475a-886c-1e1371db603b",
+    "failedRunId": "8ce15c5e-9e8d-4080-a54c-3ca2f0f71975"
+  },
+  "previewPort": 4323,
+  "userPort4318": "untouched",
+  "paidModelCalls": 0,
+  "newDependencies": 0,
+  "gitOperations": 0,
+  "limits": [
+    "Historical text capture128KiB per file,2MiB per phase; output list200; diff1000 lines",
+    "No current-workspace fallback for missing historical text",
+    "Workspace leases cover one state root; external changes and separate state roots excluded",
+    "Cross-app-version resume remains prohibited",
+    "Cleanup excludes execution,session,checkpoint,task-input and output evidence"
+  ],
+  "summary": "D:\\Obsidian\\main\\90-Templates\\Harness Engineering\\11_从命令行队列到可视化任务操作台.md",
+  "previewShutdown": "service control closed port4323; process exited0; existing4318 returned HTTP200"
+}

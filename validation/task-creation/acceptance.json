@@ -1,0 +1,50 @@
+{
+  "date": "2026-11-02",
+  "version": "0.12.0",
+  "kind": "functional addition to visual task management; existing summary 11 updated",
+  "typecheck": "passed",
+  "frontendSyntax": "passed",
+  "regression": {
+    "tests": 162,
+    "passed": 162,
+    "failed": 0,
+    "durationMs": 236162.0477
+  },
+  "finalCreationChecks": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "durationMs": 4950.7347
+  },
+  "newFunctionalTests": 5,
+  "browserChecks": [
+    "form goal/workspace/tools/verification input",
+    "save template",
+    "reload template restores changed draft",
+    "scope error shown and submission blocked",
+    "preflight summary",
+    "enqueue and dispatch genuine offline task",
+    "independent verification passed",
+    "desktop and narrow dialog layouts without horizontal overflow"
+  ],
+  "browserEvidence": {
+    "jobId": "e62e259d-9f42-4f47-89da-6526f528b9cb",
+    "runId": "c7b5f52d-0b36-4a6b-8060-044ed3fe1604",
+    "total": 1,
+    "templates": 1,
+    "completed": 1,
+    "schedulerRunning": false,
+    "stateRoot": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\task-creation-preview\\run-wxem89mz\\state"
+  },
+  "paidModelCalls": 0,
+  "modelCatalog": "installed Pi catalog, network refresh disabled",
+  "gitOperations": false,
+  "dependenciesAdded": false,
+  "limitations": [
+    "one file or existing Node checker in visual form; advanced configurations retain JSON import",
+    "model preflight checks catalog and env presence, not provider validity or task success",
+    "templates are new snapshots, not overwrites or synchronization",
+    "offline mode is fixed file writing only",
+    "existing cross-application-version recovery restrictions unchanged"
+  ]
+}

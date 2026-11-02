@@ -61,14 +61,15 @@ export async function verify(prepared: PreparedTask, runId: string, runDir: stri
         const content = readFileSync(path);
         const passed = content.equals(Buffer.from(check.equals, 'utf8'));
         const evidenceFile = join(runDir, 'verification', `result-${index}.json`);
-        writeFileSync(evidenceFile, JSON.stringify({ path: check.path, expectedDigest: digest(check.equals), actualDigest: digest(content), passed }));
+        writeFileSync(evidenceFile, JSON.stringify({ path: check.path, expectedDigest: digest(check.equals), actualDigest: digest(content), actualText: content.length<=131072&&!content.includes(0)?content.toString('utf8'):null, passed }));
         checks.push({ name: check.name, status: passed ? 'passed' : 'failed', evidenceRefs: [evidenceFile] });
       } else {
         const result = await runVerifier(prepared.verifierScripts[String(index)], check.args ?? [], prepared.workspace,
           Math.max(1, Math.min(check.timeoutMs, deadline - Date.now())), signal);
         if(!result.settled)executionUncertain=true;
         const outputFile = join(runDir, 'verification', `result-${index}.json`);
-        writeFileSync(outputFile, JSON.stringify(sanitize(result, secrets), null, 2));
+        const clean=(text:string)=>{for(const secret of secrets)if(secret)text=text.split(secret).join('[redacted]');return text.replace(/Bearer\s+[A-Za-z0-9._~+/-]+/gi,'Bearer [redacted]').replace(/\bsk-[A-Za-z0-9_-]{16,}/g,'[redacted]');};
+        writeFileSync(outputFile, JSON.stringify({...result,stdout:clean(result.stdout),stderr:clean(result.stderr)}, null, 2));
         const status = result.interrupted || result.exitCode === null ? 'error' : result.exitCode === 0 ? 'passed' : 'failed';
         checks.push({ name: check.name, status, ...(result.exitCode === null ? {} : { exitCode: result.exitCode }), evidenceRefs: [outputFile],
           ...(result.interrupted ? { message: 'Verifier timed out or was cancelled' } : {}) });

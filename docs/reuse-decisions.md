@@ -39,3 +39,7 @@
 ## 当前选型
 
 主语言 TypeScript；CLI 入口；Pi 1.4.0 SDK + Extension；先用模块接口组织。M1 增加 SQLite Run 状态与 JSONL 事件；Pi 自己保存原生会话。Git 用于源码与策略版本。M0 不提前引入 Python/Bun Worker、Cordis、记忆插件或多 Agent。
+
+## 2026-11-02：本地 Evolving Harness 已实际迁移
+
+用户明确授权复用 D:\VScodeProgects\evolving-harness。现已适配 reflection.py 的证据包、建议校验与审阅版本机制，以及 improvement_batch.py 的批次记录到 src/experience；详见 execution-experience.md 与 local-reuse.json。未引入 Python Runtime，未启用原模块的模型调用、自动评价或激活链。先前“仅参考架构”的结论保留为当时选型快照，当前授权范围内已不再适用。

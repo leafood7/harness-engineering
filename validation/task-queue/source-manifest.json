@@ -1,0 +1,13 @@
+{
+  "src/queue/store.ts": "38c802713ce1df19c3cdae621a858865b7d191a4c915ec895a7ef7f16f23d991",
+  "src/queue/scheduler.ts": "87326d88a9c91372f12d6bb943a7afb16570311fe3f86901b1b600a41a3c9c6f",
+  "src/queue/cli.ts": "d152b2042f968986f81e6c223833e929abf9959d689a7b52c7547d4e93ef99dd",
+  "src/cli.ts": "2518a37e04d93bc25976079ecf38f74ebb7d55b3adf2fd4eac12da77f4e2c554",
+  "src/execution/engine.ts": "5beee32afccba2a9dbffa31b94ee305db1545efea4313522d5d0cd07f96d3077",
+  "tests/queue.test.ts": "ca7e221f8823149daf3b7d8fa9e9471543df3c65c96c87fb479e85819a36ef43",
+  "tests/recovery.test.ts": "20e360887095f161ab0bba8771fd884093172745b639d38e6736743f0b214795",
+  "examples/queue-demo.ts": "1702b6bf14e28a6737e6e9dcf78672db25b58f67a28409b3c5fa8d8cc2805a64",
+  "package.json": "db9843576bd787f3758749a30cff34627b5e50e0ec04088c6110e1ed04eac0ce",
+  "package-lock.json": "0da915353a5e88b030c37a9d4422adfd7d81d149bb71ab8691ca621fcc6942ed",
+  "docs/task-queue.md": "da2eb06fc768292c4521c9f21289a8e7be008774d5e73f57bd0694b37413bde4"
+}

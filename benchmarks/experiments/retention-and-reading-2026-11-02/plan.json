@@ -1,0 +1,904 @@
+{
+  "config": {
+    "schemaVersion": 1,
+    "suite": "fixed-agent-tasks.v2",
+    "model": {
+      "mode": "live",
+      "provider": "deepseek",
+      "id": "deepseek-flash",
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
+      "temperature": 0
+    },
+    "cases": [
+      "arithmetic-repair",
+      "order-aggregation",
+      "long-evidence",
+      "shipping-memory",
+      "multi-module-invoice",
+      "revision-semantics",
+      "missing-information",
+      "native-retention"
+    ],
+    "arms": [
+      "combined"
+    ],
+    "repeats": 3,
+    "seed": 20261103,
+    "budget": {
+      "maxEstimatedCostUsd": 1,
+      "maxTokens": 1000000
+    },
+    "trialBudget": {
+      "maxDurationMs": 120000,
+      "maxToolCalls": 12,
+      "maxTokens": 32000,
+      "maxCostUsd": 0.03
+    },
+    "context": {
+      "maxInputTokens": 32000,
+      "outputReserveTokens": 1024,
+      "toolResultMaxChars": 1024,
+      "compactAtTokens": 12000,
+      "keepRecentTokens": 2048
+    },
+    "profiles": [
+      "stable.v1",
+      "range-read.v1",
+      "anchored-summary.v1"
+    ]
+  },
+  "suiteDigest": "c74d152cf111f0da2f4780900c0de245e21481c66cdf88aef771ee846b3b18bb",
+  "files": [
+    {
+      "path": "cases/arithmetic-repair/case.json",
+      "sha256": "ec332939e3fd7b0f9a43f57816a5bf9a23a67a9e7a61d2a3607bfd0d7fae52fd"
+    },
+    {
+      "path": "cases/arithmetic-repair/verify.cjs",
+      "sha256": "a8d1bd9b4f3870ae5827ea6ee1762ba996e70947c2efecc8d881b06391a66f6a"
+    },
+    {
+      "path": "cases/arithmetic-repair/workspace/calc.cjs",
+      "sha256": "3287c2099845184d0cb7949a08e88a646e51520fb82bb346cc71dc39850b751e"
+    },
+    {
+      "path": "cases/order-aggregation/case.json",
+      "sha256": "9c48c6a9a389c6a34b6fcf4d1fa73907132b92db7ce620a4b597ad8621fc3c62"
+    },
+    {
+      "path": "cases/order-aggregation/verify.cjs",
+      "sha256": "2180f7749254a8f41de8236ada5c9d529ee42d320479cc5d0ce3c4d59ccae030"
+    },
+    {
+      "path": "cases/order-aggregation/workspace/orders.json",
+      "sha256": "7519fca2abb3af410493d63e2cbe26cd5f3dcddba947eacd874892c8260b080f"
+    },
+    {
+      "path": "cases/long-evidence/case.json",
+      "sha256": "bc6797b1a9b743747baba3b8364127e686a4a85503df993c324acc46d26d0f4e"
+    },
+    {
+      "path": "cases/long-evidence/verify.cjs",
+      "sha256": "ee23308dbedf72bd16ddb6e3e329136e988daa0a1764c04460e26d8735bd435f"
+    },
+    {
+      "path": "cases/long-evidence/workspace/facts.log",
+      "sha256": "053e919dfff61907313bfb5eaf2148995063271b2c1a2d71b614cbf29f3b0053"
+    },
+    {
+      "path": "cases/shipping-memory/case.json",
+      "sha256": "d335dda0effc993f5e9a1596f479656bc44ea66c74f6a014a3604a621abbc659"
+    },
+    {
+      "path": "cases/shipping-memory/verify.cjs",
+      "sha256": "4792b960b7b0d7b1723c9c26cf2ef2846c3605e1e4dd6768604ebe8a46648ab3"
+    },
+    {
+      "path": "cases/shipping-memory/workspace/README.txt",
+      "sha256": "0258b92a2597d7bb64665b56a24e3a6ba931ce72730080fe5aeb49cb65841a2c"
+    },
+    {
+      "path": "cases/multi-module-invoice/case.json",
+      "sha256": "2bd15334bb6b5a8aff28d19bea3eb299a253331311077e2de97d5f68213699e9"
+    },
+    {
+      "path": "cases/multi-module-invoice/verify.cjs",
+      "sha256": "430b77a673a997f81f4077c6e23dfa9188c62a8f788d479969346fba29e689bf"
+    },
+    {
+      "path": "cases/multi-module-invoice/workspace/invoice.cjs",
+      "sha256": "6eb640792719f977708528bca7d716ff0165e12bee7b8778dded7ed581ea5662"
+    },
+    {
+      "path": "cases/multi-module-invoice/workspace/money.cjs",
+      "sha256": "0de091799dbd8582b46c7fb1abd33fd211083a4b3b7ddea7e9b33007b2fc0f90"
+    },
+    {
+      "path": "cases/revision-semantics/case.json",
+      "sha256": "963ba3437f01a6ee687cc5a54edec76eac8ecff1df420c36c208008412b51909"
+    },
+    {
+      "path": "cases/revision-semantics/verify.cjs",
+      "sha256": "3eca90ec76b0df64f17ffde808b01be88189feffc96ce9e9d24f3d56eb62daca"
+    },
+    {
+      "path": "cases/revision-semantics/workspace/revisions.json",
+      "sha256": "6e678ad9c74732ba2dfa7fe5b551386d14bdb1f385bb8986666c45426f102922"
+    },
+    {
+      "path": "cases/missing-information/case.json",
+      "sha256": "91d152d81279bef79766b29725b1adb2a218e09df286669b1b8f3c8c066c9a81"
+    },
+    {
+      "path": "cases/missing-information/verify.cjs",
+      "sha256": "7c5599a07dbfbf96249feab86ad29d8bc449132b72b34c8980213c0ba1134c02"
+    },
+    {
+      "path": "cases/missing-information/workspace/README.txt",
+      "sha256": "fc07dfa80ca2133986ceab071990214a99347b996dddb61e4cabd34b5c3931b3"
+    },
+    {
+      "path": "cases/native-retention/case.json",
+      "sha256": "8b36126ceccdf891f37aa5f2bef2a3845006080f7c7d6c5159ba9790398c9da6"
+    },
+    {
+      "path": "cases/native-retention/verify.cjs",
+      "sha256": "b061cffbd91942401dccf18d4f3af625db82d25256eb4280927225fa67ba3c49"
+    },
+    {
+      "path": "cases/native-retention/workspace/README.txt",
+      "sha256": "f1d89061695e9c19e35833f82178c12d5e4b7bf34f488d95c28ab18612be6617"
+    }
+  ],
+  "runtimeDigest": "5bc539ceab06502cce7d8f47c02bb23b7fb3cd6c9a32e9215964af7b0d4d6fc0",
+  "runtimeFiles": [
+    {
+      "path": "src/benchmark/report.ts",
+      "sha256": "a0b317be2d306849be1a17ca7c24b1f60537550593c54f5ed1176f8717f9d730"
+    },
+    {
+      "path": "src/benchmark/runner.ts",
+      "sha256": "a828c358a9077834e8bd197ca7718e881306b78a4be826f62233659b5b5bb5c8"
+    },
+    {
+      "path": "src/benchmark/store.ts",
+      "sha256": "ad823f0b024ec360bc28be4b30829771c494405eb32ad8ee9fc2fadc85cabe1f"
+    },
+    {
+      "path": "src/benchmark/suite.ts",
+      "sha256": "49b442bd583ad0f54810488b201964e77b1fc02eeaf0ae525be96d30d66b4b5c"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "6dc6218c19ebe6d9f3cbff50d26de3414bc8ea4d6afa3f07be1455ea0137f8a1"
+    },
+    {
+      "path": "src/context/manager.ts",
+      "sha256": "ee2cae295c5c4b361b98cb7ee2f25dec33b1fdf675dd3e26da3928b167b67122"
+    },
+    {
+      "path": "src/demo.ts",
+      "sha256": "b922ea3e10c42a65eaedcdbdd486172403f534fbe33ce9f65512d396114148c0"
+    },
+    {
+      "path": "src/execution/engine.ts",
+      "sha256": "69ff3e21e78d8ab9cfebbccb75150815b333786720bd68f9acd446774534673f"
+    },
+    {
+      "path": "src/execution/tool-errors.ts",
+      "sha256": "6d3780be661b4e2c47f1619572a5c1a6aab4789480ac96bb09491e989e341d91"
+    },
+    {
+      "path": "src/execution/tool-governor.ts",
+      "sha256": "c981ddd46396e9304751e67ac929b91dcb3df4b68f260bf96eba6437e8e1a5b1"
+    },
+    {
+      "path": "src/execution/tool-policy.ts",
+      "sha256": "f3eaded306c19ccdd5bed1767a84404ab04803293fc853a089ab9d6a29c5fa7e"
+    },
+    {
+      "path": "src/governance/approval.ts",
+      "sha256": "a7863804ff1639284c47dc5b424a65ff7cf4e882c11237133c4ca121f50deb99"
+    },
+    {
+      "path": "src/memory/cli.ts",
+      "sha256": "e076086bb9ae1508db488b9fbb33837ddc81d44a8ba7b40ce6592990f20aeff4"
+    },
+    {
+      "path": "src/memory/store.ts",
+      "sha256": "5d5c9f8bce896b882d569848c197aaed0cc21965783571782f15865ed8107666"
+    },
+    {
+      "path": "src/runtime/pi-adapter.ts",
+      "sha256": "e95c4d696ced21a093e771a4ae38df5e26269dac12c860a1f6af8dd330f1b4cc"
+    },
+    {
+      "path": "src/state/checkpoint.ts",
+      "sha256": "0d14694e54b3ea12495ba9ebd8a960b1b6b806cdcaa05b23f9539aab6b736e0a"
+    },
+    {
+      "path": "src/state/recovery.ts",
+      "sha256": "e90946e13a9a42e8a66eda0a014eeba80ee49e37653f785d4cc3f72808839e47"
+    },
+    {
+      "path": "src/state/store.ts",
+      "sha256": "f9d9da46301baf28cbee13bb8f386ed096c0ddeef4937d33a0ff989a8f9b3be2"
+    },
+    {
+      "path": "src/strategy/catalog.ts",
+      "sha256": "c808f276fec513d04c09c4b1a9682a21562feb853a582aafa60a24b988e027d5"
+    },
+    {
+      "path": "src/strategy/cli.ts",
+      "sha256": "42571975b7382b42052cdb977fa907d0ef63b13f012f31dff7cb1784e8726546"
+    },
+    {
+      "path": "src/task.ts",
+      "sha256": "223a983171c3d6ed11d8ee11b0b27d341003d714a41c54e5586976f082527255"
+    },
+    {
+      "path": "src/util.ts",
+      "sha256": "cc2cfcd93431620e7e4c212f7f7cd9928f8f5ef4c9c695a9928ca4a1a790173b"
+    },
+    {
+      "path": "src/verification/verifier.ts",
+      "sha256": "44c55004031264b1a8629b288f1f1164de74fd543b849356cc69951f578a7d2b"
+    },
+    {
+      "path": "contracts/index.ts",
+      "sha256": "59a15b95c241442ba9e056ca6bc5195f5a316e10b866ed774e0b1a8992d97f8b"
+    },
+    {
+      "path": "bin/harness.mjs",
+      "sha256": "4bd7d36a458aa769a3adcfbd808900fd6d984a2e4cde4933c2fe195372294430"
+    },
+    {
+      "path": "package.json",
+      "sha256": "fbddd5f74ad998f908f1bbca700cff0f7adb6d75c155f8edc5a19d931f953161"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e6d44ca90c581b0188d016f8bc6086df7c5a2ec2bdae941fc7ab9098e4681df8"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "9f97ab5d2fda480227be10d8b60a161aa5332c884fdf6943c813bf8ff3c9fd30"
+    },
+    {
+      "path": "strategies/profiles.json",
+      "sha256": "1d4d3ea1da5c550bfa518c0e8a3f00f980938b74b95e323fa086fcc0453c4716"
+    },
+    {
+      "path": "strategies/review-policy.json",
+      "sha256": "8bd639e9ddff0e080d2430be7c183e945f046552909cc8632628265819b5c507"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "stable.v1",
+      "status": "stable",
+      "instructions": "",
+      "summary": "index",
+      "hypothesis": null,
+      "evidence": []
+    },
+    {
+      "id": "range-read.v1",
+      "status": "candidate",
+      "instructions": "For unfamiliar or long text files, begin with a small line range (at most 40 lines) using read offset and limit; use the resulting line clues to read only the needed ranges. Use only the declared tools and the task workspace. Preserve unchanged inputs and module export contracts.",
+      "summary": "index",
+      "hypothesis": "Bounded initial reads may avoid the observed capacity stops without losing needed evidence; benefit and regressions must be measured.",
+      "evidence": [
+        {
+          "baseline": "benchmarks/baselines/deepseek-flash-2026-11-02/report.json",
+          "trialKey": "long-evidence:1:memory",
+          "runId": "26f37504-b87d-4c23-9592-01a80964910b",
+          "sequence": 60
+        }
+      ]
+    },
+    {
+      "id": "anchored-summary.v1",
+      "status": "candidate",
+      "instructions": "",
+      "summary": "anchored",
+      "hypothesis": "Carrying bounded verbatim user/tool observations through native compaction may preserve facts that an evidence-only index discards. This is extractive retention, not a semantic summarizer.",
+      "evidence": [
+        {
+          "baseline": "benchmarks/baselines/deepseek-flash-2026-11-02/report.json",
+          "limitation": "nativeCompactions=0; quality unmeasured"
+        }
+      ]
+    }
+  ],
+  "reviewPolicy": {
+    "schemaVersion": 1,
+    "minPairs": 16,
+    "minDistinctTasks": 6,
+    "maxPairedLosses": 0,
+    "maxEstimatedCostRatio": 1.25,
+    "maxDurationRatio": 1.5,
+    "minWins": 1,
+    "minCostReductionWithoutWins": 0.1,
+    "automaticAdoption": false
+  },
+  "configDigest": "a733462848da4143e06c9d12846e308a6499c47c604eb4d9b7cb26dc8cbb350d",
+  "plan": [
+    {
+      "key": "shipping-memory:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 1
+    },
+    {
+      "key": "arithmetic-repair:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 2
+    },
+    {
+      "key": "native-retention:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 3
+    },
+    {
+      "key": "native-retention:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 4
+    },
+    {
+      "key": "missing-information:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 5
+    },
+    {
+      "key": "multi-module-invoice:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 6
+    },
+    {
+      "key": "arithmetic-repair:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 7
+    },
+    {
+      "key": "revision-semantics:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 8
+    },
+    {
+      "key": "native-retention:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 9
+    },
+    {
+      "key": "multi-module-invoice:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 10
+    },
+    {
+      "key": "multi-module-invoice:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 11
+    },
+    {
+      "key": "missing-information:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 12
+    },
+    {
+      "key": "revision-semantics:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 13
+    },
+    {
+      "key": "long-evidence:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 14
+    },
+    {
+      "key": "revision-semantics:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 15
+    },
+    {
+      "key": "arithmetic-repair:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 16
+    },
+    {
+      "key": "order-aggregation:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 17
+    },
+    {
+      "key": "arithmetic-repair:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 18
+    },
+    {
+      "key": "order-aggregation:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 19
+    },
+    {
+      "key": "missing-information:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 20
+    },
+    {
+      "key": "missing-information:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 21
+    },
+    {
+      "key": "revision-semantics:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 22
+    },
+    {
+      "key": "multi-module-invoice:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 23
+    },
+    {
+      "key": "multi-module-invoice:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 24
+    },
+    {
+      "key": "shipping-memory:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 25
+    },
+    {
+      "key": "missing-information:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 26
+    },
+    {
+      "key": "long-evidence:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 27
+    },
+    {
+      "key": "shipping-memory:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 28
+    },
+    {
+      "key": "missing-information:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 29
+    },
+    {
+      "key": "arithmetic-repair:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 30
+    },
+    {
+      "key": "multi-module-invoice:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 31
+    },
+    {
+      "key": "order-aggregation:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 32
+    },
+    {
+      "key": "long-evidence:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 33
+    },
+    {
+      "key": "long-evidence:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 34
+    },
+    {
+      "key": "revision-semantics:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 35
+    },
+    {
+      "key": "order-aggregation:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 36
+    },
+    {
+      "key": "revision-semantics:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 37
+    },
+    {
+      "key": "missing-information:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 38
+    },
+    {
+      "key": "multi-module-invoice:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 39
+    },
+    {
+      "key": "multi-module-invoice:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 40
+    },
+    {
+      "key": "order-aggregation:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 41
+    },
+    {
+      "key": "long-evidence:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 42
+    },
+    {
+      "key": "long-evidence:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 43
+    },
+    {
+      "key": "arithmetic-repair:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 44
+    },
+    {
+      "key": "shipping-memory:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 45
+    },
+    {
+      "key": "missing-information:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 46
+    },
+    {
+      "key": "shipping-memory:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 47
+    },
+    {
+      "key": "revision-semantics:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 48
+    },
+    {
+      "key": "long-evidence:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 49
+    },
+    {
+      "key": "arithmetic-repair:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 50
+    },
+    {
+      "key": "order-aggregation:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 51
+    },
+    {
+      "key": "order-aggregation:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 52
+    },
+    {
+      "key": "revision-semantics:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 53
+    },
+    {
+      "key": "native-retention:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 54
+    },
+    {
+      "key": "shipping-memory:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 55
+    },
+    {
+      "key": "long-evidence:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 56
+    },
+    {
+      "key": "arithmetic-repair:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 57
+    },
+    {
+      "key": "native-retention:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 58
+    },
+    {
+      "key": "native-retention:3:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 59
+    },
+    {
+      "key": "native-retention:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 60
+    },
+    {
+      "key": "revision-semantics:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "revision-semantics",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 61
+    },
+    {
+      "key": "long-evidence:3:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 62
+    },
+    {
+      "key": "arithmetic-repair:2:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 63
+    },
+    {
+      "key": "multi-module-invoice:1:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "multi-module-invoice",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 64
+    },
+    {
+      "key": "shipping-memory:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 65
+    },
+    {
+      "key": "order-aggregation:1:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 66
+    },
+    {
+      "key": "native-retention:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 67
+    },
+    {
+      "key": "shipping-memory:3:combined:anchored-summary.v1",
+      "profile": "anchored-summary.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 3,
+      "order": 68
+    },
+    {
+      "key": "order-aggregation:1:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 69
+    },
+    {
+      "key": "native-retention:2:combined:stable.v1",
+      "profile": "stable.v1",
+      "caseId": "native-retention",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 70
+    },
+    {
+      "key": "missing-information:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "missing-information",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 71
+    },
+    {
+      "key": "shipping-memory:2:combined:range-read.v1",
+      "profile": "range-read.v1",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 72
+    }
+  ]
+}

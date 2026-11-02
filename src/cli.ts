@@ -98,13 +98,17 @@ async function start(taskFile: string, state: string, detach: boolean, resumeFro
 }
 export async function main(argv: string[] = process.argv.slice(2)): Promise<number> {
   try {
+    if(argv[0]==='experience'){const {experienceCommand}=await import('./experience/cli.ts');print(experienceCommand(argv.slice(1),defaultState));return 0;}
+    if(argv[0]==='dashboard'){const {dashboardCommand}=await import('./dashboard/server.ts');await dashboardCommand(argv.slice(1),defaultState);return 0;}
+    if(argv[0]==='queue'){const {queueCommand}=await import('./queue/cli.ts');const result=await queueCommand(argv.slice(1),defaultState);print(result);return argv[1]==='_worker'&&(result as {exitCode?:number}).exitCode!==undefined?(result as {exitCode:number}).exitCode:0;}
+    if(argv[0]==='strategy'){const {strategyCommand}=await import('./strategy/cli.ts');print(strategyCommand(argv.slice(1),defaultState));return 0;}
     if(argv[0]==='benchmark'){const {benchmarkCommand}=await import('./benchmark/runner.ts');return await benchmarkCommand(argv.slice(1));}
     if(argv[0]==='memory'){print(memoryCommand(argv.slice(1),defaultState));return 0;}
     const options = parse(argv);
     const [command, target] = options.args;
     if (options.args.length > 2) throw new Error('Too many positional arguments');
     if (!command || command === 'help') {
-      console.log('Harness Engineering\n  benchmark plan|run|report <config-or-batch> [--output <directory>]\n  memory put|revise|retire|search|history ... [--state <directory>]\n  run <task.json> [--state <directory>] [--detach]\n  demo [--approval] [--state <directory>] [--detach]\n  inspect <run-id> [--state <directory>] [--events] [--export-trace]\n  cancel <run-id> [--state <directory>]\n  resume <run-id> [--dry-run] [--detach] [--state <directory>]\n  approve <approval-id> --digest <sha256> --actor <name> [--state <directory>]\n  reject <approval-id> --digest <sha256> --actor <name> [--reason <text>] [--state <directory>]');
+      console.log('Harness Engineering\n  experience inspect|collect|feedback|import|history|edit|review|reject ... [--state <directory>]\n  dashboard [--state <directory>] [--port <port>]\n  queue submit|list|inspect|cancel|status|start|work|stop ...\n  strategy list|inspect|current|history|switch|rollback|compare ...\n  benchmark plan|run|report <config-or-batch> [--output <directory>]\n  memory put|revise|retire|search|history ... [--state <directory>]\n  run <task.json> [--state <directory>] [--detach]\n  demo [--approval] [--state <directory>] [--detach]\n  inspect <run-id> [--state <directory>] [--events] [--export-trace]\n  cancel <run-id> [--state <directory>]\n  resume <run-id> [--dry-run] [--detach] [--state <directory>]\n  approve <approval-id> --digest <sha256> --actor <name> [--state <directory>]\n  reject <approval-id> --digest <sha256> --actor <name> [--reason <text>] [--state <directory>]');
       return 0;
     }
     if (command === '_worker'||command === '_resume_worker') {

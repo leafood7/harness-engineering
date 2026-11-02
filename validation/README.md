@@ -7,3 +7,7 @@
 当前文件迁移：src/pi-adapter.ts → src/runtime/pi-adapter.ts；engine/tool-governor/tool-errors/tool-policy → src/execution；approval → src/governance；store/checkpoint/recovery → src/state；verifier → src/verification。测试和文档使用同职责名称。历史 source-manifest 中的旧路径不要求在新目录下存在或匹配当前摘要。
 
 本轮结果另存 context-memory。原始 Session、工作区、日志、记忆内容和完整运行报告仍仅保存在被忽略的本地 .artifacts 或 .harness 中。
+
+可视化任务管理补充保存在 workspace-management：历史产出与独立验收详情、日常管理、工作区占用保护、草稿及提交凭据。完整170项离线检查及最终22项相关检查分别记录，浏览器检查使用独立4323端口，原4318服务未修改。该目录是功能交付资料，不是新增模型效果评测。
+
+execution-experience 保存本地 evolving-harness 经验机制迁移后的功能检查、来源摘要和页面截图；不属于模型效果评测。原项目未改动，迁移范围见 docs/local-reuse.json。

@@ -1,0 +1,14 @@
+✔ dashboard serves local assets, security headers and a real empty workspace (172.9035ms)
+✔ mutations reject missing tokens, foreign origins and rebound hosts (144.6116ms)
+✔ HTTP submission freezes inputs and supports search, pagination and queued cancellation (429.3375ms)
+✔ demo button adds three offline jobs and scheduler produces independently verified reports (5540.3596ms)
+✔ running cancellation uses real worker cancellation rather than fabricating a finished state (2829.8686ms)
+✔ task output is served as data and known credentials are redacted from details and logs (152.5396ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 6
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 10506.7246

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "defaultProfile": "stable.v1",
+  "profiles": [
+    {
+      "id": "stable.v1",
+      "status": "stable",
+      "instructions": "",
+      "summary": "index",
+      "hypothesis": null,
+      "evidence": []
+    },
+    {
+      "id": "range-read.v1",
+      "status": "candidate",
+      "instructions": "For unfamiliar or long text files, begin with a small line range (at most 40 lines) using read offset and limit; use the resulting line clues to read only the needed ranges. Use only the declared tools and the task workspace. Preserve unchanged inputs and module export contracts.",
+      "summary": "index",
+      "hypothesis": "Bounded initial reads may avoid the observed capacity stops without losing needed evidence; benefit and regressions must be measured.",
+      "evidence": [
+        {
+          "baseline": "benchmarks/baselines/deepseek-flash-2026-11-02/report.json",
+          "trialKey": "long-evidence:1:memory",
+          "runId": "26f37504-b87d-4c23-9592-01a80964910b",
+          "sequence": 60
+        }
+      ]
+    },
+    {
+      "id": "anchored-summary.v1",
+      "status": "candidate",
+      "instructions": "",
+      "summary": "anchored",
+      "hypothesis": "Carrying bounded verbatim user/tool observations through native compaction may preserve facts that an evidence-only index discards. This is extractive retention, not a semantic summarizer.",
+      "evidence": [
+        {
+          "baseline": "benchmarks/baselines/deepseek-flash-2026-11-02/report.json",
+          "limitation": "nativeCompactions=0; quality unmeasured"
+        }
+      ]
+    },
+    {
+      "id": "file-contract.v1",
+      "summary": "index",
+      "maxReadCorrections": 0,
+      "hypothesis": "An explicit regular-file contract may reduce directory-as-file misuse; prevention is measured independently of correction.",
+      "status": "candidate",
+      "instructions": "",
+      "readContract": true,
+      "evidence": [
+        {
+          "baseline": "benchmarks/experiments/retention-and-reading-2026-11-02/report.json",
+          "trialKey": "multi-module-invoice:2:combined:anchored-summary.v1",
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 30
+        }
+      ]
+    },
+    {
+      "id": "read-correction.v1",
+      "summary": "index",
+      "maxReadCorrections": 2,
+      "hypothesis": "Returning a bounded structured, confirmed-no-effect read input error may let the model choose a valid file without relaxing unsafe failures.",
+      "status": "candidate",
+      "instructions": "",
+      "readContract": true,
+      "evidence": [
+        {
+          "baseline": "benchmarks/experiments/retention-and-reading-2026-11-02/report.json",
+          "trialKey": "multi-module-invoice:2:combined:anchored-summary.v1",
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 30
+        }
+      ]
+    },
+    {
+      "id": "anchored-correction.v1",
+      "summary": "anchored",
+      "maxReadCorrections": 2,
+      "hypothesis": "Bounded read-input correction plus short source quotes may preserve task completion across both file-contract mistakes and native compaction.",
+      "status": "candidate",
+      "instructions": "",
+      "readContract": true,
+      "evidence": [
+        {
+          "baseline": "benchmarks/experiments/retention-and-reading-2026-11-02/report.json",
+          "trialKey": "multi-module-invoice:2:combined:anchored-summary.v1",
+          "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+          "sequence": 30
+        }
+      ]
+    }
+  ]
+}

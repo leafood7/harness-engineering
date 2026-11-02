@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "multi-module-invoice",
+  "category": "general",
+  "prompt": "Fix money.cjs and invoice.cjs together. lineTotal(qty,price) must multiply. Provide roundCurrency(value) rounding to 2 decimals, subtotal(lines) summing qty*price, and keep total as a compatible alias of subtotal. calcInvoice(lines,rate) must apply the tax once after subtotal, then round to 2 decimals. Preserve the existing CommonJS calcInvoice export.",
+  "checks": [
+    "line-total",
+    "subtotal",
+    "tax-once",
+    "compatibility"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "money.cjs",
+            "content": "exports.lineTotal=(qty,price)=>qty*price;\nexports.roundCurrency=value=>Math.round(value*100)/100;\nexports.subtotal=lines=>lines.reduce((sum,line)=>sum+exports.lineTotal(line.qty,line.price),0);\nexports.total=exports.subtotal;\n"
+          }
+        },
+        {
+          "name": "write",
+          "arguments": {
+            "path": "invoice.cjs",
+            "content": "const money=require('./money.cjs');\nexports.calcInvoice=(lines,rate)=>money.roundCurrency(money.subtotal(lines)*(1+rate));\n"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

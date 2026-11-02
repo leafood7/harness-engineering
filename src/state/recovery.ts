@@ -4,6 +4,8 @@ import type { Run,Checkpoint } from '../../contracts/index.ts';
 import { RunStore,sdkIdentity } from './store.ts';
 import { TOOL_METADATA,effectivePolicy } from '../execution/tool-policy.ts';
 import { validateTask,type TaskInput } from '../task.ts';
+import { validateReadCorrectionState } from '../execution/read-correction.ts';
+import { loadProfile,strategyDigest,type StrategyProfile } from '../strategy/catalog.ts';
 import { readContext, validateContext, type ContextSnapshot } from '../context/manager.ts';
 import { snapshot,digest,canonical,HarnessError } from '../util.ts';
 
@@ -11,7 +13,7 @@ export function workerAlive(pid:number):boolean {
   try{process.kill(pid,0);return true;}catch(error){return (error as NodeJS.ErrnoException).code!=='ESRCH';}
 }
 export interface ResolvedRecovery {
-  source:Run;checkpoint:Checkpoint;context?:ContextSnapshot;input:TaskInput;workspace:string;verifierScripts:Record<string,string>;
+  profile:StrategyProfile;source:Run;checkpoint:Checkpoint;context?:ContextSnapshot;input:TaskInput;workspace:string;verifierScripts:Record<string,string>;
   mode:'continue'|'verify_only';remaining:{toolCalls:number;tokens:number;durationMs:number;costUsd?:number};
 }
 export function resolveRecovery(store:RunStore,id:string):ResolvedRecovery {
@@ -52,12 +54,24 @@ export function resolveRecovery(store:RunStore,id:string):ResolvedRecovery {
     context=readContext(source.runDir);validateContext(context,workspace,input.input);
     if(context.digest!==source.contextDigest)throw new HarnessError('context_snapshot_changed','Run context binding changed');
   }
+  let profile=loadProfile(checkpoint.strategyFileDigest?source.strategy.version:input.strategy);
+  if(checkpoint.strategyFileDigest){
+    const bytes=readFileSync(join(source.runDir,'strategy.json'));
+    profile=JSON.parse(bytes.toString('utf8')) as StrategyProfile;
+    if(digest(bytes)!==checkpoint.strategyFileDigest||strategyDigest(JSON.parse(bytes.toString('utf8')))!==source.strategy.digest||strategyDigest(loadProfile(source.strategy.version))!==source.strategy.digest)throw new HarnessError('strategy_changed','Frozen or current strategy differs from the source');
+  }
+  if(checkpoint.nextPromptIndex!==undefined){
+    const total=1+(input.followups?.length??0);
+    if(!Number.isSafeInteger(checkpoint.nextPromptIndex)||checkpoint.nextPromptIndex<0||checkpoint.nextPromptIndex>total||(checkpoint.canVerify&&checkpoint.nextPromptIndex<total&&total>1))throw new HarnessError('checkpoint_invalid','Prompt progress cannot authorize final verification');
+    if((source.nextPromptIndex??0)>checkpoint.nextPromptIndex)throw new HarnessError('prompt_progress_uncertain','Completed prompt progress lacks its durable checkpoint');
+  }
+  validateReadCorrectionState(profile.maxReadCorrections??0,{used:source.readCorrectionsUsed??0,targets:source.readCorrectionTargets??[],pending:source.readCorrectionPending??[]});
   const remaining={toolCalls:input.budget.maxToolCalls-source.usage.toolCalls,tokens:input.budget.maxTokens-(source.usage.tokens??0),
     durationMs:input.budget.maxDurationMs-(source.activeMs??input.budget.maxDurationMs),
     ...(input.budget.maxCostUsd===undefined?{}:{costUsd:input.budget.maxCostUsd-(source.usage.costUsd??0)})};
   if(remaining.durationMs<=0||(!checkpoint.canVerify&&(remaining.tokens<=0||remaining.toolCalls<=0))||(remaining.costUsd!==undefined&&remaining.costUsd<0))throw new HarnessError('budget_exhausted','No remaining budget for recovery');
   if(source.policy.digest!==JSON.parse(readFileSync(join(source.runDir,'policy.json'),'utf8')).digest)throw new HarnessError('policy_changed','Stored policy differs from frozen policy');
-  return{source,checkpoint,input,workspace,verifierScripts,context,mode:checkpoint.canVerify?'verify_only':'continue',remaining};
+  return{profile,source,checkpoint,input,workspace,verifierScripts,context,mode:checkpoint.canVerify?'verify_only':'continue',remaining};
 }
 export function recoveryPlan(store:RunStore,id:string):Record<string,unknown>{
   try{const plan=resolveRecovery(store,id);return{eligible:true,sourceRunId:id,checkpointId:plan.checkpoint.checkpointId,mode:plan.mode,remaining:plan.remaining,

@@ -1,0 +1,13 @@
+{
+  "src/dashboard/records.ts": "15c5e87269aa573e29ea44d27f291bf19228fbbfecebf20c34c5c937c9482900",
+  "src/dashboard/server.ts": "2927fedf08ed940d7a51a3c87a5bd0f2d88a0156d4e3e06929c3e025935fd83c",
+  "src/execution/engine.ts": "678fb698ae01504eb0a57ef5709b9374adad2ebbd11af4027e73daf5544d324e",
+  "apps/dashboard/index.html": "f35edb8cb3915e645a142fffd41440dbc3be4fe1810aa5c40ce96ac6bd2f4c30",
+  "apps/dashboard/app.js": "0c32301987341b59021e63368ff13d75248c4298236147183c7e51356d1fd043",
+  "apps/dashboard/styles.css": "a3d8e4e3056a7e2e7f0f37c7a85918959f7588f52210adec36ce73352031f6e5",
+  "tests/record-recovery.test.ts": "b245e9269272faed45eca0eefab2232e0015cd71de6b32a3d5ce9a1a4a20a616",
+  "tests/recovery.test.ts": "044daa880ce9881d4b2e300425af51626fce31f9ca8a426ea0b0a5d5a73c8869",
+  "package.json": "68955983f7b11c8c66a6fb14881808fa2dfc2baa883f63a1cbb3058fa087c424",
+  "package-lock.json": "d33ca19234dc2e793d3fea7602d074107528430be55a6d9b0a381e84a496ea6b",
+  "docs/task-dashboard.md": "0db192e0bba6a39ad2d881c944819387f16236a7f654364d3da0384f0bd331b8"
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "protocol-ambiguity",
+  "caseId": "directory-input-exercise",
+  "issue": "The original prompt did not explicitly specify a JSON object with property value, while its fixed verifier required that shape. Four corrected reads produced the right plain-text code but failed shape verification.",
+  "affectedPlannedTrials": 8,
+  "rawResultsUnchanged": true,
+  "replacementCaseId": "directory-input-schema",
+  "replacementSeparateBatch": true,
+  "perProfile": {
+    "anchored-correction.v1": {
+      "nExcludingAmbiguousCase": 24,
+      "successes": 22
+    },
+    "read-correction.v1": {
+      "nExcludingAmbiguousCase": 24,
+      "successes": 16
+    },
+    "file-contract.v1": {
+      "nExcludingAmbiguousCase": 24,
+      "successes": 14
+    },
+    "stable.v1": {
+      "nExcludingAmbiguousCase": 24,
+      "successes": 12
+    }
+  },
+  "interpretation": "Post-hoc sensitivity only; do not overwrite original scores or use this exclusion to retroactively pass adoption gates."
+}

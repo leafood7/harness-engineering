@@ -24,6 +24,8 @@ export function saveCheckpoint(store:RunStore,id:string,workspace:string,phase:C
     workspace,workspaceDigest:manifest.digest,files:manifest.files,sessionSnapshot,sessionDigest,sourceSessionId:session?.sessionId,
     taskSnapshotDigest:digest(readFileSync(join(run.runDir,'task.json'))),policyFileDigest:digest(readFileSync(join(run.runDir,'policy.json'))),
     ...(existsSync(join(run.runDir,'context.json'))?{contextFileDigest:digest(readFileSync(join(run.runDir,'context.json')))}:{}),
+    ...(existsSync(join(run.runDir,'strategy.json'))?{strategyFileDigest:digest(readFileSync(join(run.runDir,'strategy.json')))}:{}),
+    ...(run.nextPromptIndex!==undefined?{nextPromptIndex:run.nextPromptIndex,promptInProgress:run.promptInProgress}:{}),
     modelCursor:run.modelCursor??0,usage:run.usage,activeMs:run.activeMs??0};
   store.saveCheckpoint(checkpoint);
   durableWrite(join(folder,`${checkpointId}.json`),JSON.stringify(checkpoint,null,2));

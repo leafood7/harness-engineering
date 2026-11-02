@@ -1,0 +1,12 @@
+✔ unified records include direct executions and deduplicate the queue Run (2450.7235ms)
+✔ page recovery creates one child, inherits strategy/budget and preserves original status (4281.0178ms)
+✔ workspace drift is explained and a stale recovery check cannot bypass revalidation (757.6679ms)
+✔ tampered file observations are not shown as historical task outputs (1255.3821ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9842.3599

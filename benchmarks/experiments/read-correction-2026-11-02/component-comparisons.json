@@ -1,0 +1,465 @@
+{
+  "perCase": {
+    "arithmetic-repair": {
+      "stable.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    },
+    "order-aggregation": {
+      "stable.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    },
+    "long-evidence": {
+      "stable.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    },
+    "shipping-memory": {
+      "stable.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    },
+    "multi-module-invoice": {
+      "stable.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    },
+    "revision-semantics": {
+      "stable.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    },
+    "missing-information": {
+      "stable.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    },
+    "native-retention": {
+      "stable.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 2
+      }
+    },
+    "directory-input-exercise": {
+      "stable.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 2,
+        "followups": 2,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 2,
+        "followups": 2,
+        "probeVisible": 0
+      }
+    },
+    "missing-read-fallback": {
+      "stable.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 2,
+        "followups": 2,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 2,
+        "followups": 2,
+        "probeVisible": 0
+      }
+    },
+    "retention-split-records": {
+      "stable.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 2
+      }
+    },
+    "retention-long-quote": {
+      "stable.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 2,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 2
+      }
+    },
+    "retention-over-limit": {
+      "stable.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "file-contract.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "read-correction.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 0,
+        "followups": 0,
+        "probeVisible": 0
+      },
+      "anchored-correction.v1": {
+        "successes": 0,
+        "n": 2,
+        "offers": 1,
+        "followups": 0,
+        "probeVisible": 0
+      }
+    }
+  },
+  "components": [
+    {
+      "from": "stable.v1",
+      "to": "file-contract.v1",
+      "n": 26,
+      "wins": [
+        {
+          "caseId": "multi-module-invoice",
+          "repetition": 1
+        },
+        {
+          "caseId": "multi-module-invoice",
+          "repetition": 2
+        }
+      ],
+      "losses": [],
+      "estimatedCostRatio": 1.0966736040798
+    },
+    {
+      "from": "file-contract.v1",
+      "to": "read-correction.v1",
+      "n": 26,
+      "wins": [
+        {
+          "caseId": "missing-read-fallback",
+          "repetition": 1
+        },
+        {
+          "caseId": "missing-read-fallback",
+          "repetition": 2
+        }
+      ],
+      "losses": [],
+      "estimatedCostRatio": 1.0654395347779608
+    },
+    {
+      "from": "read-correction.v1",
+      "to": "anchored-correction.v1",
+      "n": 26,
+      "wins": [
+        {
+          "caseId": "retention-split-records",
+          "repetition": 1
+        },
+        {
+          "caseId": "retention-split-records",
+          "repetition": 2
+        },
+        {
+          "caseId": "retention-long-quote",
+          "repetition": 2
+        },
+        {
+          "caseId": "native-retention",
+          "repetition": 2
+        },
+        {
+          "caseId": "native-retention",
+          "repetition": 1
+        },
+        {
+          "caseId": "retention-long-quote",
+          "repetition": 1
+        }
+      ],
+      "losses": [],
+      "estimatedCostRatio": 1.079122123970551
+    }
+  ],
+  "totalTokens": 662530,
+  "hostRequests": 374
+}

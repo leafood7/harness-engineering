@@ -1,0 +1,92 @@
+{
+  "failureCodes": {
+    "EISDIR": 14
+  },
+  "failures": [
+    {
+      "key": "native-retention:1:combined:range-read.v1",
+      "runId": "f14c2979-cfc0-4e1b-845a-52f912191104",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:2:combined:anchored-summary.v1",
+      "runId": "bacf9d61-1c87-4c72-8417-9d0069851275",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "native-retention:3:combined:range-read.v1",
+      "runId": "b670739c-00ac-42e1-a939-8e4e7a58cc86",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:3:combined:stable.v1",
+      "runId": "c6224ae7-0b17-4f6b-a0ba-837222b55974",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:2:combined:stable.v1",
+      "runId": "427fcd28-10df-40fc-a3ed-e1a823271c52",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:1:combined:range-read.v1",
+      "runId": "bc8b29c4-7cbb-482f-8fe9-dec10084895f",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:3:combined:anchored-summary.v1",
+      "runId": "16d573a1-6e3d-4af9-a052-5f0638ab3efe",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:1:combined:stable.v1",
+      "runId": "a719f7eb-c27e-46bd-b136-8a67e0e7c7c0",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:3:combined:range-read.v1",
+      "runId": "39bcbd71-0102-43c7-ae9c-e216ec71ca0a",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "native-retention:1:combined:stable.v1",
+      "runId": "b3edef29-0889-4323-9fdc-74ac82a837ea",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "native-retention:3:combined:stable.v1",
+      "runId": "f7762c49-e879-4027-9319-82c499a503bc",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "native-retention:2:combined:range-read.v1",
+      "runId": "4ba952d3-41d2-44d1-a2f7-ea93bebdd7db",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "multi-module-invoice:1:combined:anchored-summary.v1",
+      "runId": "3f5c3e2a-3554-4067-b63a-4f3f5cb82175",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    },
+    {
+      "key": "native-retention:2:combined:stable.v1",
+      "runId": "e739d970-9f76-4205-9239-9a2c1c887b53",
+      "code": "EISDIR",
+      "errorCategory": "tool_failed"
+    }
+  ],
+  "diagnosisStatus": "observations-only; not automatic policy"
+}

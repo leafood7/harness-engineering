@@ -1,0 +1,13 @@
+✔ a form creates a real queued task and passes independent file verification (2831.5353ms)
+✔ configuration errors identify fields and cannot enqueue tasks (347.1323ms)
+✔ a valid precheck cannot bypass later directory changes (175.4665ms)
+✔ templates persist full drafts without importing environment credentials and revalidate on use (247.6081ms)
+✔ local model options and script checks work without paid model requests (209.8618ms)
+ℹ tests 5
+ℹ suites 0
+ℹ pass 5
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4950.7347

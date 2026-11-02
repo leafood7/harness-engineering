@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-02",
+  "version": "0.13.0",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "96606128a29c42652f32aa26b2b3c93981f699bb261437b6fedd5d6de3dba92b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "c48f5289a454cb14535f07d903be922a8394d471aa5c84c6943aa9cfa70ad874"
+    },
+    {
+      "path": "package.json",
+      "sha256": "3f1b8095bdad082d8c1678ede4a7a6dc4dbe5845c45cfe3d36e07d79de6fd8c7"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "605e1fb3ca778ef4a04a82b67726f7718f1772302d23ff06d52c6635b9a585b0"
+    },
+    {
+      "path": "docs/task-dashboard.md",
+      "sha256": "3743e1fd5e38301c5d531e7ddfcc5d13019bccf3aeaa573a53904adbd9760f4a"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "3f6d53922f12bf34b413cc19f741774b67835d8920b2c9b8873679a6153815e8"
+    },
+    {
+      "path": "src/state/artifacts.ts",
+      "sha256": "8ce4dc7fd2501836755691c072f530c3a63b5a3c797a0e0f96f0d37a08e76a0f"
+    },
+    {
+      "path": "src/state/workspace-leases.ts",
+      "sha256": "3daec3ab0c1cb4c7873ec6c5427e4a4bfa7281f35255836c1ade1d5d0d0e54f7"
+    },
+    {
+      "path": "src/execution/engine.ts",
+      "sha256": "1f46c624931ac70146c627bbc8c7139b0edcad97aac6c3a5e62592456ee17c51"
+    },
+    {
+      "path": "src/verification/verifier.ts",
+      "sha256": "5149341d62a9c17ab1d971cb18c6fb0f50abe855eba48eeb499c84bb7adbf0df"
+    },
+    {
+      "path": "src/queue/store.ts",
+      "sha256": "08a1435dd46cfc2717bc56c52df79735708caa47e23dbada19afd182e20aca23"
+    },
+    {
+      "path": "src/dashboard/management.ts",
+      "sha256": "3abea9786fa15043378403c6626185e626ada44cf715efb1699469c8bdc35b87"
+    },
+    {
+      "path": "src/dashboard/creation.ts",
+      "sha256": "d27b77daf2c1fd70330de9fd6637b69e24125b44c48b7efd56e0e5cf08e5b3d9"
+    },
+    {
+      "path": "src/dashboard/records.ts",
+      "sha256": "637fe9eb5d2d0e02d730cdea0b5f10865229353f6a88ce8d2b5990b70ecc01a4"
+    },
+    {
+      "path": "src/dashboard/server.ts",
+      "sha256": "c7b22a46880f209c3332b33b81d0efcea8b7c3932121a420df374898d8986fea"
+    },
+    {
+      "path": "apps/dashboard/index.html",
+      "sha256": "26c16625f36655e90c62ea8f198f2581f10c304f4329119bd61c5b852cfd41f5"
+    },
+    {
+      "path": "apps/dashboard/app.js",
+      "sha256": "fae96b8f9e507f4e3063626824f38177f974af2823b7394c63a591e777c45dfe"
+    },
+    {
+      "path": "apps/dashboard/management.js",
+      "sha256": "ce43927e594d450bd2a252938d10a150b2dcef966ece035c7ed871a077dc6db9"
+    },
+    {
+      "path": "apps/dashboard/styles.css",
+      "sha256": "c32dae78477c5a77f2f8fd23ce672b364f3c2687cdd89379947bb932e7712d43"
+    },
+    {
+      "path": "tests/workspace-management.test.ts",
+      "sha256": "7a73bbbbad215732e599628b9c03a2405fbd9e197d81b398a4512addbe4f1ba4"
+    },
+    {
+      "path": "tests/recovery.test.ts",
+      "sha256": "08d0a8bb7f4a1d3c9cd3adc752c472634d9d5f13a6535448426707ffc214ce68"
+    },
+    {
+      "path": "docs/task-queue.md",
+      "sha256": "8fc4423d51eb002e966de8e9d68ceb48a4fa5298dcd109d28d5d68addb73dff6"
+    }
+  ]
+}

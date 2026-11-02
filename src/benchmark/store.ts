@@ -5,6 +5,8 @@ import type { Run } from '../../contracts/index.ts';
 import type { Arm,TrialSpec } from './suite.ts';
 import { canonical,digest,now } from '../util.ts';
 export interface TrialResult extends TrialSpec {
+ readCorrectionOffers?:number;readCorrectionFollowups?:number;readInputErrors?:number;
+ retention?:boolean;retainedProbeBeforeFinal?:boolean;nativeCompactionsBeforeFinal?:number;
  category:'general'|'memory-dependent';runId?:string;status:string;success:boolean;score:number;checksPassed:number;checksTotal:number;
  durationMs:number;tokens:number|null;estimatedCostUsd:number|null;usageUncertain:boolean;toolCalls:number;modelRequests:number;
  projectedRequests:number;nativeCompactions:number;maxProjectedBytes:number|null;retrieval:{selected:number;relevant:number;availableRelevant:number;precision:number|null;recall:number|null};

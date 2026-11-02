@@ -1,0 +1,71 @@
+{
+  "capability": "execution-experience",
+  "date": "2026-11-02",
+  "reuse": {
+    "source": "D:\\VScodeProgects\\evolving-harness\\evolving_harness",
+    "authorization": "User explicitly requested reuse of this local project; no upstream open-source license is assumed.",
+    "mode": "TypeScript adaptation, no Python runtime dependency; original project untouched",
+    "files": [
+      {
+        "file": "reflection.py",
+        "sha256": "222bff8983f03c12968066897392fd800115c8fa1f6cb7c39e51f37cb181dc20",
+        "reused": [
+          "GUIDANCE",
+          "prepare bounded evidence packets",
+          "save strict all-before-write proposal checks and fingerprints",
+          "edit revision checks",
+          "decide separates reviewed workflow from adoption"
+        ]
+      },
+      {
+        "file": "improvement_batch.py",
+        "sha256": "6a81c42274cf015042674971f5a2483ff2a96e9917da0d1397b4f3e556f3dd18",
+        "reused": [
+          "batch record with baseline evidence, no_change and explicit follow-up state"
+        ]
+      }
+    ]
+  },
+  "checks": {
+    "fullOfflineSuite": {
+      "passed": 176,
+      "failed": 0,
+      "durationMs": 283778.5544
+    },
+    "finalRelatedSuite": {
+      "passed": 6,
+      "failed": 0,
+      "durationMs": 6178.0471
+    },
+    "note": "Full suite ran before the final Run snapshot digest refinement; final related checks and typecheck cover that refinement. Final later change was layout-only CSS."
+  },
+  "browser": [
+    "save feedback",
+    "collect local suggestions",
+    "edit proposal and preserve revisions",
+    "review without strategy activation",
+    "view three saved revisions",
+    "import valid verification-event reference",
+    "reject nonexistent event reference",
+    "export control and zero console errors",
+    "desktop and narrow layout"
+  ],
+  "preview": {
+    "state": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\experience-preview\\run-Lzkzsj\\state",
+    "workspace": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\experience-preview\\run-Lzkzsj\\workspace",
+    "runId": "5cfe1a72-56ad-4b55-840e-85f2dda249da",
+    "url": "http://127.0.0.1:4324"
+  },
+  "unchangedSourceFilesVerified": true,
+  "paidModelCalls": 0,
+  "newDependencies": 0,
+  "gitOperations": 0,
+  "limits": [
+    "Local extraction is not causal diagnosis",
+    "Review does not activate strategies or write memory",
+    "No automatic model calls or evaluation",
+    "Typed evidence references and bounded excerpts; raw Run events remain authoritative"
+  ],
+  "summary": "D:\\Obsidian\\main\\90-Templates\\Harness Engineering\\12_从执行记录到有证据的经验建议.md",
+  "previewShutdown": "port4324 closed after service-stop; owned browser tab closed; original4318 HTTP200"
+}

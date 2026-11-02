@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-02",
+  "version": "0.9.0",
+  "kind": "functional delivery; no benchmark campaign",
+  "typecheck": "passed",
+  "regression": {
+    "tests": 147,
+    "passed": 147,
+    "failed": 0,
+    "durationMs": 204210.0749
+  },
+  "newFunctionalChecks": 10,
+  "demo": {
+    "jobs": [
+      {
+        "id": "134e9e42-690b-48ef-853c-a871f6898ff1",
+        "runId": "25b688ac-7c48-4861-9ac4-7dfe0a783789",
+        "status": "completed"
+      },
+      {
+        "id": "876fd9ae-b9ee-4245-b4b8-206b7cd74469",
+        "runId": "5fdb622e-49f4-4337-a8fe-cd9581d35bbc",
+        "status": "completed"
+      },
+      {
+        "id": "6e9a9e6f-5445-47fa-95bb-c7fd1f4eba61",
+        "runId": "f937089c-1392-4857-baf8-7a5336131ae0",
+        "status": "completed"
+      }
+    ],
+    "state": "D:\\VScodeProgects\\harness-engineering\\.artifacts\\queue-demos\\run-7e2ebv"
+  },
+  "paidModelCalls": 0,
+  "gitOperations": false,
+  "dependenciesAdded": false,
+  "capabilities": [
+    "atomic batch validation and persistent submission",
+    "frozen task and verifier bytes",
+    "bounded concurrency and overlapping workspace exclusion",
+    "background start/stop and foreground drain",
+    "queued and running cancellation",
+    "scheduler crash adoption of live workers",
+    "dead worker interruption without automatic replay",
+    "existing independent Run verification"
+  ],
+  "limitations": [
+    "single local state directory scheduling scope",
+    "no automatic Windows startup",
+    "uncertain dispatch is interrupted rather than replayed",
+    "explicit checkpoint recovery creates a separate child Run",
+    "no cross-application-version recovery"
+  ]
+}
