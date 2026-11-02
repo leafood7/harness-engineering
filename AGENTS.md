@@ -20,3 +20,9 @@
 - Memory is explicitly authored with source references, workspace isolation, bounded retrieval, revision checks, expiry and retirement. Never promote model claims or compaction evidence indexes into verified facts automatically.
 - Run npm run demo:context for the local long-material demonstration; its output measures mechanisms, not live model quality.
 - Context/memory acceptance: validation/context-memory/acceptance.json, 84 passing tests (70 regression + 14 new), plus 9 runtime compatibility checks. Preserve its evidence separately from historical baselines.
+- Benchmark acceptance is separate from model capability: npm test validates mechanisms without paid calls; benchmarks/baselines/deepseek-flash-2026-11-02 records 32 real trials and independent audit. Never relabel scripted trials as live.
+- Keep fixed task/verifier/runtime fingerprints and seeded paired trial order. Retain failed trials and separate memory-dependent information-availability cases from general-task claims. Do not overwrite published baselines or silently rerun selected failures.
+- Benchmark results and experiences are append-only SQLite evidence; diagnoses remain unestablished and cannot become automatic policies. Raw Sessions, memory, and benchmark databases remain local under ignored artifacts.
+- Before real provider dispatch, persist modelInFlight and check estimated remaining cost. A host rejection before dispatch must not invent uncertain provider usage; a genuinely interrupted dispatch must remain uncertain and block safe replay.
+- Context capacity estimates exclude host-only details/usage/timestamp metadata; details may contain complete duplicate tool output. Preserve full native evidence while estimating provider-visible content.
+- Current acceptance: validation/benchmark/acceptance.json; 99 passing tests (84 regression + 15 new), 32 live trials, 88 independently rerun fixed checks.

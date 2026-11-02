@@ -1,6 +1,6 @@
 {
   "name": "harness-engineering",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "private": true,
   "type": "module",
   "bin": {
@@ -13,7 +13,10 @@
     "demo": "node bin/harness.mjs demo",
     "verify:runtime": "node --import ../pi/packages/coding-agent/src/experimental/source-resolver.ts scripts/verify-runtime.mjs",
     "demo:recovery": "node examples/recovery-demo.ts",
-    "demo:context": "node examples/context-memory-demo.ts"
+    "demo:context": "node examples/context-memory-demo.ts",
+    "benchmark:plan": "node bin/harness.mjs benchmark plan benchmarks/deepseek-flash.json",
+    "benchmark:live": "node bin/harness.mjs benchmark run benchmarks/deepseek-flash.json",
+    "benchmark:smoke": "node bin/harness.mjs benchmark run benchmarks/offline-smoke.json"
   },
   "engines": {
     "node": ">=24.22.1"

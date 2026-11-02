@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "version": "0.5.0",
+  "capability": "fixed-task-benchmark-and-experience",
+  "validatedAt": "2026-11-02T01:21:29.415Z",
+  "node": "v24.22.1",
+  "tests": {
+    "total": 99,
+    "passed": 99,
+    "failed": 0,
+    "regression": 84,
+    "new": 15,
+    "command": "npm test",
+    "durationMs": 184735.9126
+  },
+  "typecheck": "passed",
+  "live": {
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "trials": 32,
+    "successes": 26,
+    "failed": 6,
+    "estimatedCostUsd": 0.026299283999999992,
+    "totalTokens": 138498,
+    "hostModelRequests": 93,
+    "byArm": {
+      "context": {
+        "n": 8,
+        "successes": 6,
+        "successRate": 0.75
+      },
+      "combined": {
+        "n": 8,
+        "successes": 8,
+        "successRate": 1
+      },
+      "memory": {
+        "n": 8,
+        "successes": 7,
+        "successRate": 0.875
+      },
+      "baseline": {
+        "n": 8,
+        "successes": 5,
+        "successRate": 0.625
+      }
+    },
+    "baseline": "benchmarks/baselines/deepseek-flash-2026-11-02",
+    "suiteDigest": "502c6d985ec140e79854cb8bbb48e036ae6a29185734ba3814e8a42b7c6dc9dd",
+    "runtimeDigest": "4ab2720ec404f70fba066a423740d4d2be9678545811f036846d20c6893e2af5",
+    "independentAudit": "passed",
+    "independentChecksReexecuted": 88,
+    "experienceRecords": 6,
+    "unconfirmedUsageTrials": 0
+  },
+  "notes": [
+    "SDK price estimates are not actual billing; the separate single live smoke trial is excluded.",
+    "The model saw only synthetic fixtures, no user notes or existing projects.",
+    "Memory-dependent tasks are reported separately and do not establish general reasoning improvement.",
+    "Nineteen request projections and zero native compactions occurred; native-compaction quality remains unmeasured.",
+    "No benchmark failures were selectively rerun, overwritten, or promoted to verified policy."
+  ]
+}

@@ -31,6 +31,8 @@ export const TaskSchema = Type.Object({
     tools: Type.Optional(Type.Object({ read: Type.Optional(rule), write: Type.Optional(rule), edit: Type.Optional(rule), wait: Type.Optional(rule) }, object))
   }, object)),
   context: Type.Optional(Type.Object({
+    projection: Type.Optional(Type.Union([Type.Literal('bounded'),Type.Literal('none')])),
+    compaction: Type.Optional(Type.Union([Type.Literal('evidence'),Type.Literal('off')])),
     maxInputTokens: Type.Optional(Type.Integer({ minimum: 256, maximum: 1000000 })),
     outputReserveTokens: Type.Optional(Type.Integer({ minimum: 64, maximum: 128000 })),
     toolResultMaxChars: Type.Optional(Type.Integer({ minimum: 256, maximum: 65536 })),
@@ -45,6 +47,7 @@ export const TaskSchema = Type.Object({
       text: Type.Optional(Type.String()), calls: Type.Optional(Type.Array(call, { minItems: 1, maxItems: 32 }))
     }, object), { minItems: 1, maxItems: 1000 }) }, object),
     Type.Object({ mode: Type.Literal('live'), provider: text, id: text,
+      temperature: Type.Optional(Type.Number({minimum:0,maximum:2})),
       apiKeyEnv: Type.String({ pattern: '^[A-Za-z_][A-Za-z0-9_]*$' }) }, object)
   ]),
   verification: Type.Object({ version: text, checks: Type.Array(Type.Union([

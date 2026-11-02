@@ -1,0 +1,22 @@
+[
+  {
+    "id": "r-3",
+    "customer": "Beta",
+    "amount": 12
+  },
+  {
+    "id": "r-1",
+    "customer": "Alpha",
+    "amount": 3
+  },
+  {
+    "id": "r-2",
+    "customer": "Beta",
+    "amount": 8
+  },
+  {
+    "id": "r-1",
+    "customer": "Alpha",
+    "amount": 3
+  }
+]

@@ -1,0 +1,1 @@
+const assert=require('node:assert/strict');const {add}=require(process.cwd()+'/calc.cjs');const cases={positive:[2,3,5],negative:[-4,-5,-9],zero:[0,6,6],fraction:[0.25,0.5,0.75]};const [a,b,expected]=cases[process.argv[2]];assert.equal(add(a,b),expected);

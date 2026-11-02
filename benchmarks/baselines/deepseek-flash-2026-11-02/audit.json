@@ -1,0 +1,19 @@
+{
+  "auditedAt": "2026-11-02T01:15:48.088Z",
+  "status": "passed",
+  "batchTrials": 32,
+  "independentChecksReexecuted": 88,
+  "verifiedSuccessfulRuns": 26,
+  "preservedFailedRuns": 6,
+  "selectedMemoryScopeChecks": 4,
+  "experienceRecords": 6,
+  "runtimeDigest": "4ab2720ec404f70fba066a423740d4d2be9678545811f036846d20c6893e2af5",
+  "suiteDigest": "502c6d985ec140e79854cb8bbb48e036ae6a29185734ba3814e8a42b7c6dc9dd",
+  "knownEstimatedCostUsd": 0.026299283999999992,
+  "usageUncertain": 0,
+  "notes": [
+    "Independent fixed checkers were rerun with model credentials absent from verifier subprocesses.",
+    "Post-hoc checks do not upgrade runs that failed before official verification.",
+    "Raw conversations, state and memory databases remain local."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "order-aggregation",
+  "category": "general",
+  "prompt": "Read orders.json. Deduplicate by id (duplicate rows are identical), total amount per customer, sort customers ascending, and write totals.json as an array of objects with exactly customer and total fields. Preserve orders.json.",
+  "checks": [
+    "shape",
+    "amounts",
+    "source-preserved"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "totals.json",
+            "content": "[{\"customer\":\"Alpha\",\"total\":3},{\"customer\":\"Beta\",\"total\":20}]"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

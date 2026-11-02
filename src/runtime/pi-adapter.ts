@@ -11,6 +11,7 @@ import { readContext, contextEnvelope, compressToolResults, estimateContext, evi
 import { HarnessError } from '../util.ts';
 
 export interface AdapterHooks {
+  beforeRequest?(request:{estimatedInputTokens:number;maxOutputTokens:number;estimatedMaxCostUsd:number}):void;
   record?(kind:string,payload:Record<string,unknown>):void;
   event(event: AgentSessionEvent): void;
   beforeTool(event: ToolCallEvent): { block: true; reason: string } | undefined;
@@ -46,13 +47,14 @@ export class PiAdapter {
     const inputLimit = Math.min(config?.maxInputTokens ?? 64000, model.contextWindow-reserve);
     if(inputLimit < 256 || reserve >= model.contextWindow)throw new HarnessError('invalid_context_budget','No room remains for input context');
     const threshold = Math.min(config?.compactAtTokens ?? Math.floor(model.contextWindow*0.75), model.contextWindow-reserve);
-    const settings = SettingsManager.inMemory({ compaction: { enabled: true, reserveTokens: model.contextWindow-threshold, keepRecentTokens: config?.keepRecentTokens ?? 2048 }, retry: { enabled: false }, cacheWarming: 'off' });
+    const settings = SettingsManager.inMemory({ compaction: { enabled: config?.compaction !== 'off', reserveTokens: model.contextWindow-threshold, keepRecentTokens: config?.keepRecentTokens ?? 2048 }, retry: { enabled: false }, cacheWarming: 'off' });
     const loader = new DefaultResourceLoader({ cwd: prepared.workspace, agentDir: join(runDir, 'agent'), settingsManager: settings,
       noExtensions: true, noSkills: true, noPromptTemplates: true, noThemes: true, noContextFiles: true,
       systemPrompt: 'Complete the requested task using the available tools. Work only inside the task workspace. The host independently verifies your result.',
       extensionFactories: [(pi) => {
         pi.on('before_agent_start',()=>({message:{customType:'harness-context',content:contextEnvelope(context),display:false}}));
         pi.on('context',event=>{
+          if(config?.projection==='none')return;
           const result=compressToolResults(event.messages,config?.toolResultMaxChars ?? 8192);
           if(result.omitted.length)hooks.record?.('context.projected',{omitted:result.omitted,source:'native-session',method:'bounded-tool-text'});
           return {messages:result.messages};
@@ -96,7 +98,13 @@ export class PiAdapter {
       if(estimateContext(request.messages)>inputLimit){
         const error=new HarnessError('context_budget_exceeded','Final provider request exceeds context budget');hooks.fault(error);throw error;
       }
-      return stream(model,request,{...options,maxTokens:Math.min(options?.maxTokens??reserve,reserve)});
+      const maxOutputTokens=Math.min(options?.maxTokens??reserve,reserve);
+      const estimatedInputTokens=estimateContext(request.messages);
+      const estimatedMaxCostUsd=(estimatedInputTokens*model.cost.input+maxOutputTokens*model.cost.output)/1000000;
+      try{hooks.beforeRequest?.({estimatedInputTokens,maxOutputTokens,estimatedMaxCostUsd});}
+      catch(error){hooks.fault(error);throw error;}
+      runSignal.throwIfAborted();
+      return stream(model,request,{...options,maxTokens:maxOutputTokens,...(selection.mode==='live'&&selection.temperature!==undefined?{temperature:selection.temperature}:{})});
     };
     this.unsubscribe = session.subscribe((event) => { try { hooks.event(event); } catch (error) { hooks.fault(error); } });
     await session.bindExtensions({ mode: 'json', onError: (error) => hooks.fault(new HarnessError('extension_failed', error.error)) });

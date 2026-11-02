@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "long-evidence",
+  "category": "general",
+  "prompt": "Inspect facts.log, then extract the orchid service shipping tuple near line 248. The file is long; use offset/limit reads if necessary. Write evidence.json containing exactly service, build, region, retries, using numbers for build/retries. Do not change facts.log.",
+  "checks": [
+    "tuple",
+    "source-preserved"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "read",
+          "arguments": {
+            "path": "facts.log"
+          }
+        }
+      ]
+    },
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "evidence.json",
+            "content": "{\"service\":\"orchid\",\"build\":731,\"region\":\"eu-central\",\"retries\":4}"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

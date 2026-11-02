@@ -1,0 +1,30 @@
+{
+  "observedAt": "2026-11-02T01:09:04.268Z",
+  "provider": "deepseek",
+  "discovery": {
+    "endpoint": "https://api.deepseek.com/models",
+    "status": 200,
+    "modelIds": [
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ]
+  },
+  "documentation": {
+    "url": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "model": "deepseek-flash",
+    "advertisedVersion": "DeepSeek-V4.1-Flash-1017",
+    "pricesPerMillionUsd": {
+      "peak": {
+        "input": 0.3,
+        "cacheRead": 0.006,
+        "output": 1.2
+      },
+      "offPeak": {
+        "input": 0.15,
+        "cacheRead": 0.003,
+        "output": 0.6
+      }
+    },
+    "note": "Advertised version is documentation metadata; response identity does not freeze model weights. SDK estimates use pinned catalog peak rates, not actual billing."
+  }
+}

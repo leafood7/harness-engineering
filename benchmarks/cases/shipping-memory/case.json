@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "shipping-memory",
+  "category": "memory-dependent",
+  "prompt": "Create deploy.json using the current workspace shipping settings from its maintained project memory: channel, batchSize and region, exactly those three fields. These are private project conventions, not industry defaults. If no such settings are provided, do not invent them.",
+  "checks": [
+    "shipping-settings",
+    "source-preserved"
+  ],
+  "memoryQuery": "shipping",
+  "memories": [
+    {
+      "content": "Current workspace shipping settings: channel=canary, batchSize=7, region=eu-west.",
+      "relevant": true
+    },
+    {
+      "content": "The formatting convention for prose is short paragraphs.",
+      "relevant": false
+    }
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "deploy.json",
+            "content": "{\"channel\":\"canary\",\"batchSize\":7,\"region\":\"eu-west\"}"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

@@ -29,7 +29,7 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
   const model = input.model.mode === 'scripted' ? { mode: 'scripted' as const, provider: 'harness-scripted', id: 'scripted-1' }
     : { mode: 'live' as const, provider: input.model.provider, id: input.model.id };
   const run: Run = { schemaVersion: 1, runId: id, taskId: input.taskId, status: 'created',
-    pi: sdkIdentity(), harnessVersion: '0.4.0', model: { ...model, parametersDigest: digest(JSON.stringify(input.model)) },
+    pi: sdkIdentity(), harnessVersion: '0.5.0', model: { ...model, parametersDigest: digest(JSON.stringify(input.model)) },
     policy: { version: policy.version, digest: digest(canonical({ tools: input.tools, catalog: TOOL_METADATA, policy, budget: input.budget, scope: input.workspace })) },
     strategy: { version: 'execution.v2', digest: digest('single-session;bounded-safe-tool-retry;durable-checkpoints;conservative-resume;independent-verification') }, budget: input.budget,
     usage: restoration?structuredClone(restoration.source.usage):{ toolCalls: 0, tokens: null, costUsd: null }, createdAt: now(), workerPid: process.pid, eventSequence: 0, runDir,
@@ -140,6 +140,12 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
       current.activeMs=activeMs(true);
     },kind,payload);
   }
+  function beforeRequest(request:{estimatedInputTokens:number;maxOutputTokens:number;estimatedMaxCostUsd:number}):void {
+    control();if(controller.signal.aborted)throw new HarnessError('cancelled','Run is stopping');
+    const current=store.get(id);
+    if(input.budget.maxCostUsd!==undefined && (current.usage.costUsd??0)+request.estimatedMaxCostUsd>input.budget.maxCostUsd)throw new HarnessError('cost_budget_exceeded','Estimated next request exceeds remaining cost budget');
+    store.mutate(id,run=>{run.modelInFlight=true;run.activeMs=activeMs(true);},'model.request',{...request,costBasis:'pinned-sdk-catalog-estimate',method:'utf8-bytes-pessimistic-heuristic'});
+  }
   const governor = new ToolGovernor(policy, { authorize, record: recordAttempt });
   function event(event: AgentSessionEvent): void {
     if (event.type === 'message_update') return; // Completed messages are authoritative; avoid token-by-token duplication.
@@ -148,8 +154,9 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
       const message = event.message;
       const usage = message.usage;
       store.mutate(id, (run) => {
+        const dispatched=run.modelInFlight===true;
         run.modelInFlight=false;run.modelCursor=(run.modelCursor??0)+1;run.activeMs=activeMs(true);
-        if(message.stopReason==='aborted'||message.stopReason==='error')run.modelUsageUncertain=true;
+        if(dispatched&&(message.stopReason==='aborted'||message.stopReason==='error'))run.modelUsageUncertain=true;
         if (typeof usage.totalTokens === 'number' && Number.isFinite(usage.totalTokens)) run.usage.tokens = (run.usage.tokens ?? 0) + usage.totalTokens;
         if (typeof usage.cost?.total === 'number' && Number.isFinite(usage.cost.total)) run.usage.costUsd = (run.usage.costUsd ?? 0) + usage.cost.total;
       }, 'usage.updated', { usage });
@@ -199,7 +206,7 @@ export async function executeTask(file: string, stateRoot: string, id: string, r
     }, 100);
     control();
     if (!reason) {
-      await adapter.initialize(prepared, runDir, { event, beforeTool: guard, fault, record:emit }, governor, controller.signal,restoration?{modelCursor:restoration.checkpoint.modelCursor,sessionSnapshot:restoration.checkpoint.sessionSnapshot}:undefined);
+      await adapter.initialize(prepared, runDir, { event, beforeTool: guard, fault, record:emit, beforeRequest }, governor, controller.signal,restoration?{modelCursor:restoration.checkpoint.modelCursor,sessionSnapshot:restoration.checkpoint.sessionSnapshot}:undefined);
       store.mutate(id, (run) => {
         run.sessionId = adapter.session!.sessionId;
         run.sessionFile = adapter.session!.sessionManager.getSessionFile();

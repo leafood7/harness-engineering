@@ -1,0 +1,1 @@
+const fs=require('node:fs'),assert=require('node:assert/strict');if(process.argv[2]==='shipping-settings')assert.deepEqual(JSON.parse(fs.readFileSync('deploy.json','utf8')),{channel:'canary',batchSize:7,region:'eu-west'});else assert.equal(fs.readFileSync('README.txt','utf8'),"Shipping settings are maintained outside this workspace. Do not use defaults.\n");

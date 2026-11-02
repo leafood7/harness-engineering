@@ -1,0 +1,429 @@
+{
+  "config": {
+    "schemaVersion": 1,
+    "suite": "fixed-agent-tasks.v1",
+    "model": {
+      "mode": "live",
+      "provider": "deepseek",
+      "id": "deepseek-flash",
+      "apiKeyEnv": "DEEPSEEK_API_KEY",
+      "temperature": 0
+    },
+    "cases": [
+      "arithmetic-repair",
+      "order-aggregation",
+      "long-evidence",
+      "shipping-memory"
+    ],
+    "arms": [
+      "baseline",
+      "context",
+      "memory",
+      "combined"
+    ],
+    "repeats": 2,
+    "seed": 20261102,
+    "budget": {
+      "maxEstimatedCostUsd": 1,
+      "maxTokens": 500000
+    },
+    "trialBudget": {
+      "maxDurationMs": 90000,
+      "maxToolCalls": 8,
+      "maxTokens": 16000,
+      "maxCostUsd": 0.025
+    },
+    "context": {
+      "maxInputTokens": 32000,
+      "outputReserveTokens": 1024,
+      "toolResultMaxChars": 1024,
+      "compactAtTokens": 12000,
+      "keepRecentTokens": 2048
+    }
+  },
+  "suiteDigest": "502c6d985ec140e79854cb8bbb48e036ae6a29185734ba3814e8a42b7c6dc9dd",
+  "files": [
+    {
+      "path": "cases/arithmetic-repair/case.json",
+      "sha256": "ec332939e3fd7b0f9a43f57816a5bf9a23a67a9e7a61d2a3607bfd0d7fae52fd"
+    },
+    {
+      "path": "cases/arithmetic-repair/verify.cjs",
+      "sha256": "a8d1bd9b4f3870ae5827ea6ee1762ba996e70947c2efecc8d881b06391a66f6a"
+    },
+    {
+      "path": "cases/arithmetic-repair/workspace/calc.cjs",
+      "sha256": "3287c2099845184d0cb7949a08e88a646e51520fb82bb346cc71dc39850b751e"
+    },
+    {
+      "path": "cases/order-aggregation/case.json",
+      "sha256": "9c48c6a9a389c6a34b6fcf4d1fa73907132b92db7ce620a4b597ad8621fc3c62"
+    },
+    {
+      "path": "cases/order-aggregation/verify.cjs",
+      "sha256": "2180f7749254a8f41de8236ada5c9d529ee42d320479cc5d0ce3c4d59ccae030"
+    },
+    {
+      "path": "cases/order-aggregation/workspace/orders.json",
+      "sha256": "7519fca2abb3af410493d63e2cbe26cd5f3dcddba947eacd874892c8260b080f"
+    },
+    {
+      "path": "cases/long-evidence/case.json",
+      "sha256": "bc6797b1a9b743747baba3b8364127e686a4a85503df993c324acc46d26d0f4e"
+    },
+    {
+      "path": "cases/long-evidence/verify.cjs",
+      "sha256": "ee23308dbedf72bd16ddb6e3e329136e988daa0a1764c04460e26d8735bd435f"
+    },
+    {
+      "path": "cases/long-evidence/workspace/facts.log",
+      "sha256": "053e919dfff61907313bfb5eaf2148995063271b2c1a2d71b614cbf29f3b0053"
+    },
+    {
+      "path": "cases/shipping-memory/case.json",
+      "sha256": "d335dda0effc993f5e9a1596f479656bc44ea66c74f6a014a3604a621abbc659"
+    },
+    {
+      "path": "cases/shipping-memory/verify.cjs",
+      "sha256": "4792b960b7b0d7b1723c9c26cf2ef2846c3605e1e4dd6768604ebe8a46648ab3"
+    },
+    {
+      "path": "cases/shipping-memory/workspace/README.txt",
+      "sha256": "0258b92a2597d7bb64665b56a24e3a6ba931ce72730080fe5aeb49cb65841a2c"
+    }
+  ],
+  "runtimeDigest": "4ab2720ec404f70fba066a423740d4d2be9678545811f036846d20c6893e2af5",
+  "runtimeFiles": [
+    {
+      "path": "src/benchmark/report.ts",
+      "sha256": "caa041c14a7b7ac1c8ab4f25bc7fc4cd4d5c9200fab14bf68cf75a8da0d09135"
+    },
+    {
+      "path": "src/benchmark/runner.ts",
+      "sha256": "278aed1492ab956b50e94b8a6ed6a61ca84cd9ba24f38c7af557ee35901d3f3f"
+    },
+    {
+      "path": "src/benchmark/store.ts",
+      "sha256": "c95810853637bb1739e133f740bc10c7f620c04214fe8a06e0da6da2b721ab02"
+    },
+    {
+      "path": "src/benchmark/suite.ts",
+      "sha256": "149cd6623c863f901f2ec99706d729c6028d1b4c074c3a84a276a47e5c28fa63"
+    },
+    {
+      "path": "src/cli.ts",
+      "sha256": "452224fe3fbe347ac5dbcfe05d90f32becee3fc16e197d0a049ef7a3dfc5cfe1"
+    },
+    {
+      "path": "src/context/manager.ts",
+      "sha256": "4eb697200c5808db37c823abb0891aaf8b04b315a53be0ab202f9d16ca227719"
+    },
+    {
+      "path": "src/demo.ts",
+      "sha256": "b922ea3e10c42a65eaedcdbdd486172403f534fbe33ce9f65512d396114148c0"
+    },
+    {
+      "path": "src/execution/engine.ts",
+      "sha256": "81af233a1d4c677d29e58aa464295d76bb4891794f12d3268733ec34b099915d"
+    },
+    {
+      "path": "src/execution/tool-errors.ts",
+      "sha256": "6d3780be661b4e2c47f1619572a5c1a6aab4789480ac96bb09491e989e341d91"
+    },
+    {
+      "path": "src/execution/tool-governor.ts",
+      "sha256": "c981ddd46396e9304751e67ac929b91dcb3df4b68f260bf96eba6437e8e1a5b1"
+    },
+    {
+      "path": "src/execution/tool-policy.ts",
+      "sha256": "f3eaded306c19ccdd5bed1767a84404ab04803293fc853a089ab9d6a29c5fa7e"
+    },
+    {
+      "path": "src/governance/approval.ts",
+      "sha256": "a7863804ff1639284c47dc5b424a65ff7cf4e882c11237133c4ca121f50deb99"
+    },
+    {
+      "path": "src/memory/cli.ts",
+      "sha256": "e076086bb9ae1508db488b9fbb33837ddc81d44a8ba7b40ce6592990f20aeff4"
+    },
+    {
+      "path": "src/memory/store.ts",
+      "sha256": "5d5c9f8bce896b882d569848c197aaed0cc21965783571782f15865ed8107666"
+    },
+    {
+      "path": "src/runtime/pi-adapter.ts",
+      "sha256": "8a67a5c0086c1487ce253454837e51b2f45ec146224e56496766031729b32089"
+    },
+    {
+      "path": "src/state/checkpoint.ts",
+      "sha256": "533a21db100684b2204fd92da1a0e055cf452c0ddbba31c2a2656e717ad973ba"
+    },
+    {
+      "path": "src/state/recovery.ts",
+      "sha256": "b75e334e56fc53649406c770926295b27b3c7b3218e7a45d614fcc5ce697db07"
+    },
+    {
+      "path": "src/state/store.ts",
+      "sha256": "f9d9da46301baf28cbee13bb8f386ed096c0ddeef4937d33a0ff989a8f9b3be2"
+    },
+    {
+      "path": "src/task.ts",
+      "sha256": "4ac5b1792aa9e5de5d0233574d9fca9e2a49584baf370a4f8074c9d06a0d2221"
+    },
+    {
+      "path": "src/util.ts",
+      "sha256": "cc2cfcd93431620e7e4c212f7f7cd9928f8f5ef4c9c695a9928ca4a1a790173b"
+    },
+    {
+      "path": "src/verification/verifier.ts",
+      "sha256": "44c55004031264b1a8629b288f1f1164de74fd543b849356cc69951f578a7d2b"
+    },
+    {
+      "path": "contracts/index.ts",
+      "sha256": "83d3c983552fa854c8b0d199917383c913fb6c7500348ba48c5e6cfeea9eee41"
+    },
+    {
+      "path": "bin/harness.mjs",
+      "sha256": "4bd7d36a458aa769a3adcfbd808900fd6d984a2e4cde4933c2fe195372294430"
+    },
+    {
+      "path": "package.json",
+      "sha256": "4f8b45aee4071e93f8ae57d5adfb304edc80a5a63da44ac3beaa69cc72e30fd7"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "c5a3f7f09ad4f0babe7af30fd435655e2880352020e567d70d679e45dd9af6bb"
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "9f97ab5d2fda480227be10d8b60a161aa5332c884fdf6943c813bf8ff3c9fd30"
+    }
+  ],
+  "configDigest": "51eb9d28c70f9ae3d5b0b363078d3db412480a1bfe2382b91c7dfbbc278b01ca",
+  "plan": [
+    {
+      "key": "long-evidence:2:context",
+      "caseId": "long-evidence",
+      "arm": "context",
+      "repetition": 2,
+      "order": 1
+    },
+    {
+      "key": "long-evidence:1:combined",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 2
+    },
+    {
+      "key": "order-aggregation:2:context",
+      "caseId": "order-aggregation",
+      "arm": "context",
+      "repetition": 2,
+      "order": 3
+    },
+    {
+      "key": "order-aggregation:1:combined",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 4
+    },
+    {
+      "key": "arithmetic-repair:2:memory",
+      "caseId": "arithmetic-repair",
+      "arm": "memory",
+      "repetition": 2,
+      "order": 5
+    },
+    {
+      "key": "order-aggregation:2:combined",
+      "caseId": "order-aggregation",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 6
+    },
+    {
+      "key": "shipping-memory:1:baseline",
+      "caseId": "shipping-memory",
+      "arm": "baseline",
+      "repetition": 1,
+      "order": 7
+    },
+    {
+      "key": "arithmetic-repair:1:context",
+      "caseId": "arithmetic-repair",
+      "arm": "context",
+      "repetition": 1,
+      "order": 8
+    },
+    {
+      "key": "long-evidence:1:memory",
+      "caseId": "long-evidence",
+      "arm": "memory",
+      "repetition": 1,
+      "order": 9
+    },
+    {
+      "key": "arithmetic-repair:1:combined",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 10
+    },
+    {
+      "key": "shipping-memory:2:context",
+      "caseId": "shipping-memory",
+      "arm": "context",
+      "repetition": 2,
+      "order": 11
+    },
+    {
+      "key": "order-aggregation:1:baseline",
+      "caseId": "order-aggregation",
+      "arm": "baseline",
+      "repetition": 1,
+      "order": 12
+    },
+    {
+      "key": "shipping-memory:1:memory",
+      "caseId": "shipping-memory",
+      "arm": "memory",
+      "repetition": 1,
+      "order": 13
+    },
+    {
+      "key": "order-aggregation:2:memory",
+      "caseId": "order-aggregation",
+      "arm": "memory",
+      "repetition": 2,
+      "order": 14
+    },
+    {
+      "key": "long-evidence:2:combined",
+      "caseId": "long-evidence",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 15
+    },
+    {
+      "key": "shipping-memory:1:context",
+      "caseId": "shipping-memory",
+      "arm": "context",
+      "repetition": 1,
+      "order": 16
+    },
+    {
+      "key": "long-evidence:2:baseline",
+      "caseId": "long-evidence",
+      "arm": "baseline",
+      "repetition": 2,
+      "order": 17
+    },
+    {
+      "key": "arithmetic-repair:1:memory",
+      "caseId": "arithmetic-repair",
+      "arm": "memory",
+      "repetition": 1,
+      "order": 18
+    },
+    {
+      "key": "arithmetic-repair:2:combined",
+      "caseId": "arithmetic-repair",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 19
+    },
+    {
+      "key": "shipping-memory:2:combined",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 2,
+      "order": 20
+    },
+    {
+      "key": "long-evidence:2:memory",
+      "caseId": "long-evidence",
+      "arm": "memory",
+      "repetition": 2,
+      "order": 21
+    },
+    {
+      "key": "long-evidence:1:context",
+      "caseId": "long-evidence",
+      "arm": "context",
+      "repetition": 1,
+      "order": 22
+    },
+    {
+      "key": "long-evidence:1:baseline",
+      "caseId": "long-evidence",
+      "arm": "baseline",
+      "repetition": 1,
+      "order": 23
+    },
+    {
+      "key": "arithmetic-repair:2:context",
+      "caseId": "arithmetic-repair",
+      "arm": "context",
+      "repetition": 2,
+      "order": 24
+    },
+    {
+      "key": "order-aggregation:1:memory",
+      "caseId": "order-aggregation",
+      "arm": "memory",
+      "repetition": 1,
+      "order": 25
+    },
+    {
+      "key": "shipping-memory:2:memory",
+      "caseId": "shipping-memory",
+      "arm": "memory",
+      "repetition": 2,
+      "order": 26
+    },
+    {
+      "key": "order-aggregation:2:baseline",
+      "caseId": "order-aggregation",
+      "arm": "baseline",
+      "repetition": 2,
+      "order": 27
+    },
+    {
+      "key": "order-aggregation:1:context",
+      "caseId": "order-aggregation",
+      "arm": "context",
+      "repetition": 1,
+      "order": 28
+    },
+    {
+      "key": "arithmetic-repair:1:baseline",
+      "caseId": "arithmetic-repair",
+      "arm": "baseline",
+      "repetition": 1,
+      "order": 29
+    },
+    {
+      "key": "shipping-memory:2:baseline",
+      "caseId": "shipping-memory",
+      "arm": "baseline",
+      "repetition": 2,
+      "order": 30
+    },
+    {
+      "key": "arithmetic-repair:2:baseline",
+      "caseId": "arithmetic-repair",
+      "arm": "baseline",
+      "repetition": 2,
+      "order": 31
+    },
+    {
+      "key": "shipping-memory:1:combined",
+      "caseId": "shipping-memory",
+      "arm": "combined",
+      "repetition": 1,
+      "order": 32
+    }
+  ]
+}

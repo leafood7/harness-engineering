@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "arithmetic-repair",
+  "category": "general",
+  "prompt": "Fix add(a,b) in calc.cjs so it returns the arithmetic sum for ordinary finite numbers. Keep the CommonJS export. Do not edit other existing files.",
+  "checks": [
+    "positive",
+    "negative",
+    "zero",
+    "fraction"
+  ],
+  "offlineResponses": [
+    {
+      "calls": [
+        {
+          "name": "write",
+          "arguments": {
+            "path": "calc.cjs",
+            "content": "exports.add = (a, b) => a + b;\n"
+          }
+        }
+      ]
+    },
+    {
+      "text": "done"
+    }
+  ]
+}

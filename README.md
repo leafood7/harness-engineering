@@ -1,6 +1,6 @@
 # Harness Engineering
 
-基于 Pi 的通用 Agent Harness。**已具备受控执行、检查点恢复、上下文与记忆**：CLI → Pi Adapter → 工具执行 → 独立验收 → 持久化结果。
+基于 Pi 的通用 Agent Harness。**已具备受控执行、检查点恢复、上下文、记忆和固定任务评测**：CLI → Pi Adapter → 工具执行 → 独立验收 → 持久化结果。
 
 项目固定在 `D:\VScodeProgects\harness-engineering`。原有 Pi 仓库在 `D:\VScodeProgects\pi`，当前通过独立安装的正式 Pi SDK 1.4.0 运行。
 
@@ -19,9 +19,15 @@ npm run demo
 
 命令输出 Run ID、终态、工具次数、用量与报告路径。正常演示应为 `completed`。模拟模型的 Token 是估算值，零费用仅表示本地模拟没有模型费用。
 
+## 真实模型基线
+
+已完成 deepseek-flash 的 32 次固定任务试验：基础组 5/8，仅上下文 6/8，仅记忆 7/8，组合组 8/8。全部采用独立评分，失败保留；组合组的结果不能推广为普遍 100% 成功率。累计目录估算费用约 0.0263 美元，实际账单可能不同。详见 [分层分析与边界](docs/benchmark-baseline.md) 和 [评测方法](docs/benchmark.md)。
+
+运行 npm run benchmark:plan 查看固定计划；npm run benchmark:smoke 检查离线管线；npm run benchmark:live 使用显式环境密钥执行新的真实评测。每批结果另存，旧基线不覆盖。
+
 ## 按职责组织
 
-源码位于 src/runtime（Pi 适配）、execution（执行与工具治理）、governance（审批）、state（存储与恢复）、verification（独立验收）、context（上下文）、memory（记忆）。CLI、任务配置和通用工具仍在 src 根目录。docs、examples、scripts、tests 分别保存说明、示例、验证脚本与测试。
+源码位于 src/runtime（Pi 适配）、execution（执行与工具治理）、governance（审批）、state（存储与恢复）、verification（独立验收）、context（上下文）、memory（记忆）、benchmark（评测与经验证据）。CLI、任务配置和通用工具仍在 src 根目录。docs、examples、scripts、tests 分别保存说明、示例、验证脚本与测试。
 
 validation 下按 runtime-compatibility、task-execution、tool-governance、recovery、context-memory 保存验收资料。以前的阶段编号仅作为历史出处，不再用作当前模块、测试、脚本或文档文件名。历史 source-manifest 中的路径和摘要描述当时的版本，可结合 validation/README.md 理解。
 
@@ -78,7 +84,7 @@ Task 固定任务、工作区、预算和验证标准。每次执行分配独立
 
 SQLite 中的运行状态与对应事件在同一个事务中更新，JSONL 是派生导出。导出故障会有明确记录，后续工具执行被阻止；即使某个报告文件无法写入，inspect 仍可读取 SQLite。验收通过而最终报告导出失败时，任务事实仍为 completed，exportErrors 显式记录，前台 CLI 返回 2。
 
-当前版本 0.4.0：84 项自动测试通过（含 14 项上下文与记忆检查），另有 9 项历史底座兼容性检查。当前验收入口为 [上下文与记忆验收](validation/context-memory/acceptance.json)。
+当前版本 0.5.0：99 项自动测试通过（原有 84 项 + 15 项评测检查）。真实基线另有 32 次模型任务和 88 项独立重查。验收入口为 [评测与经验证据](validation/benchmark/acceptance.json)，历史验收资料保留。
 
 ## 检查
 
@@ -91,6 +97,8 @@ npm run demo:context
 
 执行、治理、恢复与上下文记忆测试通过正式 npm 包和真实子进程执行，不读取用户密钥。历史底座验证使用相邻 Pi 源码，作为历史底座验证，不能替代正式 SDK 的任务执行测试。
 
+- [固定任务评测](docs/benchmark.md)
+- [真实模型首轮基线](docs/benchmark-baseline.md)
 - [上下文与记忆](docs/context-memory.md)
 - [检查点与中断恢复](docs/recovery.md)
 - [工具治理与人工审批](docs/tool-governance.md)

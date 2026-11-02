@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "suite": "fixed-agent-tasks.v1",
+  "model": {
+    "mode": "scripted"
+  },
+  "cases": [
+    "arithmetic-repair",
+    "order-aggregation",
+    "long-evidence"
+  ],
+  "arms": [
+    "baseline",
+    "combined"
+  ],
+  "repeats": 1,
+  "seed": 20261102,
+  "budget": {
+    "maxEstimatedCostUsd": 1,
+    "maxTokens": 500000
+  },
+  "trialBudget": {
+    "maxDurationMs": 90000,
+    "maxToolCalls": 8,
+    "maxTokens": 16000,
+    "maxCostUsd": 0.025
+  },
+  "context": {
+    "maxInputTokens": 32000,
+    "outputReserveTokens": 1024,
+    "toolResultMaxChars": 1024,
+    "compactAtTokens": 12000,
+    "keepRecentTokens": 2048
+  }
+}
